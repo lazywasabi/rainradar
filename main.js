@@ -10,7 +10,6 @@ $(document).ready(function() {
             $(".status-text").html("<h5>เรดาร์" + radarName +"</h5> เรดาร์นี้อยู่ในการดูแลของ" + data.src);
         });
     });
-    $(".button-collapse").sideNav();
     $('.modal-trigger').leanModal();
     $('.dropdown-menu').dropdown({
         inDuration: 175,
