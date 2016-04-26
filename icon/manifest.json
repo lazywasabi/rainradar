@@ -1,7 +1,6 @@
 {
  "short_name": "RainRadar",
  "name": "RainRadar",
- "start_url": "index.html",
  "display": "standalone",
  "icons": [
   {
