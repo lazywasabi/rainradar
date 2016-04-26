@@ -1,5 +1,8 @@
 {
+ "short_name": "RainRadar",
  "name": "RainRadar",
+ "start_url": "index.html",
+ "display": "standalone",
  "icons": [
   {
    "src": "icon\/android-icon-36x36.png",
