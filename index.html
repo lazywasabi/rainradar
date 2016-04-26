@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <title>เรดาร์ตรวจอากาศ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#00BCD4">
+    <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#00BCD4">
+</head>
+
+<body>
+
+    <nav class="cyan">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">เรดาร์ตรวจอากาศ</a>
+            <ul class="right">
+                <li><a class="nav-icon dropdown-menu waves-effect waves-circle waves-light" data-activates='menu-other'><i class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="tabs cyan">
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-bangkok'><span class="hide-on-small-only">กรุงเทพฯ</span><span class="hide-on-med-and-up">กทม.</span></div>
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-central'><span class="hide-on-small-only">ภาคกลาง</span><span class="hide-on-med-and-up">กลาง</span></div>
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-north'><span class="hide-on-small-only">ภาคเหนือ</span><span class="hide-on-med-and-up">เหนือ</span></div>
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-northeast'><span class="hide-on-small-only">ภาคตะวันออกเฉียงเหนือ</span><span class="hide-on-med-and-up">อีสาน</span></div>
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-east'><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>
+        <div class="tab col s3 waves-effect waves-light white-text dropdown-menu" data-activates='menu-south'><span class="hide-on-small-only">ภาคใต้</span><span class="hide-on-med-and-up">ใต้</span></div>
+    </ul>
+
+    <ul id="menu-bangkok" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/radar.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/radar.gif" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก (ภาพเคลื่อนไหว)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/radarh.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก (ภาพละเอียดสูง)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/wind.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก (ทิศทางลม)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/nbradar.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองบอน</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/nbradar.gif" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองบอน (ภาพเคลื่อนไหว)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://203.155.220.231/FTPCustomer/radar/pics/nbradarh.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองบอน (ภาพละเอียดสูง)</a></li>
+    </ul>
+    <ul id="menu-central" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/svp/svp120_latest.gif" data-src="กรมอุตุนิยมวิทยา">สุวรรณภูมิ (120 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/svp/svp240_latest.gif" data-src="กรมอุตุนิยมวิทยา">สุวรรณภูมิ (240 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/skm/skm120_latest.jpg" data-src="กรมอุตุนิยมวิทยา">สมุทรสงคราม (120 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/skm/skm240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">สมุทรสงคราม (240 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/kkw/kkw240_latest.gif" data-src="กรมอุตุนิยมวิทยา">นครนายก</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/phb/phb240_latest.gif" data-src="กรมอุตุนิยมวิทยา">เพชรบูรณ์</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/chn/chn240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">ชัยนาท</a></li>
+    </ul>
+    <ul id="menu-north" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/cri/cri_latest.gif" data-src="กรมอุตุนิยมวิทยา">เชียงราย</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/lmp/lmp240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">ลำพูน</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/phs/phs240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">พิษณุโลก</a></li>
+    </ul>
+    <ul id="menu-northeast" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/kkn/kkn240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">ขอนแก่น</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/skn/skn240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">สกลนคร</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/srn/srn240x_latest.gif" data-src="กรมอุตุนิยมวิทยา">สุรินทร์</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/ubol/ubol240_latest.gif" data-src="กรมอุตุนิยมวิทยา">อุบลราชธานี</a></li>
+    </ul>
+    <ul id="menu-east" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/ryg/ryg_latest.gif" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">ระยอง</a></li>
+    </ul>
+    <ul id="menu-south" class="dropdown-content">
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/huahin/hhn_latest.gif" data-src="กรมอุตุนิยมวิทยา">หัวหิน (ประจวบคีรีขันธ์)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/chumphon/cmp240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">ชุมพร</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/surat/srt_latest.gif" data-src="กรมอุตุนิยมวิทยา">สุราษฎร์ธานี</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/smi/smi240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">เกาะสมุย (สุราษฎร์ธานี)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/pkt/pkt120-latest.gif" data-src="กรมอุตุนิยมวิทยา">ภูเก็ต (120 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/pkt/pkt240-latest.gif" data-src="กรมอุตุนิยมวิทยา">ภูเก็ต (240 กม.)</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/krb/krb_latest.gif" data-src="กรมอุตุนิยมวิทยา">กระบี่</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/stp/stp240_latest.gif" data-src="กรมอุตุนิยมวิทยา">สงขลา</a></li>
+        <li><a class="loadradar waves-effect waves-cyan cyan-text" data-img="http://www2.tmd.go.th/radar/nrt/nrt240_latest.jpg" data-src="กรมอุตุนิยมวิทยา">นราธิวาส</a></li>
+    </ul>
+    <ul id="menu-other" class="dropdown-content">
+        <li><a class="waves-effect waves-cyan cyan-text modal-trigger" href="#terms">ข้อตกลงในการใช้งาน</a></li>
+        <li><a class="waves-effect waves-cyan cyan-text modal-trigger" href="#about">เกี่ยวกับ</a></li>
+        <li><a class="waves-effect waves-cyan cyan-text" href="https://github.com/pknnz/rainradar/" target="_blank">ดูบน GitHub</a></li>
+    </ul>
+
+    <div class="container center">
+        <div class="status-text">
+            <i class="material-icons welcome-icon grey-text">cloud</i>
+            <h5 class="grey-text">กรุณาเลือกเรดาร์ที่ต้องการ</h5>
+        </div>
+        <p class="radar-output">
+            <img class="radar-img" src="" />
+        </p>
+    </div>
+
+    <div id="terms" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h5 class="radartext-header">ข้อตกลงในการใช้ข้อมูลเรดาร์ตรวจฝนของสำนักการระบายน้ำ กรุงเทพมหานคร</h5>
+            <p class="radartext">
+                1. สำนักการระบายน้ำ กรุงเทพมหานคร เผยแพร่ข้อมูลภาพเรดาร์ตรวจฝนผ่านระบบ Internet Server นี้เพื่อเป็นการบริการแก่สาธารณะผู้ใช้ข้อมูลจะต้องรับผิดชอบต่อความเสียหายที่จะอาจเกิดขึ้นในการนำข้อมูลนี้ไปใช้เอง
+                <br/> 2. สำนักการระบายน้ำ กรุงเทพมหานคร ขอสงวนสิทธิ์ในการใช้งาน ห้ามนำไปใช้งานในเชิงพาณิชย์โดยเด็ดขาด
+                <br/> 3. เรดาร์ตรวจฝนสามารถตรวจจับสิ่งที่ไม่ใช่ฝนได้ด้วย เช่น เครื่องบิน หรือตึกสูง เป็นต้น ดังนั้น
+                <br/> 3.1 เป้าที่ปรากฏบนภาพซึ่งมีลักษณะเป็นแถบรอบ ๆ จุดที่ตั้งของสถานีเรดาร์ หรือเรียกว่า Ground Clutter เกิดจากลำคลื่น (Beam) ของเรดาร์ที่ไม่ใช่ลำคลื่นหลักไปกระทบเป้าที่เป็นอาคารบริเวณใกล้ ๆที่ตั้งของสถานี
+                <br/> 3.2 ตึกหรืออาคารสูง จะสะท้อนสัญญาณเรดาร์และทำให้เกิดสัญญาณแปลกปลอม ซึ่งเป้าที่ปรากฏบนภาพจะซ้ำ ๆ กัน ในบริเวณเดียวกันทุกครั้ง หรือบ่อยครั้ง
+                <br/> 4. เรดาร์ตรวจฝนอาจจะไม่สามารถตรวจจับกลุ่มฝนที่มีลักษณะเป็นฝนอ่อน หรืออ่อนมากได้
+                <br/> 5. เรดาร์ตรวจฝนอาจจะไม่สามารถตรวจจับกลุ่มฝนที่เกิดอยู่ใกล้ ๆ หรือเหนือสถานีเรดาร์ได้
+                <br/> 6. เวลาที่ปรากฏในภาพระบุเป็นเวลาท้องถิ่นประเทศไทย
+                <br/> 7. ภาพผลการตรวจที่แสดงนี้เป็นผลการตรวจแบบกึ่งเวลาจริง ที่ได้จากสถานีเรดาร์โดยตรง จึงยังไม่มีการทำการตรวจสอบความถูกต้อง
+                <br/> 8. ภาพเรดาร์จะปรับเปลี่ยนทุก 10 นาที ควรจะกดปุ่ม refresh หรือ reload เพื่อจะได้มั่นใจได้ว่าภาพที่แสดงเป็นภาพล่าสุด
+                <br/> 9. พบปัญหาการใช้งาน แนะนำเพิ่มเติม แจ้ง 0 2248 5115 ตลอด 24 ชั่วโมง
+            </p>
+
+            <h5 class="radartext-header">ข้อตกลงในการใช้ข้อมูลผลการตรวจอากาศด้วยเรดาร์ของกรมอุตุนิยมวิทยา</h5>
+            <p class="radartext">
+                1. กรมอุตุนิยมวิทยาเผยแพร่ข้อมูลผ่าน Web Server นี้เพื่อเป็นการบริการแก่สาธารณะ ผู้ใช้ข้อมูลจะต้องรับผิดชอบ ต่อความเสียหายที่จะอาจเกิดขึ้นในการนำข้อมูลนี้ไปใช้เอง
+                <br/> 2. เรดาร์ตรวจอากาศสามารถตรวจจับสิ่งที่ไม่ใช่หยาดน้ำฟ้า (Non-precipitation) ด้วย เช่น ครื่องบิน, ฝูงนก แมลง หรือ วัตถุบนพื้นโลก เช่น ตึกสูง หรือภูเขา เป็นต้น ดังนั้น
+                <br/> 2.1 เป้าที่ปรากฏบนภาพซึ่งมีลักษณะเป็นแถบรอบ ๆ จุดที่ตั้งของสถานีเรดาร์ หรือเรียกว่า ground clutter เกิดจากลำบีมของเรดาร์ที่ไม่ใช่ลำบีมหลักไปกระทบเป้าที่เป็นอาคาร หรือพื้นโลกในบริเวณใกล้ ๆที่ตั้งของสถานี
+                <br/> 2.2 สภาวะของบรรยากาศก็สามารถทำให้เกิดเป้าที่ไม่ใช่หยาดน้ำฟ้าได้ เช่น การมีอุณหภูมิหักกลับในบรรยากาศ เป็นต้น โดยจะทำให้ลำบีมหลักของเรดาร์ผิดปกติ และไปตรวจจับวัตถุบนพื้นโลก ทำให้เป้าที่ปรากฏบนภาพ นั้นเสมือนกับกลุ่มฝนได้ หรือในบางสถานีเรดาร์ที่ตั้งอยู่ใกล้ชายฝั่งก็จะทำให้ตรวจจับคลื่นในทะเลได้เช่นกัน
+                <br/> 2.3 ตึกหรืออาคารสูง หรือภูเขา เป็นปัญหาอย่างหนึ่ง (Anomalous Propagation) ซึ่งเป้าที่ปรากฏบนภาพจะซ้ำ ๆ กัน ในบริเวณเดียวกันทุกครั้ง หรือบ่อยครั้ง
+                <br/> 3. เรดาร์ตรวจอากาศอาจจะไม่สามารถตรวจจับกลุ่มฝนที่มีลักษณะเป็นฝนอ่อน หรืออ่อนมาก ได้
+                <br/> 4. เรดาร์ตรวจอากาศอาจจะไม่สามารถตรวจจับกลุ่มฝนที่เกิดอยู่ใกล้ ๆ หรือเหนือสถานีเรดาร์ได้
+                <br/> 5. เวลาที่ปรากฏในภาพถ้าระบุเป็นเวลา UTC / เวลาประเทศไทย = เวลา UTC + 7 ชั่วโมง เช่นเวลา 00.00 UTC = เวลา 07.00 น.
+                <br/> 6. ภาพผลการตรวจที่แสดงนี้เป็นผลการตรวจแบบกึ่งเวลาจริง ที่ได้จากสถานีเรดาร์โดยตรง จึงยังไม่มีการทำการตรวจสอบความถูกต้อง
+                <br/> 7. การนำข้อมูลนี้ไปใช้อาจจะต้องพิจารณาข้อมูลอุตุนิยมวิทยาอื่น ๆ ประกอบด้วย จึงจะทำให้สามารถแปลภาพเป้า (echo) ที่ปรากฏได้
+                <br/> อย่างถูกต้องยิ่งขึ้น เช่น ภาพจากดาวเทียมอุตุนิยมวิทยา, ข้อมูลลมชั้นบน (Upper air), ข้อมูลฝน หรือความรู้ด้านเรดาร์ตรวจอากาศ เป็นต้น
+                <br/> 8. BMA และ RainMaking radar คือผลการตรวจอากาศด้วยเรดาร์ของสถานีเรดาร์ในสังกัดของ กรุงเทพมหานคร และสำนักฝนหลวงและการบินเกษตร ตามลำดับ
+                <br/> 9. ควรจะกดปุ่ม refresh หรือ reload เพื่อจะได้มั่นใจได้ว่าภาพที่แสดงเป็นภาพล่าสุด
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-cyan cyan-text btn-flat">ปิด</a>
+        </div>
+    </div>
+
+    <div id="about" class="modal modal-fixed-footer">
+        <div class="modal-content center cyan white-text">
+            <i class="material-icons about-icon">cloud</i>
+            <h3>RainRadar</h3>
+            <b>เวอร์ชัน 2.0</b>
+            <p>
+                ข้อมูลและภาพเรดาร์จาก
+                <ul class="about-credit">
+                    <li><a href="http://www2.tmd.go.th/radar/" target="_blank">กรมอุตุนิยมวิทยา</a></li>
+                    <li><a href="http://203.155.220.231/radar/" target="_blank">สำนักการระบายน้ำ กรุงเทพมหานคร</a></li>
+                </ul>
+                ขอบคุณ
+                <ul class="about-credit">
+                    <li><a href="http://materializecss.com/" target="_blank">Materalize</a></li>
+                    <li><a href="https://jquery.com" target="_blank">jQuery</a></li>
+                    <li><a href="https://google.com/fonts" target="_blank">Google Fonts</a></li>
+                    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                    <li><a href="https://gitlab.com" target="_blank">GitLab</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="modal-footer cyan">
+            <a href="#!" class="modal-action modal-close waves-effect waves-light white-text btn-flat">ปิด</a>
+            <a href="https://github.com/pknnz/rainradar/" target="_blank" class="waves-effect waves-light white-text btn-flat">ดูบน GitHub</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="main.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+body {
+    font-family: 'Kanit', sans-serif;
+}
+img {
+    max-width: 100%;
+}
+
+/* dropdown */
+.dropdown-menu {
+    padding: 8px 16px;
+    width: 100%;
+}
+.dropdown-content {
+    min-width: 200px;
+}
+
+/* add cyan waves-effect */
+.waves-effect.waves-cyan .waves-ripple {
+    background-color: rgba(0, 188, 212, 0.65);
+}
+
+/* nav */
+nav .brand-logo {
+    left: inherit;
+    -webkit-transform: inherit;
+    transform: inherit;
+    margin-left: 16px;
+}
+nav ul li {
+    max-height: 64px;
+}
+.nav-icon {
+    width: 64px;
+    height: 64px;
+    line-height: inherit;
+    font-size: 1.65em;
+    padding: 0;
+}
+
+/* tab */
+.tabs {
+    position: static;
+}
+.tab {
+    font-size: 1.1em;
+    letter-spacing: normal;
+}
+.indicator {
+    display: none;
+}
+
+/* main screen */
+.status-text {
+    padding-top: 16px;
+    font-size: 1.1em;
+}
+.material-icons.welcome-icon {
+    font-size: 8em;
+    margin-top: 32px;
+}
+
+/* about screen */
+#about.modal.modal-fixed-footer .modal-footer {
+    border: none;
+}
+.material-icons.about-icon {
+    font-size: 4em;
+}
+.about-credit li a {
+    color: #CFF9FF;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+    nav ul li {
+        max-height: 56px;
+    }
+    .nav-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.25em;
+    }
+    .dropdown-content {
+        min-width: 100%;
+        left: 0 !important;
+    }
+    .brand-logo {
+        margin-left: 8px;
+    }
+    .modal {
+        width: 90%;
+    }
+}
