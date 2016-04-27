@@ -50,6 +50,12 @@ nav ul li {
 }
 
 /* main screen */
+.progress {
+    background-color: #B2EBF2;
+}
+.progress .indeterminate {
+    background-color: #00BCD4;
+}
 .status-text {
     padding-top: 16px;
     font-size: 1.1em;
