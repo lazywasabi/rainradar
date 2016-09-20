@@ -33,9 +33,7 @@ nav ul li {
 .nav-icon {
     width: 64px;
     height: 64px;
-    line-height: inherit;
-    font-size: 1.65em;
-    padding: 0;
+    padding: 18px 0 0 0;
 }
 
 /* tab */
@@ -85,7 +83,7 @@ nav ul li {
     .nav-icon {
         width: 56px;
         height: 56px;
-        font-size: 1.25em;
+        padding: 15px 0 0 0;
     }
     .dropdown-content {
         min-width: 100%;
