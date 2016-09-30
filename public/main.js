@@ -7,7 +7,7 @@ $(document).ready(function() {
         $(".status-text").html("<div class='progress'><div class='indeterminate'></div></div>");
         $(".status-text").show();
         $('.radar-img').fadeOut(200);
-        $('.radar-img').load(function() {
+        $('.radar-img').on('load', function() {
             $('.radar-img').fadeIn(325);
             $(".status-text").html("<h5>เรดาร์" + radarName +"</h5> เรดาร์นี้อยู่ในการดูแลของ" + data.src);
         });
