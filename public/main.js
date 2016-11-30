@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".loadradar").click(function() {
         var data = $(this).data();
         var radarName = $(this).text();
-        $(".radar-img").attr("src", data.img);
+        $(".radar-img").attr("src", data.img + "?v=" + new Date().getTime());
         $(".status-text").hide();
         $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>กำลังโหลดภาพเรดาร์<div class='progress'><div class='indeterminate'></div></div>");
         $(".status-text").show();
