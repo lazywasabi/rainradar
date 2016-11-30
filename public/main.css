@@ -62,17 +62,10 @@ nav ul li {
     padding-top: 16px;
     font-size: 1.2em;
 }
-.material-icons.welcome-icon {
-    font-size: 8em;
-    margin-top: 32px;
-}
 
 /* about screen */
 #about.modal.modal-fixed-footer .modal-footer {
     border: none;
-}
-.material-icons.about-icon {
-    font-size: 4em;
 }
 .about-credit li a {
     color: #CFF9FF;
