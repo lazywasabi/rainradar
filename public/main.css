@@ -51,13 +51,15 @@ nav ul li {
 /* main screen */
 .progress {
     background-color: #B2EBF2;
+    width: 36%;
+    margin: 1.6em auto;
 }
 .progress .indeterminate {
     background-color: #00BCD4;
 }
 .status-text {
     padding-top: 16px;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 .material-icons.welcome-icon {
     font-size: 8em;
