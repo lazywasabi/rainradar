@@ -40,9 +40,10 @@ nav ul li {
 .tabs {
     position: static;
 }
-.tab {
+.tabs .tab {
     font-size: 1.1em;
     letter-spacing: normal;
+    min-width: 4.8em;
 }
 .indicator {
     display: none;
