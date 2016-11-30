@@ -15,7 +15,7 @@ $(document).ready(function() {
             $(".status-text").html("<h5>ไม่สามารถโหลดภาพเรดาร์</h5>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
         });
     });
-    $('.modal-trigger').leanModal({
+    $('.modal').modal({
         opacity: 0.6,
         in_duration: 425,
         out_duration: 250,
