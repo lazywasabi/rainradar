@@ -136,10 +136,7 @@ img {
   padding: 0;
 }
 
-.back-to-v2,
-.back-to-v2:active,
 .back-to-v2 a {
-  background-color: #2196f3;
   text-decoration: none;
-  color: #fff;
+  color: #616161;
 }
