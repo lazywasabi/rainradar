@@ -15,9 +15,9 @@ img {
     max-height: 85vh;
 }
 
-/* add cyan waves-effect */
-.waves-effect.waves-cyan .waves-ripple {
-    background-color: rgba(0, 188, 212, 0.65);
+/* add blue waves-effect */
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(33, 150, 243, 0.65);
 }
 
 /* nav */
@@ -51,12 +51,12 @@ nav ul li {
 
 /* main screen */
 .progress {
-    background-color: #B2EBF2;
+    background-color: #bbdefb;
     width: 36%;
     margin: 1.6em auto;
 }
 .progress .indeterminate {
-    background-color: #00BCD4;
+    background-color: #2196f3;
 }
 .status-text {
     padding-top: 16px;
@@ -68,7 +68,7 @@ nav ul li {
     border: none;
 }
 .about-credit li a {
-    color: #CFF9FF;
+    color: #e3f2fd;
 }
 
 /* mobile */
