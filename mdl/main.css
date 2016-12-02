@@ -53,12 +53,12 @@ img {
   overflow-x: visible;
   min-width: 100px;
   padding: 0;
-  color: rgba(255, 255, 255, .7);
+  color: rgb(255, 255, 255);
 }
 
 /* active tab text color */
 .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
-  color: rgba(255, 255, 255, .9);
+  color: rgb(255, 255, 255);
 }
 
 /* active tab line color */
