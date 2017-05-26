@@ -50,13 +50,18 @@ nav ul li {
 }
 
 /* main screen */
-.progress {
-    background-color: #bbdefb;
-    width: 36%;
-    margin: 1.6em auto;
+.loading-text {
+  vertical-align: middle;
+  margin-right: 8px;
+  font-size: 1.2em;
 }
-.progress .indeterminate {
-    background-color: #2196f3;
+.preloader-wrapper.small {
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+.spinner-blue-only {
+  border-color: #2196f3;
 }
 .status-text {
     padding-top: 16px;

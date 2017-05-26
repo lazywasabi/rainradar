@@ -2,16 +2,18 @@ $(document).ready(function() {
     $(".loadradar").click(function() {
         var data = $(this).data();
         var radarName = $(this).text();
+        $(".radar-img").attr("src", "");
+        $(".radar-img").show();
         $(".radar-img").attr("src", data.img + "?v=" + new Date().getTime());
-        $(".status-text").hide();
-        $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>กำลังโหลดภาพเรดาร์<div class='progress'><div class='indeterminate'></div></div>");
-        $(".status-text").show();
-        $('.radar-img').fadeOut(200);
+        $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>");
+        $(".loading").show();
         $('.radar-img').on('load', function() {
-            $('.radar-img').fadeIn(325);
-            $(".status-text").html("<h5>เรดาร์" + radarName +"</h5> เรดาร์นี้อยู่ในการดูแลของ" + data.src);
+            $(".loading").hide();
+            $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
         });
         $('.radar-img').on('error', function() {
+            $(".loading").hide();
+            $(".radar-img").hide();
             $(".status-text").html("<h5>ไม่สามารถโหลดภาพเรดาร์</h5>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
         });
     });
