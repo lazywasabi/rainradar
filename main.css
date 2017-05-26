@@ -31,9 +31,13 @@ nav ul li {
     max-height: 64px;
 }
 .nav-icon {
-    width: 64px;
-    height: 64px;
-    padding: 18px 0 0 0;
+    width: 48px;
+    height: 48px;
+    padding: 10px 0 0 0;
+}
+span.badge.new {
+  font-size: 1em;
+  font-weight: normal;
 }
 
 /* tab */
@@ -47,6 +51,10 @@ nav ul li {
 }
 .indicator {
     display: none;
+}
+
+.twitter-timeline .timeline-Tweet-media {
+  display: none !important;
 }
 
 /* main screen */
@@ -64,8 +72,11 @@ nav ul li {
   border-color: #2196f3;
 }
 .status-text {
-    padding-top: 16px;
+    padding-top: 4px;
     font-size: 1.2em;
+}
+.radar-output {
+  margin-bottom: 0;
 }
 
 /* about screen */
@@ -78,13 +89,16 @@ nav ul li {
 
 /* mobile */
 @media only screen and (max-width: 600px) {
+    .container {
+      width: 100%;
+    }
     nav ul li {
         max-height: 56px;
     }
     .nav-icon {
-        width: 56px;
-        height: 56px;
-        padding: 15px 0 0 0;
+        width: 36px;
+        height: 36px;
+        padding: 5px 0;
     }
     .brand-logo {
         margin-left: 8px;

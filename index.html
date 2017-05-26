@@ -49,6 +49,8 @@
   </ul>
 
   <ul id="menu-bangkok" class="dropdown-content">
+    <li><a class="loadtwitter waves-effect waves-blue blue-text">ข้อมูลการจราจร<span data-badge-caption="" class="new badge red">ใหม่!</span></a></li>
+    <li class="divider"></li>
     <li><a class="loadradar waves-effect waves-blue blue-text" data-img="http://weather.bangkok.go.th/FTPCustomer/radar/pics/radar.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก</a></li>
     <li><a class="loadradar waves-effect waves-blue blue-text" data-img="http://weather.bangkok.go.th/FTPCustomer/radar/pics/radar.gif" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก (ภาพเคลื่อนไหว)</a></li>
     <li><a class="loadradar waves-effect waves-blue blue-text" data-img="http://weather.bangkok.go.th/FTPCustomer/radar/pics/radarh.jpg" data-src="สำนักการระบายน้ำ กรุงเทพมหานคร">หนองจอก (ภาพละเอียดสูง)</a></li>
@@ -116,6 +118,9 @@
       <h5 class="grey-text">กรุณาเลือกเรดาร์ที่ต้องการ</h5>
     </div>
 
+    <div class="twitter-block" id="twitter-block">
+    </div>
+
     <div class="loading" style="display: none;">
       <span class="loading-text">กำลังโหลดภาพเรดาร์</span>
       <div class="preloader-wrapper small active">
@@ -134,6 +139,7 @@
     <p class="radar-output">
       <img class="radar-img" />
     </p>
+
   </div>
 
   <div id="terms" class="modal modal-fixed-footer">
@@ -202,6 +208,10 @@
       <a class="modal-action modal-close waves-effect waves-light white-text btn-flat">ปิด</a>
     </div>
   </div>
+
+  <script>
+    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f)};return t}(document,"script","twitter-wjs"))
+  </script>
 
   <script src="https://cdn.pakin.me/storage/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.pakin.me/storage/libs/materialize/0.98.2/js/materialize.min.js"></script>
