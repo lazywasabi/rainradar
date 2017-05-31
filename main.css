@@ -53,10 +53,6 @@ span.badge.new {
     display: none;
 }
 
-.twitter-timeline .timeline-Tweet-media {
-  display: none !important;
-}
-
 /* main screen */
 .loading-text {
   vertical-align: middle;
@@ -77,6 +73,10 @@ span.badge.new {
 }
 .radar-output {
   margin-bottom: 0;
+}
+.twitter-block {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 /* about screen */
