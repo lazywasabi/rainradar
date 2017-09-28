@@ -1,5 +1,17 @@
+html {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Alpha';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.pakin.me/storage/fonts/NotoSansThaiUI-Alpha/NotoSansThaiUI-Regular.woff2") format("woff2"),
+       url("https://cdn.pakin.me/storage/fonts/NotoSansThaiUI-Alpha/NotoSansThaiUI-Regular.woff") format("woff")
+}
+
 body {
-    font-family: system-ui,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: 'Noto Sans Thai UI Alpha', system-ui,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 img {
     max-width: 100%;
@@ -11,7 +23,7 @@ img {
     width: 100%;
 }
 .dropdown-content {
-    min-width: 216px;
+    min-width: 250px;
     max-height: 85vh;
 }
 
@@ -68,8 +80,8 @@ span.badge.new {
   border-color: #2196f3;
 }
 .status-text {
-    padding-top: 4px;
-    font-size: 1.2em;
+  padding-top: 4px;
+  font-size: 1.2em;
 }
 .radar-output {
   margin-bottom: 0;
@@ -79,12 +91,32 @@ span.badge.new {
   margin: 0 auto;
 }
 
-/* about screen */
-#about.modal.modal-fixed-footer .modal-footer {
-    border: none;
+/* modal */
+.modal.modal-fixed-footer {
+  max-height: 80%;
+  height: 80%;
+}
+.modal[alt="about"] {
+  background-color: #2196f3;
+}
+.modal[alt="about"] .modal-content {
+  background-color: #2196f3;
+  color: #e3f2fd;
+  text-align: center;
+}
+.modal[alt="about"] .modal-footer {
+  background-color: #2196f3;    
+  border: none;
+}
+.modal[alt="about"] .modal-footer .btn-flat {
+  color: #e3f2fd !important;
+  border: none;
+}
+.modal[alt="about"] .modal-footer .btn-flat .waves-ripple {
+  background-color: rgba(255, 255, 255, 0.65);
 }
 .about-credit li a {
-    color: #e3f2fd;
+  color: #e3f2fd;
 }
 
 /* mobile */

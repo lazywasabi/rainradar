@@ -1,62 +1,113 @@
 $(document).ready(function() {
-    $(".loadradar").click(function() {
-        var data = $(this).data();
-        var radarName = $(this).text();
-        $('.twitter-block').hide();
-        $(".radar-img").removeAttr("src");
-        $(".radar-img").show();
-        $(".radar-img").attr("src", data.img + "?v=" + new Date().getTime());
-        $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>");
-        $(".loading").show();
-        $('.radar-img').on('load', function() {
-            $(".loading").hide();
-            $(".status-text").html("<h5>เรดาร์" + radarName +"</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
-        });
-        $('.radar-img').on('error', function() {
-            $(".loading").hide();
-            $(".radar-img").hide();
-            $(".status-text").html("<h5>ไม่สามารถโหลดภาพเรดาร์</h5>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
-        });
+  var img = $(".radar-img");
+      ldg = $(".loading");
+      stxt = $(".status-text")
+      tw = $(".twitter-block");
+      loadtw = $(".loadtwitter")
+      twldg = $(".tw-loading");
+      mdcnt = $(".modal .modal-content");
+  $(".loadradar").click(function() {
+    var data = $(this).data();
+    var radarName = $(this).text();
+    tw.hide();
+    img.removeAttr("src");
+    img.show();
+    img.attr("src", data.img + "?v=" + new Date().getTime());
+    stxt.html("<h5>เรดาร์" + radarName + "</h5>");
+    ldg.show();
+    img.on('load', function() {
+      ldg.hide();
+      stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
     });
-
-    $('.modal').modal({
-        opacity: 0.6,
-        in_duration: 425,
-        out_duration: 250,
+    img.on('error', function() {
+      ldg.hide();
+      img.hide();
+      stxt.html("<h5>ไม่สามารถโหลดภาพเรดาร์</h5>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
     });
+  });
 
-    $('.dropdown-menu').dropdown({
-        inDuration: 325,
-        outDuration: 200,
-        constrain_width: true,
-        hover: false,
-        gutter: 0,
-        belowOrigin: false,
-        alignment: 'left'
+  $('#modal').modal({
+    opacity: 0.6,
+    in_duration: 425,
+    out_duration: 250,
+    startingTop: '0%',
+    endingTop: '8%',
+    complete: function() { mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่"); }
+  });
+
+  $('.dropdown-menu').dropdown({
+    inDuration: 325,
+    outDuration: 200,
+    constrain_width: true,
+    hover: false,
+    gutter: 0,
+    belowOrigin: false,
+    alignment: 'left'
+  });
+
+  $(".modal-trigger").click(function() {
+    var data = $(this).data();
+    $(".modal").attr("alt",data.identity);
+    mdcnt.load(data.url, function( response, status ) {
+      if ( status == "error" ) {
+        mdcnt.html("ไม่สามารถโหลดข้อมูล");
+      }
     });
+  });
 
-    $(".loadtwitter").one('click', function(e) {
-      twttr.widgets.createTimeline(
-        {
-          sourceType: "list",
-          ownerScreenName: "pknme",
-          slug: "traffic"
-        },
-        document.getElementById("twitter-block"),
-        {
-          chrome: "noheader nofooter noborders",
-          linkColor: "#2196f3",
-          dnt: true,
-          lang: "th"
+  loadtw.click(function() {
+    if (loadtw.data("click") == 0){
+      img.removeAttr("src");
+      img.hide();
+      ldg.hide();
+      stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>");
+      twldg.show();
+      
+      window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+  
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+  
+        return t;
+      }(document, "script", "twitter-wjs"));
+  
+      twttr.ready(
+        function(twttr) {
+          twttr.events.bind(
+            'rendered',
+            function(event) {
+              loadtw.data("click", 1);
+              twldg.hide();
+              tw.show();
+              stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
+            }
+          );
         }
       );
-    });
+    } else {
+      img.removeAttr("src");
+      img.hide();
+      stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
+      ldg.hide();
+      tw.show();
+    }
+  });
 
-    $(".loadtwitter").click(function() {
-      $(".radar-img").removeAttr("src");
-      $(".radar-img").hide();
-      $(".status-text").html("<h5 style=\"font-size:1.5rem;\">ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ ไม่ต้องรีเฟรชหน้าเว็บ");
-      $(".loading").hide();
-      $('.twitter-block').show();
-    });
+  $(".brand-logo").click(function(e) {
+    e.preventDefault();
+    img.removeAttr("src");
+    stxt.html("");
+    img.hide();
+    tw.hide();    
+    stxt.load("/content/default.html");
+  });
 });
