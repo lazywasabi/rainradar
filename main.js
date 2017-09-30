@@ -38,10 +38,10 @@ $(document).ready(function() {
   $('.dropdown-menu').dropdown({
     inDuration: 325,
     outDuration: 200,
-    constrain_width: true,
+    constrain_width: false,
     hover: false,
     gutter: 0,
-    belowOrigin: false,
+    belowOrigin: true,
     alignment: 'left'
   });
 

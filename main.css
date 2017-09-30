@@ -138,4 +138,9 @@ span.badge.new {
     .modal {
         width: 90%;
     }
+    .dropdown-content {
+      width: 100% !important;
+      left: 0 !important;
+      max-height: 75vh;
+    }  
 }
