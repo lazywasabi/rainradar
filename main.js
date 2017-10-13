@@ -5,6 +5,7 @@ $(document).ready(function() {
       tw = $(".twitter-block");
       loadtw = $(".loadtwitter")
       mdcnt = $(".modal .modal-content");
+      forecastTitle = "รายงานและพยากรณ์ฝนบริเวณกรุงเทพและปริมณฑล";
   $(".loadradar").click(function() {
     var data = $(this).data();
     var radarName = $(this).text();
@@ -12,11 +13,19 @@ $(document).ready(function() {
     img.removeAttr("src");
     img.show();
     img.attr("src", data.img + "?v=" + new Date().getTime());
-    stxt.html("<h5>เรดาร์" + radarName + "</h5>");
+    if (data.type == "forecast") {
+      stxt.html("<h5>" + forecastTitle + "</h5>");
+    } else {
+      stxt.html("<h5>เรดาร์" + radarName + "</h5>");
+    }
     ldg.show();
     img.on('load', function() {
       ldg.hide();
-      stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
+      if (data.type == "forecast") {
+        stxt.html("<h5>" + forecastTitle + "</h5>ข้อมูลจาก" + data.src);        
+      } else {
+        stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
+      }
     });
     img.on('error', function() {
       ldg.hide();
