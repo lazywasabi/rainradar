@@ -4,7 +4,6 @@ $(document).ready(function() {
       stxt = $(".status-text")
       tw = $(".twitter-block");
       loadtw = $(".loadtwitter")
-      twldg = $(".tw-loading");
       mdcnt = $(".modal .modal-content");
   $(".loadradar").click(function() {
     var data = $(this).data();
@@ -60,8 +59,8 @@ $(document).ready(function() {
       img.removeAttr("src");
       img.hide();
       ldg.hide();
-      stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>");
-      twldg.show();
+      stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
+      ldg.show();
       
       window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -86,9 +85,9 @@ $(document).ready(function() {
             'rendered',
             function(event) {
               loadtw.data("click", 1);
-              twldg.hide();
+              ldg.hide();
               tw.show();
-              stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
+              stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
             }
           );
         }
