@@ -30,7 +30,11 @@ $(document).ready(function() {
     img.on('error', function() {
       ldg.hide();
       img.hide();
-      stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
+      if (data.type == "forecast") {
+        stxt.html("<h5>" + forecastTitle + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูภาพเรดาร์แทน");
+      } else {
+        stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
+      }
     });
   });
 
