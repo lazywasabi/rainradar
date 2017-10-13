@@ -1,9 +1,9 @@
 $(document).ready(function() {
   var img = $(".radar-img");
       ldg = $(".loading");
-      stxt = $(".status-text")
+      stxt = $(".status-text");
       tw = $(".twitter-block");
-      loadtw = $(".loadtwitter")
+      loadtw = $(".loadtwitter");
       mdcnt = $(".modal .modal-content");
       forecastTitle = "รายงานและพยากรณ์ฝนบริเวณกรุงเทพและปริมณฑล";
   $(".loadradar").click(function() {
