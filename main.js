@@ -105,8 +105,9 @@ $(document).ready(function() {
     e.preventDefault();
     img.removeAttr("src");
     stxt.html("");
+    ldg.hide();    
     img.hide();
-    tw.hide();    
+    tw.hide();
     stxt.load("/content/default.html");
   });
 });
