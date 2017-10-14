@@ -5,7 +5,6 @@ $(document).ready(function() {
       tw = $(".twitter-block");
       loadtw = $(".loadtwitter");
       mdcnt = $(".modal .modal-content");
-      forecastTitle = "รายงานและพยากรณ์ฝนบริเวณกรุงเทพและปริมณฑล";
   $(".loadradar").click(function() {
     var data = $(this).data();
     var radarName = $(this).text();
@@ -13,16 +12,16 @@ $(document).ready(function() {
     img.removeAttr("src");
     img.show();
     img.attr("src", data.img + "?v=" + new Date().getTime());
-    if (data.type == "forecast") {
-      stxt.html("<h5>" + forecastTitle + "</h5>");
+    if (data.type == "info") {
+      stxt.html("<h5>" + data.title + "</h5>");
     } else {
       stxt.html("<h5>เรดาร์" + radarName + "</h5>");
     }
     ldg.show();
     img.on('load', function() {
       ldg.hide();
-      if (data.type == "forecast") {
-        stxt.html("<h5>" + forecastTitle + "</h5>ข้อมูลจาก" + data.src);        
+      if (data.type == "info") {
+        stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);        
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
       }
@@ -30,7 +29,7 @@ $(document).ready(function() {
     img.on('error', function() {
       ldg.hide();
       img.hide();
-      if (data.type == "forecast") {
+      if (data.type == "info") {
         stxt.html("<h5>" + forecastTitle + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูภาพเรดาร์แทน");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
