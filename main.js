@@ -1,13 +1,22 @@
+var hash = window.location.hash,
+    img = $(".radar-img"),
+    ldg = $(".loading"),
+    stxt = $(".status-text"),
+    tw = $(".twitter-block"),
+    loadtw = $(".loadtwitter"),
+    mdcnt = $(".modal .modal-content");
+
+if ( hash == "" ) {
+  window.history.replaceState( {} , "", "/#home" );
+}
+
 $(document).ready(function() {
-  var img = $(".radar-img");
-      ldg = $(".loading");
-      stxt = $(".status-text");
-      tw = $(".twitter-block");
-      loadtw = $(".loadtwitter");
-      mdcnt = $(".modal .modal-content");
+
   $(".loadradar").click(function() {
-    var data = $(this).data();
-    var radarName = $(this).text();
+    var data = $(this).data(),
+        radarName = $(this).text();
+        radarId = $(this).attr("id");
+    window.history.replaceState( {} , "", "/#" + radarId );
     tw.hide();
     img.removeAttr("src");
     img.show();
@@ -30,9 +39,23 @@ $(document).ready(function() {
       ldg.hide();
       img.hide();
       if (data.type == "info") {
-        stxt.html("<h5>" + forecastTitle + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูภาพเรดาร์แทน");
+        stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูภาพเรดาร์แทน");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
+      }
+    });
+  });
+
+  var modalhash =  window.location.hash;
+  
+  $(".modal-trigger").click(function() {
+    modalhash =  window.location.hash;    
+    var data = $(this).data();
+    $(".modal").attr("alt",data.identity);
+    window.history.replaceState( {} , "", "/#" + data.identity );    
+    mdcnt.load(data.url, function( response, status ) {
+      if ( status == "error" ) {
+        mdcnt.html("ไม่สามารถโหลดข้อมูล");
       }
     });
   });
@@ -43,7 +66,14 @@ $(document).ready(function() {
     out_duration: 250,
     startingTop: '0%',
     endingTop: '8%',
-    complete: function() { mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่"); }
+    complete: function() { 
+      mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
+      if (modalhash.match(/faq|about|terms/)) {
+        window.history.replaceState( {} , "", "/#home" );
+      } else {
+        window.history.replaceState( {} , "", modalhash );
+      }
+    }
   });
 
   $('.dropdown-menu').dropdown({
@@ -56,17 +86,8 @@ $(document).ready(function() {
     alignment: 'left'
   });
 
-  $(".modal-trigger").click(function() {
-    var data = $(this).data();
-    $(".modal").attr("alt",data.identity);
-    mdcnt.load(data.url, function( response, status ) {
-      if ( status == "error" ) {
-        mdcnt.html("ไม่สามารถโหลดข้อมูล");
-      }
-    });
-  });
-
   loadtw.click(function() {
+    window.history.replaceState( {} , "", "/#traffic" );
     if (loadtw.data("click") == 0){
       img.removeAttr("src");
       img.hide();
@@ -107,7 +128,7 @@ $(document).ready(function() {
     } else {
       img.removeAttr("src");
       img.hide();
-      stxt.html("<h5>ข้อมูลการจราจรล่าสุดจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
+      stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
       ldg.hide();
       tw.show();
     }
@@ -115,6 +136,7 @@ $(document).ready(function() {
 
   $(".brand-logo").click(function(e) {
     e.preventDefault();
+    window.history.replaceState( {} , "", "/#home" );
     img.removeAttr("src");
     stxt.html("");
     ldg.hide();    
@@ -122,4 +144,12 @@ $(document).ready(function() {
     tw.hide();
     stxt.load("/content/default.html");
   });
+
+  // Load image by url
+  $(hash).click();
+
+  // Open modal by url
+  if ( hash.match( /faq|about|terms/ ) ) {
+    $('#modal').modal('open');
+  }
 });
