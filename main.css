@@ -153,3 +153,13 @@ span.badge.new {
       max-height: 75vh;
     }  
 }
+
+/* october 2017 theme */
+html {
+  background: #ddd;
+}
+.navbar-fixed,
+.modal[alt="about"] {
+  -webkit-filter: grayscale(70%);
+  filter: grayscale(70%);
+}
