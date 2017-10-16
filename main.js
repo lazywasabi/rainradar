@@ -17,6 +17,7 @@ $(document).ready(function() {
         radarName = $(this).text();
         radarId = $(this).attr("id");
     window.history.replaceState( {} , "", "/#" + radarId );
+    $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
     img.show();
@@ -88,6 +89,8 @@ $(document).ready(function() {
 
   loadtw.click(function() {
     window.history.replaceState( {} , "", "/#traffic" );
+    window.scrollTo(0,0);
+    $('.nav-extended').css("top", "0");
     if (loadtw.data("click") == 0){
       img.removeAttr("src");
       img.hide();
@@ -137,6 +140,7 @@ $(document).ready(function() {
   $(".brand-logo").click(function(e) {
     e.preventDefault();
     window.history.replaceState( {} , "", "/#home" );
+    $('.nav-extended').css("top", "0");
     img.removeAttr("src");
     stxt.html("");
     ldg.hide();    
@@ -152,4 +156,45 @@ $(document).ready(function() {
   if ( hash.match( /faq|about|terms/ ) ) {
     $('#modal').modal('open');
   }
+
+  // Hide navbar when scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  var navbarHeight = $('.nav-extended').outerHeight();
+  var wrapperHeight = $('.nav-wrapper').outerHeight();
+
+  $(window).scroll(function(event) {
+    didScroll = true;
+  });
+
+  setInterval(function() {
+    if (didScroll) {
+      hasScrolled();
+      didScroll = false;
+    }
+  }, 250);
+
+  function hasScrolled() {
+    var st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if (Math.abs(lastScrollTop - st) <= delta)
+      return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight) {
+      // Scroll Down
+      $('.nav-extended').css("top", -wrapperHeight);
+    } else {
+      // Scroll Up
+      if (st + $(window).height() < $(document).height()) {
+        $('.nav-extended').css("top", "0");
+      }
+    }
+
+    lastScrollTop = st;
+  }
+
 });

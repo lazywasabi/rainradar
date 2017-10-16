@@ -51,6 +51,12 @@ span.badge.new {
   font-size: 1em;
   font-weight: normal;
 }
+.navbar-fixed {
+  height: 120px;
+}
+.nav-extended {
+  transition: top 0.2s ease-in-out;  
+}
 
 /* tab */
 .tabs {
