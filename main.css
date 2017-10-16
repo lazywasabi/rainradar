@@ -130,6 +130,9 @@ span.badge.new {
     .container {
       width: 100%;
     }
+    .navbar-fixed {
+      height: 105px;
+    }
     nav ul li {
         max-height: 56px;
     }
