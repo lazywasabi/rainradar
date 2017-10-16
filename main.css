@@ -160,6 +160,6 @@ html {
 }
 .navbar-fixed,
 .modal[alt="about"] {
-  -webkit-filter: grayscale(70%);
-  filter: grayscale(70%);
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
 }
