@@ -153,25 +153,3 @@ span.badge.new {
       max-height: 75vh;
     }  
 }
-
-/* october 2017 theme */
-.nav-extended,
-.tabs-fixed-width,
-.modal[alt="about"],
-.modal[alt="about"] .modal-content,
-.modal[alt="about"] .modal-footer {
-  background-color: #607d8b !important;
-}
-
-.black-ribbon {
-  position: fixed;
-  z-index: 9999;
-  width: 70px;
-  right: 0;
-  bottom: 0;
-}
-@media only all and (min-width: 768px) {
-  .black-ribbon {
-    width: auto;
-  }
-}
