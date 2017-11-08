@@ -69,7 +69,7 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() { 
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/faq|about|terms/)) {
+      if (modalhash.match(/faq|about|terms|ddslinks/)) {
         window.history.replaceState( {} , "", "/#home" );
       } else {
         window.history.replaceState( {} , "", modalhash );
@@ -153,7 +153,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if ( hash.match( /faq|about|terms/ ) ) {
+  if ( hash.match( /faq|about|terms|ddslinks/ ) ) {
     $('#modal').modal('open');
   }
 
