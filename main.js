@@ -18,9 +18,6 @@ $(document).ready(function() {
     var data = $(this).data(),
         radarName = $(this).text(),
         radarId = $(this).attr("id"),
-        date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
-        minute = d.getMinutes() - (d.getMinutes() % 10),
-        time = date + minute;
     window.history.replaceState( {} , "", "/#" + radarId );
     $('.nav-extended').css("top", "0");
     tw.hide();
@@ -30,7 +27,7 @@ $(document).ready(function() {
       if (data.mirror == "no") {
         img.attr("src", data.img + "?v=" + d.getTime());
       } else {
-        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time + "/" + data.imgssl );        
+        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() - (d.getMinutes() % 10) + "/" + data.imgssl );
       }
     } else {
       img.attr("src", data.img + "?v=" + d.getTime());
