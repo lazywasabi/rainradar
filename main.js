@@ -17,7 +17,7 @@ $(document).ready(function() {
   $(".loadradar").click(function() {
     var data = $(this).data(),
         radarName = $(this).text(),
-        radarId = $(this).attr("id"),
+        radarId = $(this).attr("id");
     window.history.replaceState( {} , "", "/#" + radarId );
     $('.nav-extended').css("top", "0");
     tw.hide();
