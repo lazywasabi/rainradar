@@ -5,9 +5,10 @@ var hash = window.location.hash,
     tw = $(".twitter-block"),
     loadtw = $(".loadtwitter"),
     mdcnt = $(".modal .modal-content"),
+    togglessl = $(".togglessl"),
     d = new Date(),
     date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
-    minute = d.getMinutes() - (d.getMinutes() % 5),
+    minute = d.getMinutes() - (d.getMinutes() % 10),
     time = date + minute;
 
 if ( hash == "" ) {
@@ -168,6 +169,12 @@ $(document).ready(function() {
   if ( hash.match( /faq|about|terms|ddslinks/ ) ) {
     $('#modal').modal('open');
   }
+
+  // Toggle https button
+  if (location.protocol === 'https:') {
+    togglessl.text("ใช้งานผ่าน HTTP");
+    togglessl.attr("href", "http://radar.pakin.me/");
+  }    
 
   // Hide navbar when scroll down
   var didScroll;
