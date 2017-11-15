@@ -4,7 +4,11 @@ var hash = window.location.hash,
     stxt = $(".status-text"),
     tw = $(".twitter-block"),
     loadtw = $(".loadtwitter"),
-    mdcnt = $(".modal .modal-content");
+    mdcnt = $(".modal .modal-content"),
+    d = new Date(),
+    date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
+    minute = d.getMinutes() - (d.getMinutes() % 5),
+    time = date + minute;
 
 if ( hash == "" ) {
   window.history.replaceState( {} , "", "/#home" );
@@ -21,7 +25,15 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    img.attr("src", data.img + "?v=" + new Date().getTime());
+    if (location.protocol === 'https:') {
+      if (data.mirror == "no") {
+        img.attr("src", data.img + "?v=" + d.getTime());
+      } else {
+        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time + "/" + data.imgssl );        
+      }
+    } else {
+      img.attr("src", data.img + "?v=" + d.getTime());
+    }
     if (data.type == "info") {
       stxt.html("<h5>" + data.title + "</h5>");
     } else {
