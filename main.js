@@ -6,10 +6,7 @@ var hash = window.location.hash,
     loadtw = $(".loadtwitter"),
     mdcnt = $(".modal .modal-content"),
     togglessl = $(".togglessl"),
-    d = new Date(),
-    date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
-    minute = d.getMinutes() - (d.getMinutes() % 10),
-    time = date + minute;
+    d = new Date();
 
 if ( hash == "" ) {
   window.history.replaceState( {} , "", "/#home" );
@@ -19,8 +16,11 @@ $(document).ready(function() {
 
   $(".loadradar").click(function() {
     var data = $(this).data(),
-        radarName = $(this).text();
-        radarId = $(this).attr("id");
+        radarName = $(this).text(),
+        radarId = $(this).attr("id"),
+        date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
+        minute = d.getMinutes() - (d.getMinutes() % 10),
+        time = date + minute;
     window.history.replaceState( {} , "", "/#" + radarId );
     $('.nav-extended').css("top", "0");
     tw.hide();
