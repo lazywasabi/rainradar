@@ -5,38 +5,33 @@ var hash = window.location.hash,
     tw = $(".twitter-block"),
     loadtw = $(".loadtwitter"),
     mdcnt = $(".modal .modal-content"),
-    togglessl = $(".togglessl"),
-    d = new Date(),
-    date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
-    minute = d.getMinutes() - (d.getMinutes() % 10),
-    time = date + minute;
+    togglessl = $(".togglessl");
 
 if ( hash == "" ) {
   window.history.replaceState( {} , "", "/#home" );
 }
 
-$(document).ready(function() {
-
-  setInterval(function() {
-    date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours();
-    minute = d.getMinutes() - (d.getMinutes() % 10);
-    time = date + minute;
-  }, 120000);
+$(document).ready(function() {  
 
   $(".loadradar").click(function() {
     var data = $(this).data(),
         radarName = $(this).text(),
-        radarId = $(this).attr("id");
+        radarId = $(this).attr("id"),
+        d = new Date();
+        date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
+        minute = d.getMinutes() - (d.getMinutes() % 10),
+        time = date + minute;
     window.history.replaceState( {} , "", "/#" + radarId );
     $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
     img.show();
+    console.log(time);
     if (location.protocol === 'https:') {
       if (data.mirror == "no") {
         img.attr("src", data.img + "?v=" + d.getTime());
       } else {
-        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time + "/" + data.imgssl );        
+        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time + "/" + data.imgssl );
       }
     } else {
       img.attr("src", data.img + "?v=" + d.getTime());
