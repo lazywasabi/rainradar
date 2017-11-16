@@ -1,5 +1,39 @@
-<svg fill="#9e9e9e" height="150" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 0h24v24H0z" fill="none"/>
-  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
-</svg>
-<h5 class="grey-text">กรุณาเลือกเรดาร์ที่ต้องการ</h5>
+<div class="white-text">
+  <div class="card-panel blue">
+    <svg fill="#fff" height="150" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none" /><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+    <h5>ยินดีต้อนรับ</h5>
+    เลือกข้อมูลที่ต้องการดูจากเมนูด้านบน
+  </div>
+
+  <div class="card-panel pink">
+    พยากรณ์อากาศจากกรมอุตุนิยมวิทยา ออกประกาศทุกวันเวลา 23:00 น.
+    <br><br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
+    <div id="contenthere"></div>
+  </div>
+
+  <div class="card-panel orange darken-3">
+    [ช่วงทดลอง] ใช้งานผ่าน HTTPS ได้แล้ว ไปที่เมนู > ใช้งานผ่าน HTTPS
+  </div>
+
+  <div class="card-panel green">
+    หากพบปัญหาในการใช้งาน ลองดูที่เมนู > ช่วยเหลือ
+  </div>
+</div>
+
+<script>
+  var d = new Date(),
+    xyear = d.getFullYear(),
+    xmonth = (d.getMonth() + 1),
+    xdate = (d.getDate() - 1);
+
+  if (xmonth < 10) {
+    xmonth = "0" + xmonth;
+  }
+  if (xdate < 10) {
+    xdate = "0" + xdate;
+  }
+
+  var forecastdate = xyear + "-" + xmonth + "-" + xdate;
+
+  $("#tmdforecast").attr("src", "https://tmd.go.th/programs/uploads/forecast/" + forecastdate + "_DFTH1_2300.jpg");
+</script>
