@@ -9,6 +9,7 @@ var hash = window.location.hash,
 
 if ( hash == "" ) {
   window.history.replaceState( {} , "", "/#home" );
+  stxt.load("/content/default.html");
 }
 
 $(document).ready(function() {  
@@ -151,7 +152,7 @@ $(document).ready(function() {
     }
   });
 
-  $(".brand-logo").click(function(e) {
+  $("#home").click(function(e) {
     e.preventDefault();
     window.history.replaceState( {} , "", "/#home" );
     $('.nav-extended').css("top", "0");
