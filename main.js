@@ -18,21 +18,24 @@ $(document).ready(function() {
     var data = $(this).data(),
         radarName = $(this).text(),
         radarId = $(this).attr("id"),
-        d = new Date();
+        d = new Date(),
         date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
         minute = d.getMinutes() - (d.getMinutes() % 10),
-        time = date + minute;
+        time10 = date + minute,
+        time20 = date + minute;
+    if (minute > 20) {
+      time20 = date + "20";
+    }
     window.history.replaceState( {} , "", "/#" + radarId );
     $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
     img.show();
-    console.log(time);
     if (location.protocol === 'https:') {
-      if (data.mirror == "no") {
-        img.attr("src", data.img + "?v=" + d.getTime());
+      if (data.mirror == "weserv") {
+        img.attr("src", "https://images.weserv.nl/?url=" + data.imghttps + "?v=" + time20 );
       } else {
-        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time + "/" + data.imgssl );
+        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time10 + "/" + data.imghttps );
       }
     } else {
       img.attr("src", data.img + "?v=" + d.getTime());
