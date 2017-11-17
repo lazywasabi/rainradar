@@ -86,6 +86,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|terms|ddslinks/)) {
         window.history.replaceState( {} , "", "/#home" );
+        stxt.load("/content/default.html");        
       } else {
         window.history.replaceState( {} , "", modalhash );
       }
