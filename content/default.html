@@ -5,7 +5,7 @@
     เลือกข้อมูลที่ต้องการดูจากเมนูด้านบน
   </div>
 
-  <div class="card-panel pink">
+  <div class="card-panel pink fc-block">
     พยากรณ์อากาศจากกรมอุตุนิยมวิทยา
     <br><br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
     <div id="contenthere"></div>
@@ -24,7 +24,9 @@
   var d = new Date(),
     xyear = d.getFullYear(),
     xmonth = (d.getMonth() + 1),
-    xdate = (d.getDate() - 1);
+    xdate = (d.getDate() - 1),
+    xhour = d.getHours(),
+    fcimg = $("#tmdforecast");
 
   if (xmonth < 10) {
     xmonth = "0" + xmonth;
@@ -32,8 +34,24 @@
   if (xdate < 10) {
     xdate = "0" + xdate;
   }
+  if (xdate == "00") {
+    xdate = "01";
+  }
+  if (xhour >= 12) {
+    xhour = "1200";
+  }
+  if (xhour < 12) {
+    xhour = "2300";
+  }
 
   var forecastdate = xyear + "-" + xmonth + "-" + xdate;
+  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + "_DFTH1_" + xhour + ".jpg";
 
-  $("#tmdforecast").attr("src", "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + "_DFTH1_2300.jpg");
+  fcimg.attr("src", fcimgurl);
+
+  fcimg.on('error', function() {
+    $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศ</a>ได้");
+    console.log(forecastdate + " - " + xhour);
+  });
+
 </script>
