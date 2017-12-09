@@ -6,12 +6,12 @@
   </div>
 
   <div class="card-panel pink fc-block">
-    พยากรณ์อากาศจากกรมอุตุนิยมวิทยา
-    <br><br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
+    <h5 style="margin:0;">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
+    <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
     <div id="contenthere"></div>
   </div>
 
-  <div class="card-panel orange darken-3">
+  <div class="card-panel orange darken-3 https-block">
     [ช่วงทดลอง] ใช้งานผ่าน HTTPS ได้แล้ว ไปที่เมนู > ใช้งานผ่าน HTTPS
   </div>
 
@@ -53,5 +53,9 @@
     $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศ</a>ได้");
     console.log(forecastdate + " - " + xhour);
   });
+
+  if (location.protocol === 'https:') {
+    $(".https-block").html("คุณกำลังทดลองใช้งานผ่าน HTTS<br/>รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ ดูข้อมูลเพิ่มเติมที่เมนูช่วยเหลือ<br/>หากต้องการกลับไปใช้งานผ่าน HTTP ไปที่เมนู > ใช้งานผ่าน HTTP");
+  }
 
 </script>
