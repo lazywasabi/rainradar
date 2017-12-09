@@ -9,7 +9,7 @@ var hash = window.location.hash,
 
 if ( hash == "" ) {
   window.history.replaceState( {} , "", "/#home" );
-  stxt.load("/content/default.html");
+  stxt.load("/content/home.html");
 }
 
 $(document).ready(function() {  
@@ -89,7 +89,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|terms|ddslinks/)) {
         window.history.replaceState( {} , "", "/#home" );
-        stxt.load("/content/default.html");        
+        stxt.load("/content/home.html");        
       } else {
         window.history.replaceState( {} , "", modalhash );
       }
@@ -165,7 +165,7 @@ $(document).ready(function() {
     ldg.hide();    
     img.hide();
     tw.hide();
-    stxt.load("/content/default.html");
+    stxt.load("/content/home.html");
   });
 
   // Load image by url
