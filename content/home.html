@@ -24,7 +24,7 @@
   var d = new Date(),
     xyear = d.getFullYear(),
     xmonth = (d.getMonth() + 1),
-    xdate = (d.getDate() - 1),
+    xdate = d.getDate(),
     xhour = d.getHours(),
     fcimg = $("#tmdforecast");
 
@@ -33,9 +33,6 @@
   }
   if (xdate < 10) {
     xdate = "0" + xdate;
-  }
-  if (xdate == "00") {
-    xdate = "01";
   }
   if (xhour >= 12) {
     xhour = "1200";
