@@ -97,6 +97,9 @@ span.badge.new {
   max-width: 760px;
   margin: 0 auto;
 }
+.btn-go-home {
+  font-size: 1.25em;
+}
 
 /* modal */
 .modal.modal-fixed-footer {
