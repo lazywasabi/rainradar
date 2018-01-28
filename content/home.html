@@ -1,4 +1,8 @@
 <div class="white-text">
+  <div class="card-panel orange darken-3 http-block">
+      ใช้งานผ่าน HTTPS ได้แล้ว <a class="yellow-text text-accent-2" href="https://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
+  </div>
+
   <div class="card-panel blue">
     <svg fill="#fff" height="150" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none" /><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
     <h5>ยินดีต้อนรับ</h5>
@@ -8,15 +12,17 @@
   <div class="card-panel pink fc-block">
     <h5 style="margin:0;">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
-    <div id="contenthere"></div>
   </div>
 
   <div class="card-panel orange darken-3 https-block">
-    [ช่วงทดลอง] ใช้งานผ่าน HTTPS ได้แล้ว ไปที่เมนู > ใช้งานผ่าน HTTPS
+    คุณกำลังใช้งานผ่าน HTTPS
+    <br/>รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ ดูข้อมูลเพิ่มเติมที่เมนู > ช่วยเหลือ
+    <br/>หากต้องการกลับไปใช้งานผ่าน HTTP ไปที่เมนู > ใช้งานผ่าน HTTP
   </div>
 
   <div class="card-panel green">
     หากพบปัญหาในการใช้งาน ลองดูที่เมนู > ช่วยเหลือ
+    <br/>ต้องการแจ้งปัญหา, ติชม หรือเสนอแนะ กรอกข้อมูลใน<a class="yellow-text" href="https://goo.gl/forms/xc7GyxU52zxnemPB3" target="_blank">แบบฟอร์มนี้</a>
   </div>
 </div>
 
@@ -51,8 +57,11 @@
     console.log(forecastdate + " - " + xhour);
   });
 
-  if (location.protocol === 'https:') {
-    $(".https-block").html("คุณกำลังทดลองใช้งานผ่าน HTTPS<br/>รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ ดูข้อมูลเพิ่มเติมที่เมนูช่วยเหลือ<br/>หากต้องการกลับไปใช้งานผ่าน HTTP ไปที่เมนู > ใช้งานผ่าน HTTP");
+  if (location.protocol === 'http:') {
+    $(".https-block").hide();
   }
 
+  if (location.protocol === 'https:') {
+    $(".http-block").hide();
+  }
 </script>
