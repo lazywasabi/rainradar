@@ -1,17 +1,12 @@
 <div class="white-text">
-  <div class="card-panel orange darken-3 http-block hide">
-      ใช้งานผ่าน HTTPS ได้แล้ว <a class="yellow-text text-accent-2" href="https://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
-  </div>
-
   <div class="card-panel orange darken-3">
-    ขออภัย การใช้งานผ่าน HTTPS มีปัญหาจึงขอปิดใช้งานชั่วคราว
-    <br/>การใช้งานผ่าน HTTP ยังสามารถใช้งานได้ปกติ
-    <div class="https-block">
-      <a class="yellow-text text-accent-2" href="http://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTP</a>
-      <br/>หากคุณใช้งานส่วนเสริมที่มีคุณสมบัติ HTTPS Everywhere กรุณาปิดใช้งานสำหรับเว็บไซต์นี้ชั่วคราว
+    <div class="http-block">
+      ใหม่! ใช้งานผ่าน HTTPS ได้แล้ว <a class="yellow-text text-accent-2" href="https://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
     </div>
-    <!--<br/>รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ ดูข้อมูลเพิ่มเติมที่เมนู > ช่วยเหลือ
-    <br/>หากต้องการกลับไปใช้งานผ่าน HTTP ไปที่เมนู > ใช้งานผ่าน HTTP-->
+    <div class="https-block">
+      คุณกำลังใช้งานผ่าน HTTPS รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ 4-5 วินาที
+      <br/>ดูข้อมูลเพิ่มเติมได้ที่เมนู > ช่วยเหลือ
+    </div>
   </div>
 
   <div class="card-panel blue">
@@ -25,12 +20,6 @@
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
   </div>
 
-  <div class="card-panel orange darken-3 https-block">
-    คุณกำลังใช้งานผ่าน HTTPS
-    <br/>รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ ดูข้อมูลเพิ่มเติมที่เมนู > ช่วยเหลือ
-    <br/>หากต้องการกลับไปใช้งานผ่าน HTTP ไปที่เมนู > ใช้งานผ่าน HTTP
-  </div>
-
   <div class="card-panel green">
     หากพบปัญหาในการใช้งาน ลองดูที่เมนู > ช่วยเหลือ
     <br/>ต้องการแจ้งปัญหา, ติชม หรือเสนอแนะ กรอกข้อมูลใน<a class="yellow-text" href="https://goo.gl/forms/xc7GyxU52zxnemPB3" target="_blank">แบบฟอร์มนี้</a>
@@ -38,7 +27,7 @@
 </div>
 
 <style>
-  .https-block {
+  .http-block,.https-block {
     display: none;
   }
 </style>
@@ -75,6 +64,10 @@
   });
 
   if (location.protocol === 'https:') {
+    $(".http-block").show();
+  }
+
+  if (location.protocol === 'http:') {
     $(".https-block").show();
   }
 </script>

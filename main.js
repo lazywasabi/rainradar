@@ -1,44 +1,49 @@
 var hash = window.location.hash,
-    img = $(".radar-img"),
-    ldg = $(".loading"),
-    stxt = $(".status-text"),
-    tw = $(".twitter-block"),
-    loadtw = $(".loadtwitter"),
-    mdcnt = $(".modal .modal-content"),
-    togglessl = $(".togglessl");
+  img = $(".radar-img"),
+  ldg = $(".loading"),
+  stxt = $(".status-text"),
+  tw = $(".twitter-block"),
+  loadtw = $(".loadtwitter"),
+  mdcnt = $(".modal .modal-content"),
+  togglessl = $(".togglessl");
 
-if ( hash == "" ) {
-  window.history.replaceState( {} , "", "/#home" );
+if (hash == "") {
+  window.history.replaceState({}, "", "/#home");
   stxt.load("/content/home.html");
 }
 
-$(document).ready(function() {  
+$(document).ready(function() {
 
   $(".loadradar").click(function() {
     var data = $(this).data(),
-        radarName = $(this).text(),
-        radarId = $(this).attr("id"),
-        d = new Date(),
-        date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
-        minute = d.getMinutes() - (d.getMinutes() % 10),
-        time10 = date + minute,
-        time20 = date + minute;
-    if (minute > 20) {
-      time20 = date + "20";
+      radarName = $(this).text(),
+      radarId = $(this).attr("id"),
+      d = new Date(),
+      date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
+      minute5 = d.getMinutes() - (d.getMinutes() % 5),
+      minute10 = d.getMinutes() - (d.getMinutes() % 10),
+      time5 = date + minute5,
+      time10 = date + minute10;
+    if (minute10 > 20) {
+      time10 = date + "20";
     }
-    window.history.replaceState( {} , "", "/#" + radarId );
+    window.history.replaceState({}, "", "/#" + radarId);
     $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
-      if (data.mirror == "weserv") {
-        img.attr("src", "https://images.weserv.nl/?url=" + data.imghttps + "?v=" + time20 );
+      if (data.cache == "10") {
+        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time10);
       } else {
-        img.attr("src", "https://cdn.pakin.me/storage/cache/radarimg/" + time10 + "/" + data.imghttps );
+        if (data.imgani == "yes") {
+          img.attr("src", "");
+        } else {
+          img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time5);
+        }
       }
     } else {
-      img.attr("src", data.img + "?v=" + d.getTime());
+      img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
     }
     if (data.type == "info") {
       stxt.html("<h5>" + data.title + "</h5>");
@@ -49,7 +54,7 @@ $(document).ready(function() {
     img.on('load', function() {
       ldg.hide();
       if (data.type == "info") {
-        stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);        
+        stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
       }
@@ -58,22 +63,30 @@ $(document).ready(function() {
       ldg.hide();
       img.hide();
       if (data.type == "info") {
-        stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูภาพเรดาร์แทน");
+        stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูภาพเรดาร์แทน");
       } else {
-        stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้ง หรือเลือกดูเรดาร์อื่น");
+        if (location.protocol === 'https:') {
+          {
+            if (data.imgani == "yes") {
+              stxt.load("/content/imgani.html");
+            }
+          }
+        } else {
+          stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูเรดาร์อื่น");
+        }
       }
     });
   });
 
-  var modalhash =  window.location.hash;
-  
+  var modalhash = window.location.hash;
+
   $(".modal-trigger").click(function() {
-    modalhash =  window.location.hash;    
+    modalhash = window.location.hash;
     var data = $(this).data();
-    $(".modal").attr("alt",data.identity);
-    window.history.replaceState( {} , "", "/#" + data.identity );    
-    mdcnt.load(data.url, function( response, status ) {
-      if ( status == "error" ) {
+    $(".modal").attr("alt", data.identity);
+    window.history.replaceState({}, "", "/#" + data.identity);
+    mdcnt.load(data.url, function(response, status) {
+      if (status == "error") {
         mdcnt.html("ไม่สามารถโหลดข้อมูล");
       }
     });
@@ -85,13 +98,13 @@ $(document).ready(function() {
     out_duration: 250,
     startingTop: '0%',
     endingTop: '8%',
-    complete: function() { 
+    complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|terms|ddslinks/)) {
-        window.history.replaceState( {} , "", "/#home" );
-        stxt.load("/content/home.html");        
+        window.history.replaceState({}, "", "/#home");
+        stxt.load("/content/home.html");
       } else {
-        window.history.replaceState( {} , "", modalhash );
+        window.history.replaceState({}, "", modalhash);
       }
     }
   });
@@ -107,16 +120,16 @@ $(document).ready(function() {
   });
 
   loadtw.click(function() {
-    window.history.replaceState( {} , "", "/#traffic" );
-    window.scrollTo(0,0);
+    window.history.replaceState({}, "", "/#traffic");
+    window.scrollTo(0, 0);
     $('.nav-extended').css("top", "0");
-    if (loadtw.data("click") == 0){
+    if (loadtw.data("click") == 0) {
       img.removeAttr("src");
       img.hide();
       ldg.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
       ldg.show();
-      
+
       window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
           t = window.twttr || {};
@@ -125,15 +138,15 @@ $(document).ready(function() {
         js.id = id;
         js.src = "https://platform.twitter.com/widgets.js";
         fjs.parentNode.insertBefore(js, fjs);
-  
+
         t._e = [];
         t.ready = function(f) {
           t._e.push(f);
         };
-  
+
         return t;
       }(document, "script", "twitter-wjs"));
-  
+
       twttr.ready(
         function(twttr) {
           twttr.events.bind(
@@ -158,11 +171,11 @@ $(document).ready(function() {
 
   $("#home").click(function(e) {
     e.preventDefault();
-    window.history.replaceState( {} , "", "/#home" );
+    window.history.replaceState({}, "", "/#home");
     $('.nav-extended').css("top", "0");
     img.removeAttr("src");
     stxt.html("");
-    ldg.hide();    
+    ldg.hide();
     img.hide();
     tw.hide();
     stxt.load("/content/home.html");
@@ -172,7 +185,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if ( hash.match( /faq|about|terms|ddslinks/ ) ) {
+  if (hash.match(/faq|about|terms|ddslinks/)) {
     $('#modal').modal('open');
   }
 
@@ -180,7 +193,7 @@ $(document).ready(function() {
   if (location.protocol === 'https:') {
     togglessl.text("ใช้งานผ่าน HTTP");
     togglessl.attr("href", "http://radar.pakin.me/");
-  }    
+  }
 
   // Hide navbar when scroll down
   var didScroll;
