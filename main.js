@@ -32,7 +32,7 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    if (location.protocol === 'http:') {
+    if (location.protocol === 'https:') {
       if (data.cache == "20") {
         img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time20);
       } else if (data.imgani == "yes") {
