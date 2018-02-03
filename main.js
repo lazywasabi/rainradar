@@ -23,24 +23,22 @@ $(document).ready(function() {
       minute5 = d.getMinutes() - (d.getMinutes() % 5),
       minute10 = d.getMinutes() - (d.getMinutes() % 10),
       time5 = date + minute5,
-      time10 = date + minute10;
+      time20 = date + minute10;
     if (minute10 > 20) {
-      time10 = date + "20";
+      time20 = date + "20";
     }
     window.history.replaceState({}, "", "/#" + radarId);
     $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
     img.show();
-    if (location.protocol === 'https:') {
-      if (data.cache == "10") {
-        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time10);
+    if (location.protocol === 'http:') {
+      if (data.cache == "20") {
+        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time20);
+      } else if (data.imgani == "yes") {
+        img.attr("src", "");
       } else {
-        if (data.imgani == "yes") {
-          img.attr("src", "");
-        } else {
-          img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?ct=" + time5);
-        }
+        img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/cache/radarimg/8d0ae/" + time5 + "/" + data.img);
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
@@ -64,16 +62,10 @@ $(document).ready(function() {
       img.hide();
       if (data.type == "info") {
         stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูภาพเรดาร์แทน");
+      } else if (location.protocol == 'https:' && data.imgani == "yes") {
+        stxt.load("/content/imgani.html");
       } else {
-        if (location.protocol === 'https:') {
-          {
-            if (data.imgani == "yes") {
-              stxt.load("/content/imgani.html");
-            }
-          }
-        } else {
-          stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูเรดาร์อื่น");
-        }
+        stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูเรดาร์อื่น");
       }
     });
   });
