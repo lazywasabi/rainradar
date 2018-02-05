@@ -1,12 +1,6 @@
 <div class="white-text">
-  <div class="card-panel orange darken-3">
-    <div class="http-block">
-      ใหม่! ใช้งานผ่าน HTTPS ได้แล้ว <a class="yellow-text text-accent-2" href="https://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
-    </div>
-    <div class="https-block">
-      คุณกำลังใช้งานผ่าน HTTPS รูปภาพต่างๆ อาจใช้เวลาโหลดนานกว่าปกติ 4-5 วินาที
-      <br/>ดูข้อมูลเพิ่มเติมได้ที่เมนู > ช่วยเหลือ
-    </div>
+  <div class="card-panel orange darken-3 http-block">
+    ใหม่! ใช้งานผ่าน HTTPS ได้แล้ว<br class="hide-on-med-and-up"/> <a class="yellow-text text-accent-2" href="https://radar.pakin.me/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
   </div>
 
   <div class="card-panel blue">
@@ -27,8 +21,7 @@
 </div>
 
 <style>
-  .http-block,
-  .https-block {
+  .http-block {
     display: none;
   }
 </style>
@@ -73,10 +66,6 @@
       console.log(forecastdate + " - " + xhour);
     }
   });
-
-  if (location.protocol === 'https:') {
-    $(".https-block").show();
-  }
 
   if (location.protocol === 'http:') {
     $(".http-block").show();
