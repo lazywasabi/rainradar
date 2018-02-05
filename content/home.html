@@ -27,7 +27,8 @@
 </div>
 
 <style>
-  .http-block,.https-block {
+  .http-block,
+  .https-block {
     display: none;
   }
 </style>
@@ -37,6 +38,7 @@
     xyear = d.getFullYear(),
     xmonth = (d.getMonth() + 1),
     xdate = d.getDate(),
+    xdate2 = (d.getDate() - 1),
     xhour = d.getHours(),
     fcimg = $("#tmdforecast");
 
@@ -53,14 +55,23 @@
     xhour = "2300";
   }
 
-  var forecastdate = xyear + "-" + xmonth + "-" + xdate;
-  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + "_DFTH1_" + xhour + ".jpg";
+  var forecastdate = xyear + "-" + xmonth + "-";
+  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg";
 
   fcimg.attr("src", fcimgurl);
 
   fcimg.on('error', function() {
-    $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศ</a>ได้");
-    console.log(forecastdate + " - " + xhour);
+    if (xhour = "1200" && xdate2 != "0") {
+      if (xdate2 < 10) {
+        xdate2 = "0" + xdate2;
+      }
+      fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_2300.jpg";
+      fcimg.attr("src", fcimgurl);
+      console.log(forecastdate + xdate2 + "-2300");
+    } else {
+      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้");
+      console.log(forecastdate + " - " + xhour);
+    }
   });
 
   if (location.protocol === 'https:') {
