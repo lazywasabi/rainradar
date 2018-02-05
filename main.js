@@ -228,8 +228,9 @@ $(document).ready(function() {
   }
 
 });
-
+/*
 var host = "radar.pakin.me";
 if ((host == window.location.host) && (window.location.protocol == "http:")) {
   window.location.protocol = "https";
 }
+*/
