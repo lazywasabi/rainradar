@@ -1,8 +1,8 @@
 # RainRadar
 
-[เว็บไซต์](http://radar.pakin.me) | [ซอร์สโค้ด](https://github.com/pknme/rainradar) | [ประวัติการเปลี่ยนแปลง](https://github.com/pknme/rainradar/releases)
+[เว็บไซต์](http://radar.pknme.com) | [ซอร์สโค้ด](https://github.com/pknme/rainradar) | [ประวัติการเปลี่ยนแปลง](https://github.com/pknme/rainradar/releases)
 
-RainRadar เป็นเว็บสำหรับดูภาพเรดาร์ตรวจอากาศทั่วประเทศไทย เข้าใช้งานได้ผ่าน [radar.pakin.me](http://radar.pakin.me)
+RainRadar เป็นเว็บสำหรับดูภาพเรดาร์ตรวจอากาศทั่วประเทศไทย เข้าใช้งานได้ผ่าน [radar.pknme.com](http://radar.pknme.com)
 
 ---
 

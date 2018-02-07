@@ -184,7 +184,7 @@ $(document).ready(function() {
   // Toggle https button
   if (location.protocol === 'https:') {
     togglessl.text("ใช้งานผ่าน HTTP");
-    togglessl.attr("href", "http://radar.pakin.me/");
+    togglessl.attr("href", "http://radar.pknme.com/");
   }
 
   // Hide navbar when scroll down
