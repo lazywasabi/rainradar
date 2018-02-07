@@ -38,7 +38,7 @@ $(document).ready(function() {
       } else if (data.imgani == "yes") {
         img.attr("src", "");
       } else {
-        img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/cache/radarimg/8d0ae/" + time5 + "/" + data.img + "&errorredirect=ssl:cdn.pakin.me/storage/images/rainradar-error.png");
+        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "v=?" + time5 +"&errorredirect=ssl:cdn.pakin.me/storage/images/rainradar-error.png");
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
