@@ -9,7 +9,7 @@ var hash = window.location.hash,
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
-  stxt.load("/content/home.html?v=7.0.0-beta3");
+  stxt.load("/content/home.html?v=7.0.0-beta4");
 }
 
 $(document).ready(function() {
@@ -51,18 +51,18 @@ $(document).ready(function() {
     ldg.show();
     img.on('load', function() {
       ldg.hide();
-      if (data.type == "info") {
+      if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
       } else {
-        stxt.html("<h5>เรดาร์" + radarName + "</h5>เรดาร์นี้อยู่ในการดูแลของ" + data.src);
+        stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
       }
     });
     img.on('error', function() {
       ldg.hide();
       img.hide();
-      if (data.type == "info") {
+      if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูภาพเรดาร์แทน");
-      } else if (location.protocol == 'https:' && data.imgani == "yes") {
+      } else if (location.protocol === 'https:' && data.imgani === "yes") {
         stxt.load("/content/imgani.html");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูเรดาร์อื่น");
@@ -94,7 +94,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|terms|ddslinks|radarclosed/)) {
         window.history.replaceState({}, "", "/#home");
-        stxt.load("/content/home.html?v=7.0.0-beta3");
+        stxt.load("/content/home.html?v=7.0.0-beta4");
       } else {
         window.history.replaceState({}, "", modalhash);
       }
@@ -170,7 +170,7 @@ $(document).ready(function() {
     ldg.hide();
     img.hide();
     tw.hide();
-    stxt.load("/content/home.html?v=7.0.0-beta3");
+    stxt.load("/content/home.html?v=7.0.0-beta4");
   });
 
   // Load image by url
@@ -228,9 +228,3 @@ $(document).ready(function() {
   }
 
 });
-/*
-var host = "radar.pakin.me";
-if ((host == window.location.host) && (window.location.protocol == "http:")) {
-  window.location.protocol = "https";
-}
-*/
