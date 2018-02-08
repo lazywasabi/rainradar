@@ -9,7 +9,7 @@ var hash = window.location.hash,
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
-  stxt.load("/content/home.html?v=7.0.0-beta4");
+  stxt.load("/content/home.html?v=7.0.0-beta5");
 }
 
 $(document).ready(function() {
@@ -38,7 +38,7 @@ $(document).ready(function() {
       } else if (data.imgani == "yes") {
         img.attr("src", "");
       } else {
-        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?v=" + time5 +"&errorredirect=ssl:cdn.pakin.me/storage/images/rainradar-error.png");
+        img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/cache/radarimg/8d0ae/" + time5 + "/" + data.img + "&errorredirect=ssl:cdn.pakin.me/storage/images/rainradar-error.png");
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
@@ -94,7 +94,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|terms|ddslinks|radarclosed/)) {
         window.history.replaceState({}, "", "/#home");
-        stxt.load("/content/home.html?v=7.0.0-beta4");
+        stxt.load("/content/home.html?v=7.0.0-beta5");
       } else {
         window.history.replaceState({}, "", modalhash);
       }
@@ -170,7 +170,7 @@ $(document).ready(function() {
     ldg.hide();
     img.hide();
     tw.hide();
-    stxt.load("/content/home.html?v=7.0.0-beta4");
+    stxt.load("/content/home.html?v=7.0.0-beta5");
   });
 
   // Load image by url
