@@ -1,12 +1,12 @@
 <div class="white-text">
-  <div class="card-panel orange darken-3 http-block">
-    ใหม่! ใช้งานผ่าน HTTPS ได้แล้ว<br class="hide-on-med-and-up"/> <a class="yellow-text text-accent-2" href="https://radar.pknme.com/#home">คลิกที่นี่เพื่อใช้งานผ่าน HTTPS</a>
-  </div>
-
   <div class="card-panel blue">
     <svg fill="#fff" height="150" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none" /><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
     <h5>ยินดีต้อนรับ</h5>
     เลือกข้อมูลที่ต้องการดูจากเมนูด้านบน
+  </div>
+
+  <div class="card-panel red darken-3 http-block">
+    <b>[ ประกาศ ] เปลี่ยนที่อยู่เว็บไซต์เป็น radar.pknme.com และทดลองบังคับใช้งานผ่าน HTTPS ตั้งแต่ 8 ก.พ. 2561 เป็นต้นไป</b>
   </div>
 
   <div class="card-panel pink fc-block">
@@ -19,12 +19,6 @@
     <br/>ต้องการแจ้งปัญหา, ติชม หรือเสนอแนะ กรอกข้อมูลใน<a class="yellow-text" href="https://goo.gl/forms/xc7GyxU52zxnemPB3" target="_blank">แบบฟอร์มนี้</a>
   </div>
 </div>
-
-<style>
-  .http-block {
-    display: none;
-  }
-</style>
 
 <script>
   var d = new Date(),
@@ -66,8 +60,4 @@
       console.log(forecastdate + " - " + xhour);
     }
   });
-
-  if (location.protocol === 'http:') {
-    $(".http-block").show();
-  }
 </script>
