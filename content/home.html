@@ -48,7 +48,7 @@
   }
 
   var forecastdate = xyear + "-" + xmonth + "-";
-  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg";
+  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg&w=1024";
 
   fcimg.attr("src", fcimgurl);
 
@@ -57,7 +57,7 @@
       if (xdate2 < 10) {
         xdate2 = "0" + xdate2;
       }
-      fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_2300.jpg";
+      fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_2300.jpg&w=1024";
       fcimg.attr("src", fcimgurl);
       console.log(forecastdate + xdate2 + "-2300");
     } else {
