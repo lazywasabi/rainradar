@@ -1,17 +1,11 @@
 <div class="white-text">
-  <div class="card-panel blue">
-    <svg fill="#fff" height="150" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none" /><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
-    <h5>ยินดีต้อนรับ</h5>
-    เลือกข้อมูลที่ต้องการดูจากเมนูด้านบน
-  </div>
-
   <div class="card-panel red darken-3 http-block">
     <b>[ ประกาศ ] เปลี่ยนที่อยู่เว็บไซต์เป็น radar.pknme.com และทดลองบังคับใช้งานผ่าน HTTPS ตั้งแต่ 8 ก.พ. 2561 เป็นต้นไป</b>
   </div>
 
   <div class="card-panel blue-grey">
-    <h5 style="margin:0 0 .8rem;">ใหม่! ข้อมูลคุณภาพอากาศจาก aqin.org</h5>
-    <div  id="aqi-block" class="aqi-block blue-grey"></div>
+    <h5 style="margin:0 0 .8rem;"><span class="red" style="padding: 0 10px;">ใหม่!</span> ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
+    <div id="aqi-block" class="aqi-block blue-grey"></div>
   </div>
 
   <div class="card-panel pink fc-block">
@@ -79,7 +73,20 @@
     };
   })(window, document, 'script', '_aqiFeed');
 
-  var cities = ["bangkok", "rayong", "chiang-mai", "mueang-chiang-rai", "thailand/nakhon-ratchasima/municipal-waste-water-pumping-station/", "thailand/khonkaen", "thailand/surat-thani/regional-environmental-office-14/", "thailand/phuket/municipal-health-center-1/"];
+  var cities = [
+    "bangkok",
+    "thailand/regional-environmental-office-8/",
+    "rayong",
+    "thailand/saraburi/khao-noi-fire-station/",
+    "thailand/nakhon-sawan/nakhonsawan-irrigation/",
+    "thailand/tak/mae-sot/mae-pa/",
+    "thailand/lampang-meteorological-station/",
+    "chiang-mai",
+    "mueang-chiang-rai",
+    "thailand/khonkaen",
+    "thailand/surat-thani/regional-environmental-office-14/",
+    "thailand/phuket/municipal-health-center-1/"
+  ];
   var aqiWidgetConfig = [];
   cities.forEach(function(city) {
     aqiWidgetConfig.push({
@@ -93,51 +100,27 @@
 
     //console.log(aqi);
 
-    if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพ";
+    if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ";
+    if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
     if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
+    if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
+    if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
+    if (/Tak/i.test(aqi.cityname)) aqi.cityname = "อ.แม่สอด, ตาก";
+    if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
     if (aqi.cityname === "Chiang Mai") aqi.cityname = "เชียงใหม่";
     if (aqi.cityname === "Mueang Chiang Rai") aqi.cityname = "เชียงราย";
-    if (/Ratchasima/i.test(aqi.cityname)) aqi.cityname = "นครราชสีมา";
     if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
     if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
     if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
-    if (aqi.impact === "Good") aqi.impact = "ดี";
-    if (aqi.impact === "Moderate") aqi.impact = "ปานกลาง";
-    if (/Sensitive/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อกลุ่มเสี่ยง";
+    if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
+    if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
+    if (/Sensitive/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว";
     if (/Unhealthy/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อสุขภาพ";
     if (/Very/i.test(aqi.cityname)) aqi.impact = "ไม่ดีต่อสุขภาพมาก";
     if (/Hazardous/i.test(aqi.impact)) aqi.impact = "อันตราย";
 
     $("#aqi-block").append(aqi.text(
-      "<div class=\"aqi-display\"><span class=\"flow-text\">%cityname</span><br><span style=\"font-size:2em;padding:3px 8px;\">%aqi</span><br>%impact<br><small>%date</small></div>"
+      "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
     ));
   }
 </script>
-
-<style>
-  .aqi-block {
-    background: #eee;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    align-content: space-between;
-  }
-  .aqi-display {
-    flex-grow: 1;
-    flex-basis: 50%;
-    padding: 12px 10px;
-    border-bottom: 1px solid #fff;
-  }
-  .aqi-display:nth-last-child(-n+2) {
-    border:0;
-  }
-  @media only screen and (min-width: 870px) {
-    .aqi-display {
-      flex-basis: 33.333%;
-    }
-  }
-  .aqi-impact {
-    padding: 5px 10px;
-  }
-</style>

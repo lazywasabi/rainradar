@@ -101,6 +101,36 @@ span.badge.new {
   font-size: 1.25em;
 }
 
+/* aqi */
+.aqi-block {
+  background: #eee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: space-between;
+}
+.aqi-display {
+  flex-grow: 1;
+  flex-basis: 50%;
+  padding: 12px 10px;
+  border-bottom: 1px solid #fff;
+}
+.aqi-display:nth-last-child(-n+2) {
+  border:0;
+}
+@media only screen and (min-width: 870px) {
+  .aqi-display {
+    flex-basis: 33.333%;
+  }
+  .aqi-display:nth-last-child(-n+3) {
+    border:0;
+  }
+}
+.aqi-impact {
+  padding: 5px 10px;
+}
+
 /* modal */
 .modal.modal-fixed-footer {
   max-height: 80%;
