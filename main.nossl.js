@@ -27,7 +27,7 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
+    img.attr("src", data.imgprefix + data.img + "?cv84t=" + time5);
     if (data.type == "info") {
       stxt.html("<h5>" + data.title + "</h5>");
     } else {
