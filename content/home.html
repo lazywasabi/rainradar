@@ -6,6 +6,7 @@
   <div class="card-panel blue-grey">
     <h5 style="margin:0 0 .8rem;"><span class="red" style="padding: 0 10px;">ใหม่!</span> ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
     <div id="aqi-block" class="aqi-block blue-grey"></div>
+    <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
   </div>
 
   <div class="card-panel pink fc-block">
@@ -114,7 +115,7 @@
     if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
     if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
     if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
-    if (/Sensitive/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว";
+    if (/Sensitive/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
     if (/Unhealthy/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อสุขภาพ";
     if (/Very/i.test(aqi.cityname)) aqi.impact = "ไม่ดีต่อสุขภาพมาก";
     if (/Hazardous/i.test(aqi.impact)) aqi.impact = "อันตราย";
