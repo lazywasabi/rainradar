@@ -3,15 +3,15 @@
     <b>[ ประกาศ ] เปลี่ยนที่อยู่เว็บไซต์เป็น radar.pknme.com และทดลองบังคับใช้งานผ่าน HTTPS ตั้งแต่ 8 ก.พ. 2561 เป็นต้นไป</b>
   </div>
 
-  <div class="card-panel blue-grey">
-    <h5 style="margin:0 0 .8rem;"><span class="red" style="padding: 0 10px;">ใหม่!</span> ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
-    <div id="aqi-block" class="aqi-block blue-grey"></div>
-    <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
-  </div>
-
   <div class="card-panel pink fc-block">
     <h5 style="margin:0;">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
+  </div>
+  
+  <div class="card-panel blue-grey aqi-container-block">
+    <h5 style="margin:0 0 .8rem;"><span class="red" style="padding: 0 10px;">ใหม่!</span> ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
+    <div id="aqi-block" class="aqi-block blue-grey"></div>
+    <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
   </div>
 
   <div class="card-panel green">
@@ -55,6 +55,9 @@
       fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_2300.jpg&w=1024";
       fcimg.attr("src", fcimgurl);
       console.log(forecastdate + xdate2 + "-2300");
+      fcimg.on('error', function() {
+        $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้");
+      });
     } else {
       $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้");
       console.log(forecastdate + " - " + xhour);
