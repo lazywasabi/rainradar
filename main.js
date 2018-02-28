@@ -34,11 +34,11 @@ $(document).ready(function() {
     img.show();
     if (location.protocol === 'https:') {
       if (data.cache == "20") {
-        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?8da6fc=" + time20 + "&errorredirect=ssl:radar.pknme.com/img/error-960.png");
+        img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?8da6fc=" + time20 + "&errorredirect=ssl:cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/img/error-960.png");
       } else if (data.imgani == "yes") {
         img.attr("src", "");
       } else {
-        img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/radarimg/2ace8/" + time5 + "/" + data.img + "&errorredirect=ssl:radar.pknme.com/img/error-960.png");
+        img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/radarimg/2ace8/" + time5 + "/" + data.img + "&errorredirect=ssl:cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/img/error-960.png");
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
