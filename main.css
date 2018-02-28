@@ -6,8 +6,8 @@ html {
   font-family: 'Noto Sans Thai UI Alpha';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/NotoSansThaiUI-Regular.woff2") format("woff2"),
-       url("../fonts/NotoSansThaiUI-Regular.woff") format("woff")
+  src: url("https://cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/fonts/NotoSansThaiUI-Regular.woff2") format("woff2"),
+       url("https://cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/fonts/NotoSansThaiUI-Regular.woff") format("woff")
 }
 
 body {
