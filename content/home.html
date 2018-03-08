@@ -118,10 +118,10 @@
     if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
     if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
     if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
-    if (/Sensitive/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
-    if (/Unhealthy/i.test(aqi.impact)) aqi.impact = "ไม่ดีต่อสุขภาพ";
-    if (/Very/i.test(aqi.cityname)) aqi.impact = "ไม่ดีต่อสุขภาพมาก";
-    if (/Hazardous/i.test(aqi.impact)) aqi.impact = "อันตราย";
+    if (aqi.impact === "Unhealthy for Sensitive Groups") aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
+    if (aqi.impact === "Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพ";
+    if (aqi.impact === "Very Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพมาก";
+    if (aqi.impact === "Hazardous") aqi.impact = "อันตราย";
 
     $("#aqi-block").append(aqi.text(
       "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
