@@ -124,6 +124,7 @@
     if (aqi.impact === "Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพ";
     if (aqi.impact === "Very Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพมาก";
     if (aqi.impact === "Hazardous") aqi.impact = "อันตราย";
+    if (aqi.impact === "no data") aqi.impact = "ไม่มีข้อมูล";
 
     $("#aqi-block").append(aqi.text(
       "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
