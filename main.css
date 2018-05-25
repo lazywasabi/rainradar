@@ -136,6 +136,7 @@ span.badge.new {
   max-height: 80%;
   height: 80%;
 }
+
 .modal[alt="about"] {
   background-color: #2196f3;
 }
@@ -148,12 +149,13 @@ span.badge.new {
   background-color: #2196f3;    
   border: none;
 }
-.modal[alt="about"] .modal-footer .btn-flat {
-  color: #e3f2fd !important;
+.modal[alt="about"] .modal-footer .btn {
+  background-color: #e3f2fd !important;
+  color: #212121 !important;
   border: none;
 }
-.modal[alt="about"] .modal-footer .btn-flat .waves-ripple {
-  background-color: rgba(255, 255, 255, .65);
+.modal[alt="about"] .modal-footer .btn .waves-ripple {
+  background-color: rgba(33, 150, 243, .65);
 }
 .about-credit li a {
   color: #e3f2fd;
@@ -178,8 +180,11 @@ span.badge.new {
     .brand-logo {
         margin-left: 8px;
     }
-    .modal {
-        width: 90%;
+    .modal.modal-fixed-footer {
+      max-height: 96%;
+      height: 96%;
+      width: 96%;
+      top: 2% !important;
     }
     .dropdown-content {
       width: 100% !important;
