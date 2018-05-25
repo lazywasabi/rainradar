@@ -101,7 +101,7 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/faq|about|terms|ddslinks|radarclosed/)) {
+      if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
         window.history.replaceState({}, "", "/#home");
         stxt.load("../content/home.html?v=7.1.1");
         gtag('config', 'UA-78233854-2', {
@@ -198,7 +198,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if (hash.match(/faq|about|terms|ddslinks|radarclosed/)) {
+  if (hash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
     $('#modal').modal('open');
   }
 
