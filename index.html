@@ -3,7 +3,7 @@
 
 <head>
   <title>RainRadar - รวมเรดาร์ตรวจฝนทั่วประเทศไทย</title>
-  <meta charset="utf-8">  
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- social start -->
   <meta name="description" content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรล่าสุดในกรุงเทพฯ รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม.">
@@ -35,31 +35,32 @@
 <body>
 
   <div class="navbar-fixed">
-  <nav class="nav-extended blue">
-    <div class="nav-wrapper">
-      <a href="/" id="home" class="brand-logo">RainRadar</a>
-      <ul class="right">
-        <li>
-          <a class="nav-icon dropdown-menu waves-effect waves-circle waves-light" data-activates="menu-other">
+    <nav class="nav-extended blue">
+      <div class="nav-wrapper">
+        <a href="/" id="home" class="brand-logo">RainRadar</a>
+        <ul class="right">
+          <li>
+            <a class="nav-icon dropdown-menu waves-effect waves-circle waves-light" data-activates="menu-other">
             <svg fill="#FFFFFF" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
               </svg>
           </a>
-        </li>
-      </ul>
-    </div>
-    <div class="nav-content">
-      <ul class="tabs tabs-fixed-width blue">
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-bangkok"><span class="hide-on-small-only">กรุงเทพฯ</span><span class="hide-on-med-and-up">กทม.</span></div>
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-central"><span class="hide-on-small-only">ภาคกลาง</span><span class="hide-on-med-and-up">กลาง</span></div>
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-north"><span class="hide-on-small-only">ภาคเหนือ</span><span class="hide-on-med-and-up">เหนือ</span></div>
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-northeast"><span class="hide-on-med-and-down">ภาคตะวันออกเฉียงเหนือ</span><span class="hide-on-large-only">อีสาน</span></div>
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-east"><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>
-        <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-south"><span class="hide-on-small-only">ภาคใต้</span><span class="hide-on-med-and-up">ใต้</span></div>
-      </ul>
-    </div>
-  </nav></div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-fixed-width blue">
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-bangkok"><span class="hide-on-small-only">กรุงเทพฯ</span><span class="hide-on-med-and-up">กทม.</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-central"><span class="hide-on-small-only">ภาคกลาง</span><span class="hide-on-med-and-up">กลาง</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-north"><span class="hide-on-small-only">ภาคเหนือ</span><span class="hide-on-med-and-up">เหนือ</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-northeast"><span class="hide-on-med-and-down">ภาคตะวันออกเฉียงเหนือ</span><span class="hide-on-large-only">อีสาน</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-east"><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-south"><span class="hide-on-small-only">ภาคใต้</span><span class="hide-on-med-and-up">ใต้</span></div>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <ul id="menu-bangkok" class="dropdown-content">
     <li><a id="traffic" class="loadtwitter waves-effect waves-blue blue-text" data-click="0">ข้อมูลการจราจร<span class="badge right white-text red">สด</span></a></li>
@@ -182,7 +183,22 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" integrity="sha256-uWtSXRErwH9kdJTIr1swfHFJn/d/WQ6s72gELOHXQGM=" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js_debug?id=UA-78233854-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-78233854-2');
+  </script>
+
   <script src="main.js?v=7.1.1" type="text/javascript"></script>
+
 </body>
 
 </html>

@@ -8,6 +8,9 @@ var hash = window.location.hash,
   togglessl = $(".togglessl");
 
 if (hash == "") {
+  gtag('config', 'UA-78233854-2', {
+    'page_path': '/#home'
+  });
   window.history.replaceState({}, "", "/#home");
   stxt.load("../content/home.html?v=7.1.1");
 }
@@ -28,6 +31,9 @@ $(document).ready(function() {
       time20 = date + "20";
     }
     window.history.replaceState({}, "", "/#" + radarId);
+    gtag('config', 'UA-78233854-2', {
+      'page_path': '/#' + radarId
+    });    
     $('.nav-extended').css("top", "0");
     tw.hide();
     img.removeAttr("src");
@@ -77,6 +83,9 @@ $(document).ready(function() {
     var data = $(this).data();
     $(".modal").attr("alt", data.identity);
     window.history.replaceState({}, "", "/#" + data.identity);
+    gtag('config', 'UA-78233854-2', {
+      'page_path': '/#' + data.identity
+    });
     mdcnt.load(data.url, function(response, status) {
       if (status == "error") {
         mdcnt.html("ไม่สามารถโหลดข้อมูล");
@@ -95,8 +104,14 @@ $(document).ready(function() {
       if (modalhash.match(/faq|about|terms|ddslinks|radarclosed/)) {
         window.history.replaceState({}, "", "/#home");
         stxt.load("../content/home.html?v=7.1.1");
+        gtag('config', 'UA-78233854-2', {
+          'page_path': '/#home'
+        });
       } else {
         window.history.replaceState({}, "", modalhash);
+        gtag('config', 'UA-78233854-2', {
+          'page_path': '/' + modalhash
+        });
       }
     }
   });
@@ -113,6 +128,9 @@ $(document).ready(function() {
 
   loadtw.click(function() {
     window.history.replaceState({}, "", "/#traffic");
+    gtag('config', 'UA-78233854-2', {
+      'page_path': '/#traffic'
+    });
     window.scrollTo(0, 0);
     $('.nav-extended').css("top", "0");
     if (loadtw.data("click") == 0) {
@@ -164,6 +182,9 @@ $(document).ready(function() {
   $("#home").click(function(e) {
     e.preventDefault();
     window.history.replaceState({}, "", "/#home");
+    gtag('config', 'UA-78233854-2', {
+      'page_path': '/#home'
+    });
     $('.nav-extended').css("top", "0");
     img.removeAttr("src");
     stxt.html("");
@@ -182,10 +203,12 @@ $(document).ready(function() {
   }
 
   // Toggle https button
+  /*
   if (location.protocol === 'https:') {
     togglessl.text("ใช้งานผ่าน HTTP");
     togglessl.attr("href", "http://radar.pknme.com/");
   }
+  */
 
   // Hide navbar when scroll down
   var didScroll;
