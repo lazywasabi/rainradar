@@ -10,7 +10,7 @@ var hash = window.location.hash,
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
-  stxt.load("../content/home.html?v=8.0.0-beta1");
+  stxt.load("../content/home.html?v=8.0.0-beta2");
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
@@ -114,7 +114,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed|animatedradarchange/)) {
         window.history.replaceState({}, "", "/#home");
-        stxt.load("../content/home.html?v=8.0.0-beta1");
+        stxt.load("../content/home.html?v=8.0.0-beta2");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
@@ -205,7 +205,7 @@ $(document).ready(function() {
     ldg.hide();
     img.hide();
     tw.hide();
-    stxt.load("../content/home.html?v=8.0.0-beta1");
+    stxt.load("../content/home.html?v=8.0.0-beta2");
   });
 
   // Load image by url
