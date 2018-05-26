@@ -62,19 +62,15 @@ $(document).ready(function() {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
     }
     if (data.type == "info") {
-      stxt.html("<h5>" + data.title + "</h5>");
+      stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
     } else {
-      stxt.html("<h5>เรดาร์" + radarName + "</h5>");
+      stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
     }
     ldg.show();
     img.on('load', function() {
       ldg.hide();
-      if (data.type === "info") {
-        stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
-      } else if (data.imganiold === "yes" && location.protocol === 'https:') {
+      if (data.imganiold === "yes" && location.protocol === 'https:') {
         stxt.html("<h5>RainRadar เปลี่ยนรูปแบบการโหลดภาพเคลื่อนไหว</h5>กรุณาเลือกเรดาร์ที่ต้องการดูใหม่ครั้ง");
-      } else {
-        stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
       }
     });
     img.on('error', function() {
