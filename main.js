@@ -20,6 +20,7 @@ $(document).ready(function() {
 
   if (location.protocol === 'http:') {
     $(".imganiold").show();
+    $(".gif-badge").hide();
   }
 
   $(".loadradar").click(function() {
@@ -70,7 +71,7 @@ $(document).ready(function() {
       ldg.hide();
       if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
-      } else if (data.imganiold === "yes") {
+      } else if (data.imganiold === "yes" && location.protocol === 'https:') {
         stxt.html("<h5>RainRadar เปลี่ยนรูปแบบการโหลดภาพเคลื่อนไหว</h5>กรุณาเลือกเรดาร์ที่ต้องการดูใหม่ครั้ง");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
