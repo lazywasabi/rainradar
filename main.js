@@ -5,21 +5,27 @@ var hash = window.location.hash,
   tw = $(".twitter-block"),
   loadtw = $(".loadtwitter"),
   mdcnt = $(".modal .modal-content"),
-  togglessl = $(".togglessl");
+  //togglessl = $(".togglessl"),
+  anilink = $(".animated-radar");
 
 if (hash == "") {
+  window.history.replaceState({}, "", "/#home");
+  stxt.load("../content/home.html?v=8.0.0-beta1");
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
-  window.history.replaceState({}, "", "/#home");
-  stxt.load("../content/home.html?v=8.0.0-beta1");
 }
 
 $(document).ready(function() {
 
+  if (location.protocol === 'http:') {
+    $(".imganiold").show();
+  }
+
   $(".loadradar").click(function() {
     var data = $(this).data(),
-      radarName = $(this).text(),
+      radarName = data.title,
+      aniRadarName = data.anititle,
       radarId = $(this).attr("id"),
       d = new Date(),
       date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours(),
@@ -33,18 +39,23 @@ $(document).ready(function() {
     window.history.replaceState({}, "", "/#" + radarId);
     gtag('config', 'UA-78233854-2', {
       'page_path': '/#' + radarId
-    });    
+    });
     $('.nav-extended').css("top", "0");
+    anilink.hide();
     tw.hide();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
-      if (data.cache == "20") {
+      if (data.cache === "20") {
         img.attr("src", "https://images.weserv.nl/?url=" + data.img + "?8da6fc=" + time20 + "&errorredirect=ssl:cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/img/error-960.png");
-      } else if (data.imgani == "yes") {
-        img.attr("src", "");
+      } else if (data.imganiold === "yes") {
+        img.attr("src", "https://cdn.pakin.me/storage/images/blank.gif");
       } else {
         img.attr("src", "https://images.weserv.nl/?url=ssl:cdn.pakin.me/storage/radarimg/2ace8/" + time5 + "/" + data.img + "&errorredirect=ssl:cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/img/error-960.png");
+        if (data.imgani === "yes") {
+          anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.pknme.com/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>")
+          anilink.show();
+        }
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
@@ -59,6 +70,8 @@ $(document).ready(function() {
       ldg.hide();
       if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
+      } else if (data.imganiold === "yes") {
+        stxt.html("<h5>RainRadar เปลี่ยนรูปแบบการโหลดภาพเคลื่อนไหว</h5>กรุณาเลือกเรดาร์ที่ต้องการดูใหม่ครั้ง");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
       }
@@ -68,8 +81,6 @@ $(document).ready(function() {
       img.hide();
       if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูภาพเรดาร์แทน");
-      } else if (location.protocol === 'https:' && data.imgani === "yes") {
-        stxt.load("../content/imgani.html");
       } else {
         stxt.html("<h5>เรดาร์" + radarName + "</h5>ไม่สามารถโหลดภาพเรดาร์<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูเรดาร์อื่น");
       }
@@ -101,7 +112,7 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
+      if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed|animatedradarchange/)) {
         window.history.replaceState({}, "", "/#home");
         stxt.load("../content/home.html?v=8.0.0-beta1");
         gtag('config', 'UA-78233854-2', {
@@ -137,6 +148,7 @@ $(document).ready(function() {
       img.removeAttr("src");
       img.hide();
       ldg.hide();
+      anilink.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
       ldg.show();
 
@@ -173,6 +185,7 @@ $(document).ready(function() {
     } else {
       img.removeAttr("src");
       img.hide();
+      anilink.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
       ldg.hide();
       tw.show();
@@ -187,6 +200,7 @@ $(document).ready(function() {
     });
     $('.nav-extended').css("top", "0");
     img.removeAttr("src");
+    anilink.hide();
     stxt.html("");
     ldg.hide();
     img.hide();
@@ -198,7 +212,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if (hash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
+  if (hash.match(/faq|about|termsandprivacy|ddslinks|radarclosed|animatedradarchange/)) {
     $('#modal').modal('open');
   }
 

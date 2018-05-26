@@ -73,6 +73,18 @@ span.badge.new {
 }
 
 /* main screen */
+.animated-radar {
+  display: none;
+}
+.dropdown-content li.imganiold {
+  display: none;
+}
+.animated-radar-button {
+  width: auto;
+  height: 28px;
+  vertical-align: middle;
+  margin: 0 .5em .1em 0;
+}
 .loading-text {
   vertical-align: middle;
   margin-right: 8px;
