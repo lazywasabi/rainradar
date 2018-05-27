@@ -46,13 +46,13 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    if (location.protocol === 'https:') {
+    if (location.protocol === 'http:') {
       if (data.cache == "20") {
-        img.attr("src", "https://images.weserv.nl/?url=ssl:storage5-cdn.pakin.me/rainradar/gqk2r6/" + time20 + "/" + data.img + "?rainradar=8.0.0-beta2");
+        img.attr("src", "https://images.weserv.nl/?url=ssl:storage1-cdn.pakin.me/rainradar/gqk2r6/" + time20 + "/" + data.img + "?rainradar=8.0.0-beta2");
       } else if (data.imganiold === "yes") {
         img.attr("src", "https://cdn.pakin.me/storage/images/blank.gif");
       } else {
-        img.attr("src", "https://storage5-cdn.pakin.me/rainradar/gqk2r6/" + time5 + "/" + data.img + "?rainradar=8.0.0-beta2");
+        img.attr("src", "https://storage1-cdn.pakin.me/rainradar/gqk2r6/" + time5 + "/" + data.img + "?rainradar=8.0.0-beta2");
         if (data.imgani === "yes") {
           anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.pknme.com/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>")
           anilink.show();
