@@ -46,7 +46,7 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    if (location.protocol === 'http:') {
+    if (location.protocol === 'https:') {
       if (data.cache == "20") {
         img.attr("src", "https://images.weserv.nl/?url=ssl:storage1-cdn.pakin.me/rainradar/gqk2r6/" + time20 + "/" + data.img + "?rainradar=8.0.0-beta2");
       } else if (data.imganiold === "yes") {
