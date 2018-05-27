@@ -10,7 +10,7 @@ var hash = window.location.hash,
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
-  stxt.load("../content/home.html?v=8.0.0-beta2");
+  stxt.load("../content/home.html?v=8.0.0-beta3");
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
@@ -46,13 +46,13 @@ $(document).ready(function() {
     tw.hide();
     img.removeAttr("src");
     img.show();
-    if (location.protocol === 'http:') {
+    if (location.protocol === 'https:') {
       if (data.cache == "20") {
-        img.attr("src", "https://images.weserv.nl/?url=ssl:storage1-cdn.pakin.me/rainradar/gqk2r6/" + time20 + "/" + data.img + "?rainradar=8.0.0-beta2");
+        img.attr("src", "https://images.weserv.nl/?url=ssl:storage1-cdn.pakin.me/rainradar/gqk2r6/" + time20 + "/" + data.img + "?rainradar=8.0.0-beta3");
       } else if (data.imganiold === "yes") {
         img.attr("src", "https://cdn.pakin.me/storage/images/blank.gif");
       } else {
-        img.attr("src", "https://storage1-cdn.pakin.me/rainradar/gqk2r6/" + time5 + "/" + data.img + "?rainradar=8.0.0-beta2");
+        img.attr("src", "https://storage1-cdn.pakin.me/rainradar/gqk2r6/" + time5 + "/" + data.img + "?rainradar=8.0.0-beta3");
         if (data.imgani === "yes") {
           anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.pknme.com/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>");
           anilink.show();
@@ -114,7 +114,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed|animatedradarchange/)) {
         window.history.replaceState({}, "", "/#home");
-        stxt.load("../content/home.html?v=8.0.0-beta2");
+        stxt.load("../content/home.html?v=8.0.0-beta3");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
@@ -205,7 +205,7 @@ $(document).ready(function() {
     ldg.hide();
     img.hide();
     tw.hide();
-    stxt.load("../content/home.html?v=8.0.0-beta2");
+    stxt.load("../content/home.html?v=8.0.0-beta3");
   });
 
   // Load image by url
