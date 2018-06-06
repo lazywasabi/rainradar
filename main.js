@@ -6,7 +6,8 @@ var hash = window.location.hash,
   loadtw = $(".loadtwitter"),
   mdcnt = $(".modal .modal-content"),
   //togglessl = $(".togglessl"),
-  anilink = $(".animated-radar");
+  anilink = $(".animated-radar"),
+  twnotice = $(".traffic-notice");
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
@@ -44,6 +45,7 @@ $(document).ready(function() {
     $('.nav-extended').css("top", "0");
     anilink.hide();
     tw.hide();
+    twnotice.hide();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
@@ -148,6 +150,7 @@ $(document).ready(function() {
       anilink.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
       ldg.show();
+      twnotice.show();
 
       window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -202,6 +205,7 @@ $(document).ready(function() {
     ldg.hide();
     img.hide();
     tw.hide();
+    twnotice.hide();
     stxt.load("../content/home.html?v=8.0.0-beta3");
   });
 
