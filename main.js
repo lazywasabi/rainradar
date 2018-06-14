@@ -19,6 +19,8 @@ if (hash == "") {
 
 $(document).ready(function() {
 
+  twnotice.hide();
+
   if (location.protocol === 'http:') {
     $(".imganiold").show();
     $(".gif-badge").hide();
