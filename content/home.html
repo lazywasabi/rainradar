@@ -16,10 +16,15 @@
     <h5 style="margin:0;">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
   </div>
+
+  <div class="card-panel blue-grey heavy-rain-block">
+    <h5 style="margin:0;">แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมาก</h5>
+    <br><img id="tmdheavyrain" src="" alt="แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมากประจำวันจากกรมอุตุนิยมวิทยา">
+  </div>
   
-  <div class="card-panel blue-grey aqi-container-block">
+  <div class="card-panel grey darken-1 aqi-container-block">
     <h5 style="margin:0;">ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
-    <div id="aqi-block" class="aqi-block blue-grey"></div>
+    <div id="aqi-block" class="aqi-block grey darken-1"></div>
     <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
   </div>
 
@@ -34,15 +39,23 @@
     xyear = d.getFullYear(),
     xmonth = (d.getMonth() + 1),
     xdate = d.getDate(),
+    rdate = d.getDate(),
     xdate2 = (d.getDate() - 1),
     xhour = d.getHours(),
     fcimg = $("#tmdforecast");
+    rnimg = $("#tmdheavyrain");
 
   if (xmonth < 10) {
     xmonth = "0" + xmonth;
   }
   if (xdate < 10) {
     xdate = "0" + xdate;
+  }
+  if (xhour < 13) {
+    rdate = rdate - 1;
+  }
+  if (rdate < 10) {
+    rdate = "0" + rdate;
   }
   if (xhour >= 13) {
     xhour = "1200";
@@ -53,8 +66,15 @@
 
   var forecastdate = xyear + "-" + xmonth + "-";
   var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg&w=1024";
+  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + rdate + "_DFTH2_1200.jpg&w=1024";
 
   fcimg.attr("src", fcimgurl);
+
+  rnimg.attr("src", rnimgurl);
+
+  rnimg.on('error', function() {
+    $(".heavy-rain-block").html("ขออภัยไม่สามารถโหลดพื้นที่เสี่ยงภัยฝนตกหนักได้");
+  });
 
   fcimg.on('error', function() {
     if (xhour = "1200" && xdate2 != "0") {
@@ -65,10 +85,10 @@
       fcimg.attr("src", fcimgurl);
       console.log(forecastdate + xdate2 + "-2300");
       fcimg.on('error', function() {
-        $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้");
+        $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้</a>");
       });
     } else {
-      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้");
+      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้</a>");
       console.log(forecastdate + " - " + xhour);
     }
   });
