@@ -48,14 +48,11 @@
   if (xmonth < 10) {
     xmonth = "0" + xmonth;
   }
+  if (xhour < 13) {
+    xdate = xdate - 1;
+  }
   if (xdate < 10) {
     xdate = "0" + xdate;
-  }
-  if (xhour < 13) {
-    rdate = rdate - 1;
-  }
-  if (rdate < 10) {
-    rdate = "0" + rdate;
   }
   if (xhour >= 13) {
     xhour = "1200";
@@ -66,7 +63,7 @@
 
   var forecastdate = xyear + "-" + xmonth + "-";
   var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg&w=1024";
-  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + rdate + "_DFTH2_1200.jpg&w=1024";
+  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH2_1200.jpg&w=1024";
 
   fcimg.attr("src", fcimgurl);
 
