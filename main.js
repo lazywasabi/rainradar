@@ -7,7 +7,8 @@ var hash = window.location.hash,
   mdcnt = $(".modal .modal-content"),
   //togglessl = $(".togglessl"),
   anilink = $(".animated-radar"),
-  twnotice = $(".traffic-notice");
+  twnotice = $(".traffic-notice"),
+  unitnotice = $(".radar-unit-notice");
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
@@ -48,6 +49,7 @@ $(document).ready(function() {
     anilink.hide();
     tw.hide();
     twnotice.hide();
+    unitnotice.show();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
@@ -81,6 +83,7 @@ $(document).ready(function() {
     });
     img.on('error', function() {
       ldg.hide();
+      unitnotice.hide();
       img.hide();
       if (data.type === "info") {
         stxt.html("<h5>" + data.title + "</h5>ไม่สามารถโหลดข้อมูลได้<br>กรุณาลองใหม่อีกครั้งในอีก 5-10 นาที หรือเลือกดูภาพเรดาร์แทน");
@@ -149,6 +152,7 @@ $(document).ready(function() {
     $('.nav-extended').css("top", "0");
     if (loadtw.data("click") == 0) {
       img.removeAttr("src");
+      unitnotice.hide();
       img.hide();
       ldg.hide();
       anilink.hide();
@@ -188,6 +192,7 @@ $(document).ready(function() {
       );
     } else {
       img.removeAttr("src");
+      unitnotice.hide();
       img.hide();
       anilink.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที");
@@ -207,6 +212,7 @@ $(document).ready(function() {
     anilink.hide();
     stxt.html("");
     ldg.hide();
+    unitnotice.hide();
     img.hide();
     tw.hide();
     twnotice.hide();

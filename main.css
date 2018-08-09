@@ -115,7 +115,9 @@ span.badge.new {
 .btn-go-home {
   font-size: 1.25em;
 }
-
+.radar-unit-notice {
+  display: none;
+}
 /* aqi */
 .aqi-block {
   background: #eee;
