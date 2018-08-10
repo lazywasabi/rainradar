@@ -54,12 +54,12 @@ $(document).ready(function() {
     img.show();
     if (location.protocol === 'https:') {
       if (data.cache == "20") {
-        img.attr("src", "https://imgcdn.pakin.me/rainradar/i/" + time20 + "/" + data.img + "?rainradar=8.1.1");
+        img.attr("src", "https://imgcdn.pakin.me/rainradar/i/" + time20 + "/" + data.img + "?rainradar=8.2.0");
         //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.2.0" + time20);
       } else if (data.imganiold === "yes") {
         img.attr("src", "https://cdn.pakin.me/storage/images/blank.gif");
       } else {
-        img.attr("src", "https://imgcdn.pakin.me/rainradar/i/" + time5 + "/" + data.img + "?rainradar=8.1.1");
+        img.attr("src", "https://imgcdn.pakin.me/rainradar/i/" + time5 + "/" + data.img + "?rainradar=8.2.0");
         //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.2.0" + time5);
         if (data.imgani === "yes") {
           anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.openbase.co/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>");
