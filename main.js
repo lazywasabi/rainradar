@@ -49,7 +49,6 @@ $(document).ready(function() {
     anilink.hide();
     tw.hide();
     twnotice.hide();
-    unitnotice.show();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
@@ -65,6 +64,7 @@ $(document).ready(function() {
           anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.openbase.co/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>");
           anilink.show();
         }
+        unitnotice.show();
       }
     } else {
       img.attr("src", data.imgprefix + data.img + "?ct=" + time5);
