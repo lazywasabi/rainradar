@@ -87,6 +87,20 @@ span.badge.new {
 
 /* main screen */
 
+.service-status-container {
+  display: none;
+}
+
+.service-status-block {
+  padding: .5em 24px;
+  margin: 0 0 .25em;
+}
+
+.service-status-block b {
+  font-size: 1.15em;
+  letter-spacing: 0.035em;
+}
+
 .animated-radar {
   display: none;
 }

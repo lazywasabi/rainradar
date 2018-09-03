@@ -235,6 +235,21 @@ $(document).ready(function() {
   }
   */
 
+  $.getJSON("https://radarstatus.openbase.co/active-incident.json", function(data){
+    if ( !data.items[0] ) {
+        console.log("Good news! No incident report!")
+    } else {
+      $(".service-status-container").show();
+      $.each(data.items, function(i,items){
+        content = '<p><b>' + items.title + '</b>';
+        content += '<br/>' + items.content_html + '<br/>';
+        content += '[ คลิกที่นี่เพื่อดูข้อมูลเพิ่มเติม → ]</p>';
+        $(content).appendTo(".service-status-block");
+        $(".service-status-container").attr("href", "https://radarstatus.openbase.co/?ref=" + items.id);
+      });
+    }
+  });
+
   // Hide navbar when scroll down
   var didScroll;
   var lastScrollTop = 0;
