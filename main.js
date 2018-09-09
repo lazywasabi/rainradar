@@ -8,11 +8,13 @@ var hash = window.location.hash,
   //togglessl = $(".togglessl"),
   anilink = $(".animated-radar"),
   twnotice = $(".traffic-notice"),
-  unitnotice = $(".radar-unit-notice");
+  unitnotice = $(".radar-unit-notice"),
+  tmdAlert = $(".weather-alert-block");
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
   stxt.load("../content/home.html?v=8.2.0");
+  tmdAlert.show();
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
@@ -49,6 +51,7 @@ $(document).ready(function() {
     anilink.hide();
     tw.hide();
     twnotice.hide();
+    tmdAlert.hide();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
@@ -120,6 +123,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
         window.history.replaceState({}, "", "/#home");
+        tmdAlert.show();
         stxt.load("../content/home.html?v=8.2.0");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
@@ -156,6 +160,7 @@ $(document).ready(function() {
       img.hide();
       ldg.hide();
       anilink.hide();
+      tmdAlert.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
       ldg.show();
       twnotice.show();
@@ -217,6 +222,7 @@ $(document).ready(function() {
     tw.hide();
     twnotice.hide();
     stxt.load("../content/home.html?v=8.2.0");
+    tmdAlert.show();
   });
 
   // Load image by url
@@ -234,7 +240,16 @@ $(document).ready(function() {
     togglessl.attr("href", "http://radar.openbase.co/");
   }
   */
+ 
+  // Weather alert
+  var alertUrl = $(".feedburnerFeedBlock .headline a").attr("href");
+  console.log(alertUrl);
+  $('.weather-alert-block').click(function(){
+    window.open('https://www.tmd.go.th/warningwindow.php?wID=' + alertUrl, '_blank');
+    return false;
+  });
 
+  // Get status
   $.getJSON("https://radarstatus.openbase.co/active-incident.json", function(data){
     if ( !data.items[0] ) {
         console.log("Good news! No incident report!")

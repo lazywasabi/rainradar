@@ -101,6 +101,36 @@ span.badge.new {
   letter-spacing: 0.035em;
 }
 
+.weather-alert-block {
+  display: none;
+  cursor: pointer;
+}
+
+.feedburnerFeedBlock ul {
+  margin: 0;
+  padding: 0;
+}
+
+.feedburnerFeedBlock ul li {
+  display: inline-block;
+}
+
+.feedburnerFeedBlock .headline a {
+  color: #fff;
+  display: inline-block;
+  font-family: "Noto Sans Thai UI", system-ui;
+  font-size: 1.1em;
+  text-decoration: none;
+}
+
+.feedburnerFeedBlock #creditfooter {
+  display: none;
+}
+
+.traffic-notice {
+  display: none;
+}
+
 .animated-radar {
   display: none;
 }
@@ -137,7 +167,6 @@ span.badge.new {
 }
 
 .status-text {
-  padding: 4px .25em 0;
   font-size: 1.2em;
 }
 
