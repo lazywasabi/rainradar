@@ -1,5 +1,10 @@
 # บันทึกการเปลี่ยนแปลงของ RainRadar
 
+## RainRadar 8.3.0 (9 ก.ย. 2561)
+- เพิ่มประกาศล่าสุดจากกรมอุตุนิยมวิทยาในหน้าแรก
+- รองรับการแสดงข้อมูลสถานะหากมีเหตุขัดข้อง
+- เปลี่ยนลิงก์ไปยังหน้าสถานะเป็น [radarstatus.openbase.co](https://radarstatus.openbase.co)
+
 ## RainRadar 8.2.0 (9 ส.ค. 2561)
 - เปลี่ยนเซิร์ฟเวอร์ภาพเรดาร์จาก [storage1-cdn.pakin.me](https://storage1-cdn.pakin.me) เป็น [imgcdn.pakin.me](https://imgcdn.pakin.me) ดาวน์โหลดภาพเรดาร์ได้เร็วขึ้น
 - เพิ่มเรดาร์
