@@ -20,26 +20,26 @@
   <div class="card-panel pink fc-block">
     <h5 class="header flow-text">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
+
   </div>
 
   <div class="card-panel blue-grey heavy-rain-block">
     <h5 class="header flow-text">แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมาก</h5>
     <br><img id="tmdheavyrain" src="" alt="แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมากประจำวันจากกรมอุตุนิยมวิทยา">
+
   </div>
 
-  <div class="card-panel grey darken-1 aqi-container-block">
-    <h5 class="header">ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="white-text" target="_blank">aqicn.org</a></h5>
-    <div id="aqi-block" class="aqi-block grey darken-1"></div>
-    <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
+  <div class="card-panel grey darken-1 aqi-open-block modal-trigger" data-target="modal" data-identity="aqi" data-url="../content/aqi.html?v=8.3.0">
+    <h5 class="header">ข้อมูลคุณภาพอากาศ AQI</h5>
   </div>
 
   <a href="https://www.notion.so/RainRadar-1e747bde466749aa8ae07b8a5f88d416" target="_blank" rel="nofollow" class="white-text">
     <div class="card-panel indigo get-started-block">
-      <b>ใช้งานเป็นครั้งแรก? คลิกที่นี่เพื่อดูวิธีใช้งานเบื้องต้น</b>
+        <h5 class="header flow-text">ใช้งานเป็นครั้งแรก? คลิกที่นี่เพื่อดูวิธีใช้งานเบื้องต้น</h5>
     </div>
   </a>
 
-  <div class="card-panel green">
+  <div class="card-panel green darken-1">
     หากพบปัญหาในการใช้งาน ลองดูที่เมนู > ช่วยเหลือ
     <br />ต้องการแจ้งปัญหา, ติชม หรือเสนอแนะ กรอกข้อมูลใน<a class="yellow-text" href="https://goo.gl/forms/xc7GyxU52zxnemPB3" target="_blank">แบบฟอร์มนี้</a>
   </div>
@@ -47,14 +47,14 @@
 
 <script>
 var d = new Date(),
-  xyear = d.getFullYear(),
-  xmonth = (d.getMonth() + 1),
-  xdate = d.getDate(),
-  rdate = d.getDate(),
-  xdate2 = (d.getDate() - 1),
-  xhour = d.getHours(),
-  fcimg = $("#tmdforecast");
-rnimg = $("#tmdheavyrain");
+    xyear = d.getFullYear(),
+    xmonth = (d.getMonth() + 1),
+    xdate = d.getDate(),
+    rdate = d.getDate(),
+    xdate2 = (d.getDate() - 1),
+    xhour = d.getHours(),
+    fcimg = $("#tmdforecast");
+    rnimg = $("#tmdheavyrain");
 
 if (xmonth < 10) {
   xmonth = "0" + xmonth;
@@ -101,71 +101,6 @@ fcimg.on('error', function() {
   }
 });
 
-(function(w, d, t, f) {
-  w[f] = w[f] || function(c, k, n) {
-    s = w[f], k = s['k'] = (s['k'] || (k ? ('&k=' + k) : ''));
-    s['c'] =
-      c = (c instanceof Array) ? c : [c];
-    s['n'] = n = n || 0;
-    L = d.createElement(t), e = d.getElementsByTagName(t)[0];
-    L.async = 1;
-    L.src = '//feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
-    e.parentNode.insertBefore(L, e);
-  };
-})(window, document, 'script', '_aqiFeed');
-
-var cities = [
-  "bangkok",
-  "thailand/regional-environmental-office-8/",
-  "rayong",
-  "thailand/saraburi/khao-noi-fire-station/",
-  "thailand/nakhon-sawan/nakhonsawan-irrigation/",
-  "thailand/tak/mae-sot/mae-pa/",
-  "thailand/lampang-meteorological-station/",
-  "chiang-mai",
-  "mueang-chiang-rai",
-  "thailand/khonkaen",
-  "thailand/surat-thani/regional-environmental-office-14/",
-  "thailand/phuket/municipal-health-center-1/"
-];
-var aqiWidgetConfig = [];
-cities.forEach(function(city) {
-  aqiWidgetConfig.push({
-    city: city,
-    callback: displayCity,
-  });
-});
-_aqiFeed(aqiWidgetConfig);
-
-function displayCity(aqi) {
-
-  //console.log(aqi);
-
-  if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ";
-  if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
-  if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
-  if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
-  if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
-  if (/Tak/i.test(aqi.cityname)) aqi.cityname = "อ.แม่สอด, ตาก";
-  if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
-  if (aqi.cityname === "Chiang Mai") aqi.cityname = "เชียงใหม่";
-  if (aqi.cityname === "Mueang Chiang Rai") aqi.cityname = "เชียงราย";
-  if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
-  if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
-  if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
-  if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
-  if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
-  if (aqi.impact === "Unhealthy for Sensitive Groups") aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
-  if (aqi.impact === "Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพ";
-  if (aqi.impact === "Very Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพมาก";
-  if (aqi.impact === "Hazardous") aqi.impact = "อันตราย";
-  if (aqi.impact === "no data") aqi.impact = "ไม่มีข้อมูล";
-
-  $("#aqi-block").append(aqi.text(
-    "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
-  ));
-}
-
 function resizeIframe(obj) {
   obj.style.height = 0;
   obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
@@ -194,6 +129,21 @@ $('#alert-header').on('load', function() {
   resizeIframe(this);
   $(this).contents().find("body").on('click', function(event) {
     loadWeatherAlert();
+  });
+});
+
+$(".modal-trigger").click(function() {
+  modalhash = window.location.hash;
+  var data = $(this).data();
+  $(".modal").attr("alt", data.identity);
+  window.history.replaceState({}, "", "/#" + data.identity);
+  gtag('config', 'UA-78233854-2', {
+    'page_path': '/#' + data.identity
+  });
+  mdcnt.load(data.url, function(response, status) {
+    if (status == "error") {
+      mdcnt.html("ไม่สามารถโหลดข้อมูล");
+    }
   });
 });
 

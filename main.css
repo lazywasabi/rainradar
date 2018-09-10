@@ -95,7 +95,8 @@ span.badge.new {
 
 /* main screen */
 
-.home-content .header {
+.home-content .header,
+.block-header {
   font-weight: 700;
   margin: 0;
 }
@@ -114,7 +115,8 @@ span.badge.new {
   letter-spacing: 0.035em;
 }
 
-.weather-alert-block {
+.weather-alert-block,
+.aqi-open-block {
   cursor: pointer;
 }
 
@@ -189,8 +191,11 @@ span.badge.new {
 
 /* aqi */
 
+.aqi-container-block {
+  text-align: center;
+}
+
 .aqi-block {
-  background: #eee;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -228,6 +233,10 @@ span.badge.new {
 .modal.modal-fixed-footer {
   max-height: 80%;
   height: 80%;
+}
+
+.modal .modal-content {
+  overflow-x: hidden;
 }
 
 .modal[alt="about"] {

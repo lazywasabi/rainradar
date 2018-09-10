@@ -118,7 +118,7 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert/)) {
+      if (modalhash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/)) {
         window.history.replaceState({}, "", "/#home");
         stxt.load("../content/home.html?v=8.3.0");
         gtag('config', 'UA-78233854-2', {
@@ -223,7 +223,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if (hash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert/)) {
+  if (hash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/)) {
     $('#modal').modal('open');
   }
 
@@ -236,12 +236,12 @@ $(document).ready(function() {
   */
 
   // Get status
-  $.getJSON("https://radarstatus.openbase.co/active-incident.json", function(data){
-    if ( !data.items[0] ) {
-        console.log("Good news! No incident report!")
+  $.getJSON("https://radarstatus.openbase.co/active-incident.json", function(data) {
+    if (!data.items[0]) {
+      console.log("Good news! No incident report!")
     } else {
       $(".service-status-container").show();
-      $.each(data.items, function(i,items){
+      $.each(data.items, function(i, items) {
         content = '<p><b>' + items.title + '</b>';
         content += '<br/>' + items.content_html + '<br/>';
         content += '[ คลิกที่นี่เพื่อดูข้อมูลเพิ่มเติม → ]</p>';

@@ -1,0 +1,72 @@
+<div class="aqi-container-block grey lighten-5">
+  <h5 class="block-header">ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="black-text" target="_blank">aqicn.org</a></h5>
+  <div id="aqi-block" class="aqi-block grey lighten-5"></div>
+  <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
+</div>
+<script>
+(function(w, d, t, f) {
+  w[f] = w[f] || function(c, k, n) {
+    s = w[f], k = s['k'] = (s['k'] || (k ? ('&k=' + k) : ''));
+    s['c'] =
+      c = (c instanceof Array) ? c : [c];
+    s['n'] = n = n || 0;
+    L = d.createElement(t), e = d.getElementsByTagName(t)[0];
+    L.async = 1;
+    L.src = '//feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
+    e.parentNode.insertBefore(L, e);
+  };
+})(window, document, 'script', '_aqiFeed');
+
+var cities = [
+  "bangkok",
+  "thailand/regional-environmental-office-8/",
+  "rayong",
+  "thailand/saraburi/khao-noi-fire-station/",
+  "thailand/nakhon-sawan/nakhonsawan-irrigation/",
+  "thailand/tak/mae-sot/mae-pa/",
+  "thailand/lampang-meteorological-station/",
+  "chiang-mai",
+  "mueang-chiang-rai",
+  "thailand/khonkaen",
+  "thailand/surat-thani/regional-environmental-office-14/",
+  "thailand/phuket/municipal-health-center-1/"
+];
+var aqiWidgetConfig = [];
+cities.forEach(function(city) {
+  aqiWidgetConfig.push({
+    city: city,
+    callback: displayCity,
+  });
+});
+_aqiFeed(aqiWidgetConfig);
+
+function displayCity(aqi) {
+
+  //console.log(aqi);
+
+  if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ";
+  if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
+  if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
+  if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
+  if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
+  if (/Tak/i.test(aqi.cityname)) aqi.cityname = "อ.แม่สอด, ตาก";
+  if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
+  if (aqi.cityname === "Chiang Mai") aqi.cityname = "เชียงใหม่";
+  if (aqi.cityname === "Mueang Chiang Rai") aqi.cityname = "เชียงราย";
+  if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
+  if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
+  if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
+  if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
+  if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
+  if (aqi.impact === "Unhealthy for Sensitive Groups") aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
+  if (aqi.impact === "Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพ";
+  if (aqi.impact === "Very Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพมาก";
+  if (aqi.impact === "Hazardous") aqi.impact = "อันตราย";
+  if (aqi.impact === "no data") aqi.impact = "ไม่มีข้อมูล";
+
+  $("#aqi-block").append(aqi.text(
+    "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
+  ));
+}
+
+</script>
