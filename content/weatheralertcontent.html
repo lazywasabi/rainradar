@@ -1,0 +1,39 @@
+<script src="https://feeds.feedburner.com/rainradar/tmd-weather-alert?format=sigpro&nItems=1&displayExcerpts=true&excerptFormat=full" type="text/javascript"></script>
+
+<style>
+@font-face {
+  font-family: 'Noto Sans Thai UI Alpha';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/fonts/NotoSansThaiUI-Regular.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/pknme/rainradar@7.0.0/fonts/NotoSansThaiUI-Regular.woff") format("woff")
+}
+
+.feedburnerFeedBlock ul {
+  margin: 0;
+  padding: 0;
+}
+
+.feedburnerFeedBlock ul li {
+  display: inline-block;
+  font-family: system-ui, sans-serif;
+}
+
+.headline a {
+  display: block;
+  font-family: "Noto Sans Thai UI", system-ui, sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+}
+
+#creditfooter {
+  display: none;
+}
+
+</style>
+
+<script>
+document.getElementsByTagName("a")[0].removeAttribute("href");
+
+</script>

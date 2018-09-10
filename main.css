@@ -118,7 +118,7 @@ span.badge.new {
 .feedburnerFeedBlock .headline a {
   color: #fff;
   display: inline-block;
-  font-family: "Noto Sans Thai UI", system-ui;
+  font-family: "Noto Sans Thai UI", system-ui, sans-serif;
   font-size: 1.1em;
   text-decoration: none;
 }

@@ -9,12 +9,12 @@ var hash = window.location.hash,
   anilink = $(".animated-radar"),
   twnotice = $(".traffic-notice"),
   unitnotice = $(".radar-unit-notice"),
-  tmdAlert = $(".weather-alert-block");
+  tmdAlertBlock = $(".weather-alert-block");
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
   stxt.load("../content/home.html?v=8.3.0");
-  tmdAlert.show();
+  tmdAlertBlock.show();
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
@@ -51,7 +51,7 @@ $(document).ready(function() {
     anilink.hide();
     tw.hide();
     twnotice.hide();
-    tmdAlert.hide();
+    tmdAlertBlock.hide();
     img.removeAttr("src");
     img.show();
     if (location.protocol === 'https:') {
@@ -121,9 +121,9 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
+      if (modalhash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert/)) {
         window.history.replaceState({}, "", "/#home");
-        tmdAlert.show();
+        tmdAlertBlock.show();
         stxt.load("../content/home.html?v=8.3.0");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
@@ -160,7 +160,7 @@ $(document).ready(function() {
       img.hide();
       ldg.hide();
       anilink.hide();
-      tmdAlert.hide();
+      tmdAlertBlock.hide();
       stxt.html("<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>");
       ldg.show();
       twnotice.show();
@@ -222,14 +222,14 @@ $(document).ready(function() {
     tw.hide();
     twnotice.hide();
     stxt.load("../content/home.html?v=8.3.0");
-    tmdAlert.show();
+    tmdAlertBlock.show();
   });
 
   // Load image by url
   $(hash).click();
 
   // Open modal by url
-  if (hash.match(/faq|about|termsandprivacy|ddslinks|radarclosed/)) {
+  if (hash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert/)) {
     $('#modal').modal('open');
   }
 
