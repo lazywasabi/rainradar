@@ -124,6 +124,11 @@ $(document).ready(function() {
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
+      } else if (modalhash = "#home") {
+        window.history.replaceState({}, "", '#home');
+        gtag('config', 'UA-78233854-2', {
+          'page_path': '/#home'
+        });
       } else {
         window.history.replaceState({}, "", modalhash);
         gtag('config', 'UA-78233854-2', {
