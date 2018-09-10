@@ -95,10 +95,14 @@ span.badge.new {
 
 /* main screen */
 
-.home-content .header,
 .block-header {
   font-weight: 700;
   margin: 0;
+}
+
+.home-content .new-badge {
+  padding: 0 5px;
+  font-size: .85em;
 }
 
 .service-status-container {
@@ -214,6 +218,11 @@ span.badge.new {
   border: 0;
 }
 
+.aqi-title {
+  font-size: 1em;
+  font-weight: 700;
+}
+
 @media only screen and (min-width: 870px) {
   .aqi-display {
     flex-basis: 33.333%;
@@ -221,6 +230,10 @@ span.badge.new {
 
   .aqi-display:nth-last-child(-n+3) {
     border: 0;
+  }
+
+  .aqi-title {
+    font-size: 1.25em;
   }
 }
 

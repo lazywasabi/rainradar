@@ -1,5 +1,6 @@
 <div class="aqi-container-block grey lighten-5">
-  <h5 class="block-header">ข้อมูลคุณภาพอากาศจาก <a href="https://aqicn.org" class="black-text" target="_blank">aqicn.org</a></h5>
+  <h5 class="aqi-header block-header">ข้อมูลคุณภาพอากาศ (AQI)</h5>
+  <p>ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">aqicn.org</a> และ <a href="http://aqmthai.com/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a></p>
   <div id="aqi-block" class="aqi-block grey lighten-5"></div>
   <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
 </div>
@@ -18,8 +19,13 @@
 })(window, document, 'script', '_aqiFeed');
 
 var cities = [
-  "bangkok",
+  /* "bangkok",*/
+  "thailand/bangkok/chulalongkorn-hospital/",
+  "thailand/bangkok/thonburi-power-sub-station/",
+  "thailand/bangkok/chokchai-police-station/",
+  "thailand/pathum-thani/bangkok-university-rangsit-campus/",
   "thailand/regional-environmental-office-8/",
+  "thailand/chonburi/general-education-office/",
   "rayong",
   "thailand/saraburi/khao-noi-fire-station/",
   "thailand/nakhon-sawan/nakhonsawan-irrigation/",
@@ -27,7 +33,9 @@ var cities = [
   "thailand/lampang-meteorological-station/",
   "chiang-mai",
   "mueang-chiang-rai",
+  "thailand/phayao/knowledge-park/",
   "thailand/khonkaen",
+  "thailand/nakhon-ratchasima/municipal-waste-water-pumping-station/",
   "thailand/surat-thani/regional-environmental-office-14/",
   "thailand/phuket/municipal-health-center-1/"
 ];
@@ -44,16 +52,23 @@ function displayCity(aqi) {
 
   //console.log(aqi);
 
-  if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ";
+  if (/Chulalongkorn/i.test(aqi.cityname)) aqi.cityname = "ศาลาแดง, กทม.";
+  if (/Thonburi/i.test(aqi.cityname)) aqi.cityname = "วงเวียนใหญ่, กทม.";
+  if (/Chokchai/i.test(aqi.cityname)) aqi.cityname = "โชคชัย 4, กทม.";
+  if (/Rangsit/i.test(aqi.cityname)) aqi.cityname = "คลองหลวง, ปทุมธานี";
+  /* if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ"; */
   if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
+  if (/Chonburi/i.test(aqi.cityname)) aqi.cityname = "ชลบุรี";
   if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
   if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
   if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
-  if (/Tak/i.test(aqi.cityname)) aqi.cityname = "อ.แม่สอด, ตาก";
+  if (/Tak/i.test(aqi.cityname)) aqi.cityname = "แม่สอด, ตาก";
   if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
   if (aqi.cityname === "Chiang Mai") aqi.cityname = "เชียงใหม่";
   if (aqi.cityname === "Mueang Chiang Rai") aqi.cityname = "เชียงราย";
+  if (/Phayao/i.test(aqi.cityname)) aqi.cityname = "พะเยา";
   if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
+  if (/Ratchasima/i.test(aqi.cityname)) aqi.cityname = "นครราชสีมา";
   if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
   if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
   if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
@@ -65,7 +80,7 @@ function displayCity(aqi) {
   if (aqi.impact === "no data") aqi.impact = "ไม่มีข้อมูล";
 
   $("#aqi-block").append(aqi.text(
-    "<div class=\"aqi-display\"><div class=\"flow-text\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
+    "<div class=\"aqi-display\"><div class=\"aqi-title\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
   ));
 }
 

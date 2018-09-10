@@ -13,29 +13,29 @@
   </a>-->
 
   <div class="card-panel indigo weather-alert-block white-text">
-    <h5 class="header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
+    <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
     <iframe id="alert-header" src="/content/weatheralertheader.html" frameborder="0"></iframe>
   </div>
 
+  <div class="card-panel grey darken-1 aqi-open-block modal-trigger" data-target="modal" data-identity="aqi" data-url="../content/aqi.html?v=8.3.0">
+    <h5 class="block-header"><span class="new-badge white-text red">ใหม่</span> ข้อมูลคุณภาพอากาศ (AQI)</h5>
+  </div>
+
   <div class="card-panel pink fc-block">
-    <h5 class="header flow-text">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
+    <h5 class="block-header flow-text">พยากรณ์อากาศจากกรมอุตุนิยมวิทยา</h5>
     <br><img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
 
   </div>
 
   <div class="card-panel blue-grey heavy-rain-block">
-    <h5 class="header flow-text">แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมาก</h5>
+    <h5 class="block-header flow-text">แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมาก</h5>
     <br><img id="tmdheavyrain" src="" alt="แผนที่แสดงพื้นที่เสี่ยงภัยฝนตกหนักถึงหนักมากประจำวันจากกรมอุตุนิยมวิทยา">
 
   </div>
 
-  <div class="card-panel grey darken-1 aqi-open-block modal-trigger" data-target="modal" data-identity="aqi" data-url="../content/aqi.html?v=8.3.0">
-    <h5 class="header">ข้อมูลคุณภาพอากาศ AQI</h5>
-  </div>
-
   <a href="https://www.notion.so/RainRadar-1e747bde466749aa8ae07b8a5f88d416" target="_blank" rel="nofollow" class="white-text">
     <div class="card-panel indigo get-started-block">
-        <h5 class="header flow-text">ใช้งานเป็นครั้งแรก? คลิกที่นี่เพื่อดูวิธีใช้งานเบื้องต้น</h5>
+        <h5 class="block-header flow-text">ใช้งานเป็นครั้งแรก? คลิกที่นี่เพื่อดูวิธีใช้งานเบื้องต้น</h5>
     </div>
   </a>
 
@@ -133,7 +133,7 @@ $('#alert-header').on('load', function() {
 });
 
 $(".modal-trigger").click(function() {
-  modalhash = window.location.hash;
+  modalhash = "home";
   var data = $(this).data();
   $(".modal").attr("alt", data.identity);
   window.history.replaceState({}, "", "/#" + data.identity);
