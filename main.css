@@ -95,6 +95,11 @@ span.badge.new {
 
 /* main screen */
 
+.home-content .header {
+  font-weight: 700;
+  margin: 0;
+}
+
 .service-status-container {
   display: none;
 }
@@ -110,29 +115,13 @@ span.badge.new {
 }
 
 .weather-alert-block {
-  display: none;
   cursor: pointer;
 }
 
-.feedburnerFeedBlock ul {
-  margin: 0;
-  padding: 0;
-}
-
-.feedburnerFeedBlock ul li {
-  display: inline-block;
-}
-
-.feedburnerFeedBlock .headline a {
-  color: #fff;
-  display: inline-block;
-  font-family: "Noto Sans Thai UI", system-ui, sans-serif;
-  font-size: 1.1em;
-  text-decoration: none;
-}
-
-.feedburnerFeedBlock #creditfooter {
-  display: none;
+.weather-alert-block iframe {
+  margin-top: .75rem;
+  width: 100%;
+  height: 0px;
 }
 
 .traffic-notice {

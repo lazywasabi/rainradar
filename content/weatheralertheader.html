@@ -1,5 +1,4 @@
-<h2 class="tmd-alert-header">ประกาศกรมอุตุนิยมวิทยา</h2>
-<script src="https://feeds.feedburner.com/rainradar/tmd-weather-alert?format=sigpro&nItems=1&displayExcerpts=true&excerptFormat=full" type="text/javascript"></script>
+<script src="https://feeds.feedburner.com/rainradar/tmd-weather-alert?format=sigpro" type="text/javascript"></script>
 
 <style>
 @font-face {
@@ -11,12 +10,8 @@
 }
 
 body {
+  cursor: pointer;
   padding: 0;
-  margin: 0;
-}
-
-h2.tmd-alert-header {
-  font-family: "Noto Sans Thai UI", system-ui, sans-serif;
   margin: 0;
   text-align: center;
 }
@@ -28,19 +23,18 @@ h2.tmd-alert-header {
 
 .feedburnerFeedBlock ul li {
   display: inline-block;
-  font-family: system-ui, sans-serif;
 }
 
-.headline a {
-  display: block;
+.feedburnerFeedBlock .headline a {
+  color: #fff;
+  display: inline-block;
   font-family: "Noto Sans Thai UI", system-ui, sans-serif;
-  font-size: 1.15em;
-  font-weight: 700;
-  margin-bottom: 1.25em;
+  font-size: 1.1em;
   text-align: center;
+  text-decoration: none;
 }
 
-#creditfooter {
+.feedburnerFeedBlock #creditfooter {
   display: none;
 }
 
