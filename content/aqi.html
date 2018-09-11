@@ -1,6 +1,9 @@
 <div class="aqi-container-block grey lighten-5">
   <h5 class="aqi-header block-header">ข้อมูลคุณภาพอากาศ (AQI)</h5>
-  <p>ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">aqicn.org</a> และ <a href="http://aqmthai.com/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a></p>
+  <p>
+    ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">aqicn.org</a> และ <a href="http://aqmthai.com/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a>
+    <br />จังหวัดที่ไม่ได้ระบุสถานที่หมายถึงอำเภอเมือง
+  </p>
   <div id="aqi-block" class="aqi-block grey lighten-5"></div>
   <h6>*กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ</h6>
 </div>
@@ -26,18 +29,24 @@ var cities = [
   "thailand/pathum-thani/bangkok-university-rangsit-campus/",
   "thailand/regional-environmental-office-8/",
   "thailand/chonburi/general-education-office/",
+  "thailand/chonburi/laem-chabang-municipal-stadium/",
   "rayong",
   "thailand/saraburi/khao-noi-fire-station/",
   "thailand/nakhon-sawan/nakhonsawan-irrigation/",
   "thailand/tak/mae-sot/mae-pa/",
   "thailand/lampang-meteorological-station/",
-  "chiang-mai",
-  "mueang-chiang-rai",
-  "thailand/phayao/knowledge-park/",
+  "thailand/lamphun/provincial-administrative-stadium/",
+  "thailand/chiangmai/yupparaj-wittayalai-school/",
+  "thailand/chiangmai/city-hall/",
+  "thailand/chiangmai/maerim---prem/",
+  "thailand/mae-hongson/natural-resources-and-environment-office/",
+  "thailand/chiangrai/natural-resources-and-environment-office/",
+  "thailand/nan/municipality-office/",
   "thailand/khonkaen",
   "thailand/nakhon-ratchasima/municipal-waste-water-pumping-station/",
   "thailand/surat-thani/regional-environmental-office-14/",
-  "thailand/phuket/municipal-health-center-1/"
+  "thailand/phuket/municipal-health-center-1/",
+  "thailand/narathiwat/city-hall/"
 ];
 var aqiWidgetConfig = [];
 cities.forEach(function(city) {
@@ -55,22 +64,28 @@ function displayCity(aqi) {
   if (/Chulalongkorn/i.test(aqi.cityname)) aqi.cityname = "ศาลาแดง, กทม.";
   if (/Thonburi/i.test(aqi.cityname)) aqi.cityname = "วงเวียนใหญ่, กทม.";
   if (/Chokchai/i.test(aqi.cityname)) aqi.cityname = "โชคชัย 4, กทม.";
-  if (/Rangsit/i.test(aqi.cityname)) aqi.cityname = "คลองหลวง, ปทุมธานี";
+  if (/Rangsit/i.test(aqi.cityname)) aqi.cityname = "ม.กรุงเทพ, ปทุมธานี";
   /* if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ"; */
   if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
-  if (/Chonburi/i.test(aqi.cityname)) aqi.cityname = "ชลบุรี";
+  if (/General Education Office, Chonburi/i.test(aqi.cityname)) aqi.cityname = "ชลบุรี";
+  if (/Laem Chabang/i.test(aqi.cityname)) aqi.cityname = "แหลมฉบัง, ชลบุรี";
   if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
   if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
   if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
   if (/Tak/i.test(aqi.cityname)) aqi.cityname = "แม่สอด, ตาก";
   if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
-  if (aqi.cityname === "Chiang Mai") aqi.cityname = "เชียงใหม่";
-  if (aqi.cityname === "Mueang Chiang Rai") aqi.cityname = "เชียงราย";
-  if (/Phayao/i.test(aqi.cityname)) aqi.cityname = "พะเยา";
+  if (/Lamphun/i.test(aqi.cityname)) aqi.cityname = "ลำพูน";
+  if (/Yupparaj/i.test(aqi.cityname)) aqi.cityname = "ท่าแพ, เชียงใหม่";
+  if (/Chiangmai/i.test(aqi.cityname)) aqi.cityname = "ศูนย์ราชการ, เชียงใหม่";
+  if (/MaeRim/i.test(aqi.cityname)) aqi.cityname = "แม่ริม, เชียงใหม่";
+  if (/Mae Hongson/i.test(aqi.cityname)) aqi.cityname = "แม่ฮ่องสอน";
+  if (/Chiangrai/i.test(aqi.cityname)) aqi.cityname = "เชียงราย";
+  if (/Nan/i.test(aqi.cityname)) aqi.cityname = "น่าน";
   if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
   if (/Ratchasima/i.test(aqi.cityname)) aqi.cityname = "นครราชสีมา";
   if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
   if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
+  if (/Narathiwat/i.test(aqi.cityname)) aqi.cityname = "นราธิวาส";
   if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
   if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
   if (aqi.impact === "Unhealthy for Sensitive Groups") aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
