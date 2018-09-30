@@ -93,10 +93,10 @@ fcimg.on('error', function() {
     fcimg.attr("src", fcimgurl);
     console.log(forecastdate + xdate2 + "-2300");
     fcimg.on('error', function() {
-      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้</a>");
+      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ข้อมูลพยากรณ์อากาศได้</a>");
     });
   } else {
-    $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ช้อมูลพยากรณ์อากาศได้</a>");
+    $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ข้อมูลพยากรณ์อากาศได้</a>");
     console.log(forecastdate + " - " + xhour);
   }
 });
