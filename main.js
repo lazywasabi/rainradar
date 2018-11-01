@@ -27,7 +27,8 @@ $(document).ready(function() {
     $(".gif-badge").hide();
   }
 
-  $(".loadradar").click(function() {
+  $(".loadradar").click(function(e) {
+    e.preventDefault();
     var data = $(this).data(),
       radarName = data.title,
       aniRadarName = data.anititle,
@@ -71,8 +72,10 @@ $(document).ready(function() {
     }
     if (data.type == "info") {
       stxt.html("<h5>" + data.title + "</h5>ข้อมูลจาก" + data.src);
+      document.title = data.title + " | RainRadar";
     } else {
       stxt.html("<h5>เรดาร์" + radarName + "</h5>ภาพเรดาร์จาก" + data.src);
+      document.title = "เรดาร์" + radarName + " | RainRadar";
     }
     ldg.show();
     img.on('load', function() {
@@ -147,6 +150,7 @@ $(document).ready(function() {
   });
 
   loadtw.click(function() {
+    document.title = "ข้อมูลการจราจร | RainRadar";
     window.history.replaceState({}, "", "/#traffic");
     gtag('config', 'UA-78233854-2', {
       'page_path': '/#traffic'

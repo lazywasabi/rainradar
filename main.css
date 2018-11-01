@@ -77,6 +77,10 @@ span.badge.new {
   transition: top .2s ease-in-out;
 }
 
+li a.loadradar {
+  display: block !important;
+}
+
 /* tab */
 
 .tabs {
@@ -86,7 +90,6 @@ span.badge.new {
 .tabs .tab {
   font-size: 1.1em;
   letter-spacing: normal;
-  min-width: 4.8em;
 }
 
 .indicator {
