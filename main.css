@@ -77,7 +77,8 @@ span.badge.new {
   transition: top .2s ease-in-out;
 }
 
-li a.loadradar {
+li a.loadradar,
+li a.loadtwitter {
   display: block !important;
 }
 
