@@ -12,7 +12,7 @@ var hash = window.location.hash,
 
 if (hash == "") {
   window.history.replaceState({}, "", "/#home");
-  stxt.load("../content/home.html?v=8.3.3");
+  stxt.load("../content/home.html?v=8.4.0");
   gtag('config', 'UA-78233854-2', {
     'page_path': '/#home'
   });
@@ -54,13 +54,13 @@ $(document).ready(function() {
     img.show();
     if (location.protocol === 'https:') {
       if (data.cache == "20") {
-        img.attr("src", "https://images-api-cdn.pakin.me/rainradar/i/" + time20 + "/" + data.img + "?rainradar=8.3.3");
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.3.3" + time20);
+        img.attr("src", "https://images-api-cdn.pakin.me/rainradar/i/" + time20 + "/" + data.img + "?rainradar=8.4.0");
+        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.4.0" + time20);
       } else if (data.imganiold === "yes") {
         img.attr("src", "https://cdn.pakin.me/storage/images/blank.gif");
       } else {
-        img.attr("src", "https://images-api-cdn.pakin.me/rainradar/i/" + time5 + "/" + data.img + "?rainradar=8.3.3");
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.3.3" + time5);
+        img.attr("src", "https://images-api-cdn.pakin.me/rainradar/i/" + time5 + "/" + data.img + "?rainradar=8.4.0");
+        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.4.0" + time5);
         if (data.imgani === "yes") {
           anilink.html("<a class=\"waves-effect waves-light blue btn-large\" href=\"http://nossl.radar.openbase.co/#" + radarId + "ani\"><img class=\"animated-radar-button\" src=\"/img/play.png\"/> ดูเรดาร์" + aniRadarName + "แบบเคลื่อนไหว</a>");
           anilink.show();
@@ -121,7 +121,7 @@ $(document).ready(function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
       if (modalHash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/)) {
         window.history.replaceState({}, "", "/#home");
-        stxt.load("../content/home.html?v=8.3.3");
+        stxt.load("../content/home.html?v=8.4.0");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
@@ -223,7 +223,7 @@ $(document).ready(function() {
     img.hide();
     tw.hide();
     twnotice.hide();
-    stxt.load("../content/home.html?v=8.3.3");
+    stxt.load("../content/home.html?v=8.4.0");
   });
 
   // Load image by url
