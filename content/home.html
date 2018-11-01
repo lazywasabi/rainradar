@@ -132,8 +132,10 @@ $('#alert-header').on('load', function() {
   });
 });
 
+var modalHash = '#home';
+
 $(".modal-trigger").click(function() {
-  modalhash = "home";
+  var modalHash = '#home';
   var data = $(this).data();
   $(".modal").attr("alt", data.identity);
   window.history.replaceState({}, "", "/#" + data.identity);
@@ -146,5 +148,4 @@ $(".modal-trigger").click(function() {
     }
   });
 });
-
 </script>

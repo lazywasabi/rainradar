@@ -93,10 +93,8 @@ $(document).ready(function() {
     });
   });
 
-  var modalhash = window.location.hash;
-
   $(".modal-trigger").click(function() {
-    modalhash = window.location.hash;
+    modalHash = window.location.hash;
     var data = $(this).data();
     $(".modal").attr("alt", data.identity);
     window.history.replaceState({}, "", "/#" + data.identity);
@@ -118,21 +116,21 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html("กำลังโหลดข้อมูล กรุณารอสักครู่");
-      if (modalhash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/)) {
+      if (modalHash.match(/help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/)) {
         window.history.replaceState({}, "", "/#home");
         stxt.load("../content/home.html?v=8.3.3");
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
-      } else if (modalhash = "#home") {
+      } else if (modalHash === "#home") {
         window.history.replaceState({}, "", '#home');
         gtag('config', 'UA-78233854-2', {
           'page_path': '/#home'
         });
       } else {
-        window.history.replaceState({}, "", modalhash);
+        window.history.replaceState({}, "", modalHash);
         gtag('config', 'UA-78233854-2', {
-          'page_path': '/' + modalhash
+          'page_path': '/' + modalHash
         });
       }
     }
