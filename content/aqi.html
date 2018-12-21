@@ -1,7 +1,7 @@
 <div class="aqi-container-block grey lighten-5">
   <h5 class="aqi-header block-header">ข้อมูลคุณภาพอากาศ (AQI)</h5>
   <p>
-    ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">aqicn.org</a> และ <a href="http://aqmthai.com/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a>
+    ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">aqicn.org</a>, <a href="http://aqmthai.com/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a> และ <a href="https://www.cmuccdc.org/" target="_blank" rel="noopener noreferrer">CMU CCDC</a>
     <br />จังหวัดที่ไม่ได้ระบุสถานที่หมายถึงอำเภอเมือง
   </p>
   <div id="aqi-block" class="aqi-block grey lighten-5"></div>
@@ -24,14 +24,19 @@
 var cities = [
   /* "bangkok",*/
   "thailand/bangkok/chulalongkorn-hospital/",
+  "thailand/bangkok/ratburana-post-office/",
+  "thailand/bangkok/thai-meteorological-department-bangna/",
   "thailand/bangkok/thonburi-power-sub-station/",
+  "thailand/bkk/saphan-khwai/",
   "thailand/bangkok/chokchai-police-station/",
   "thailand/pathum-thani/bangkok-university-rangsit-campus/",
+  "thailand/samut-sakhon/provincial-administrative-organization/",
   "thailand/regional-environmental-office-8/",
   "thailand/chonburi/general-education-office/",
   "thailand/chonburi/laem-chabang-municipal-stadium/",
   "rayong",
   "thailand/saraburi/khao-noi-fire-station/",
+  "thailand/ayutthaya/ayutthaya-witthayalai-school/",
   "thailand/nakhon-sawan/nakhonsawan-irrigation/",
   "thailand/tak/mae-sot/mae-pa/",
   "thailand/lampang-meteorological-station/",
@@ -43,9 +48,7 @@ var cities = [
   "thailand/chiangrai/natural-resources-and-environment-office/",
   "thailand/nan/municipality-office/",
   "thailand/khonkaen",
-  "thailand/nakhon-ratchasima/municipal-waste-water-pumping-station/",
   "thailand/surat-thani/regional-environmental-office-14/",
-  "thailand/phuket/municipal-health-center-1/",
   "thailand/narathiwat/city-hall/"
 ];
 var aqiWidgetConfig = [];
@@ -61,16 +64,21 @@ function displayCity(aqi) {
 
   //console.log(aqi);
 
-  if (/Chulalongkorn/i.test(aqi.cityname)) aqi.cityname = "ศาลาแดง, กทม.";
   if (/Thonburi/i.test(aqi.cityname)) aqi.cityname = "วงเวียนใหญ่, กทม.";
+  if (/Ratburana/i.test(aqi.cityname)) aqi.cityname = "ราษฎร์บูรณะ, กทม.";
+  if (/Thai Meteorological/i.test(aqi.cityname)) aqi.cityname = "บางนา, กทม.";
+  if (/Chulalongkorn/i.test(aqi.cityname)) aqi.cityname = "ศาลาแดง, กทม.";
+  if (/Saphan Khwai/i.test(aqi.cityname)) aqi.cityname = "สะพานควาย, กทม.";
   if (/Chokchai/i.test(aqi.cityname)) aqi.cityname = "โชคชัย 4, กทม.";
   if (/Rangsit/i.test(aqi.cityname)) aqi.cityname = "ม.กรุงเทพ, ปทุมธานี";
+  if (/Samut Sakhon/i.test(aqi.cityname)) aqi.cityname = "สมุทรสาคร";
   /* if (aqi.cityname === "Bangkok") aqi.cityname = "กรุงเทพฯ"; */
   if (/office 8/i.test(aqi.cityname)) aqi.cityname = "ราชบุรี";
   if (/General Education Office, Chonburi/i.test(aqi.cityname)) aqi.cityname = "ชลบุรี";
   if (/Laem Chabang/i.test(aqi.cityname)) aqi.cityname = "แหลมฉบัง, ชลบุรี";
   if (aqi.cityname === "Rayong") aqi.cityname = "ระยอง";
   if (/Saraburi/i.test(aqi.cityname)) aqi.cityname = "สระบุรี";
+  if (/Ayutthaya/i.test(aqi.cityname)) aqi.cityname = "พระนครศรีอยุธยา";
   if (/nakhonsawan/i.test(aqi.cityname)) aqi.cityname = "นครสวรรค์";
   if (/Tak/i.test(aqi.cityname)) aqi.cityname = "แม่สอด, ตาก";
   if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
@@ -82,9 +90,7 @@ function displayCity(aqi) {
   if (/Chiangrai/i.test(aqi.cityname)) aqi.cityname = "เชียงราย";
   if (/Nan/i.test(aqi.cityname)) aqi.cityname = "น่าน";
   if (aqi.cityname === "Khonkaen") aqi.cityname = "ขอนแก่น";
-  if (/Ratchasima/i.test(aqi.cityname)) aqi.cityname = "นครราชสีมา";
   if (/Surat/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
-  if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
   if (/Narathiwat/i.test(aqi.cityname)) aqi.cityname = "นราธิวาส";
   if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
   if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
