@@ -12,12 +12,6 @@
     </div>
   </a>-->
 
-  <div class="card-panel red tmd-pm25-block">
-    <a class="pm25-link white-text" target="_blank" rel="noopener noreferrer">
-      <img class="pm25-img" src="" alt="ข้อมูลสภาวะอากาศสนับสนุนการเผ้าระวัง PM2.5">
-    </a>
-  </div>
-
   <div class="card-panel indigo weather-alert-block white-text">
     <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
     <iframe id="alert-header" src="/content/weatheralertheader.html" frameborder="0"></iframe>
@@ -78,21 +72,9 @@ var forecastdate = xyear + "-" + xmonth + "-";
 var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg&w=1024";
 var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH2_1200.jpg&w=1024";
 
-pm25Img = $(".pm25-img");
-pm25Link = $(".pm25-link");
-pm25Date = d.getFullYear() + d.getMonth() + d.getDate() + d.getHours();
-pm25ImgUrl = "https://images.weserv.nl/?url=www.tmd.go.th/images/tmd_info_graphics/pm25.png?t=" + pm25Date;
-pm25Img.attr("src", pm25ImgUrl);
-pm25Link.attr("href", pm25ImgUrl);
-pm25Img.on('error', function() {
-  $(".tmd-pm25-block").hide();
-});
-
 fcimg.attr("src", fcimgurl);
 
 rnimg.attr("src", rnimgurl);
-
-pm25Img.attr("src", pm25ImgUrl);
 
 rnimg.on('error', function() {
   $(".heavy-rain-block").html("ขออภัยไม่สามารถโหลดพื้นที่เสี่ยงภัยฝนตกหนักได้");
