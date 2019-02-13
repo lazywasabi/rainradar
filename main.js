@@ -243,18 +243,16 @@ $(document).ready(function() {
   */
 
   // Get status
-  $.getJSON("https://radarstatus.openbase.co/active-incident.json", function(data) {
-    if (!data.items[0]) {
+	$.getJSON('https://api.sheety.co/ff305574-1482-4f55-b34b-5b987844a6d9', function(data) {
+    if (data[0].display != true) {
       console.log("Good news! No incident report!")
     } else {
-      $(".service-status-container").show();
-      $.each(data.items, function(i, items) {
-        content = '<p><b>' + items.title + '</b>';
-        content += '<br/>' + items.content_html + '<br/>';
-        content += '[ คลิกที่นี่เพื่อดูข้อมูลเพิ่มเติม → ]</p>';
-        $(content).appendTo(".service-status-block");
-        $(".service-status-container").attr("href", "https://radarstatus.openbase.co/?ref=" + items.id);
-      });
+      content = '<p><b class="service-status-title">' + data[0].title + '</b>';
+      content += '<br/>' + data[0].content + '<br/>';
+      content += data[0].link_text + '</p>';
+      $(content).appendTo(".service-status-block");
+      $(".service-status-container").attr("href", data[0].link);
+      $(".service-status-container").css("display", "block");
     }
   });
 
