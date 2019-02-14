@@ -30,8 +30,8 @@
     <div class="video-container">
       <iframe width="100%" height="480" src="https://www.youtube-nocookie.com/embed/videoseries?list=UUQb7LpqAamp5kp9kxXH2pxg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
     </div>
-    <br>
-    <img id="tmdforecast" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
+    <br class="tmd-forecast-image">
+    <img id="tmdforecast" class="tmd-forecast-image" src="" alt="พยากรณ์อากาศประจำวันจากกรมอุตุนิยมวิทยา">
   </div>
 
   <div class="card-panel blue-grey heavy-rain-block">
@@ -100,10 +100,10 @@ fcimg.on('error', function() {
     fcimg.attr("src", fcimgurl);
     console.log(forecastdate + xdate2 + "-2300");
     fcimg.on('error', function() {
-      $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ข้อมูลพยากรณ์อากาศได้</a>");
+      $(".tmd-forecast-image").hide();
     });
   } else {
-    $(".fc-block").html("ขออภัย ไม่สามารถโหลด<a href=" + fcimgurl + " class=\"white-text\">ข้อมูลพยากรณ์อากาศได้</a>");
+    $(".tmd-forecast-image").hide();
     console.log(forecastdate + " - " + xhour);
   }
 });
