@@ -2,9 +2,10 @@
 <html lang="th">
 
 <head>
-  <title>ข้อมูลคุณภาพอากาศ (AQI) BETA - RainRadar</title>
+  <title>ข้อมูลคุณภาพอากาศ (AQI) - RainRadar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
   <!-- social start -->
   <meta name="description" content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ข้อมูลคุณภาพอากาศ AQI ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
   <meta name="twitter:card" content="summary_large_image" />
@@ -44,7 +45,7 @@
   <div class="container center">
     <div class="aqi-container-block">
       <h1 class="aqi-header block-header">ข้อมูลคุณภาพอากาศ (AQI)</h1>
-      <p class="red-text"><b>BETA | เวอร์ชันทดสอบ</b><br><a href="/aqi/">กลับไปใช้เวอร์ชันปกติ</a></p>
+      <p class="red-text aqi-beta-block"><b>เวอร์ชันเก่า</b><br><a href="/aqi/">กลับไปใช้เวอร์ชันทดสอบ</a></p>
       <p>
         จังหวัดที่ไม่ได้ระบุสถานที่หมายถึงอำเภอเมือง
         <br>กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ
@@ -66,7 +67,7 @@
         s['n'] = n = n || 0;
         L = d.createElement(t), e = d.getElementsByTagName(t)[0];
         L.async = 1;
-        L.src = '//aqi-cdn.pakin.me/aqicn/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
+        L.src = '//feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
         e.parentNode.insertBefore(L, e);
       };
     })(window, document, 'script', '_aqiFeed');
@@ -203,11 +204,6 @@
 
     gtag('config', 'UA-78233854-2');
   </script>
-
-  <!-- Start emojicom.io widget -->
-  <script>window.emojicom_widget = { campaign: "b5SvObJOBNIrGu6nIiz2" };</script>
-  <script src="https://cdn.emojicom.io/embed/widget.js" async></script>
-  <!-- End emojicom.io widget -->
 
 </body>
 
