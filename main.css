@@ -198,6 +198,14 @@ li a.loadtwitter {
 
 /* aqi */
 
+.aqi-page.navbar-fixed {
+  height: 85px;
+}
+
+.aqi-header {
+  font-size: 2em;
+}
+
 .aqi-container-block {
   text-align: center;
 }
