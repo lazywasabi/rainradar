@@ -2,7 +2,7 @@
 <html lang="th">
 
 <head>
-  <title>ข้อมูลคุณภาพอากาศ (AQI) - RainRadar</title>
+  <title>ข้อมูลคุณภาพอากาศ (AQI) BETA - RainRadar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- social start -->
@@ -44,8 +44,7 @@
   <div class="container center">
     <div class="aqi-container-block">
       <h1 class="aqi-header block-header">ข้อมูลคุณภาพอากาศ (AQI)</h1>
-      <p><b><a href="/aqi/beta.html">พบปัญหา? ลองใช้เวอร์ชันทดสอบ</a></b></p>
-      <p><a class="red-text" href="https://www.notion.so/dad0b41e3a9447f1a7833a6cb9090492?p=4dd69a8d598442e0988667e7ad95fbca" target="_blank" rel="noopener noreferrer"><b>ประกาศ: เพิ่มข้อมูลในภาคเหนือมากขึ้น และนำข้อมูลภาคอื่นออกชั่วคราว</b></a></p>
+      <p class="red-text"><b>BETA | เวอร์ชันทดสอบ</b><br><a href="/aqi/">กลับไปใช้เวอร์ชันปกติ</a></p>
       <p>
         จังหวัดที่ไม่ได้ระบุสถานที่หมายถึงอำเภอเมือง
         <br>กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ
@@ -67,7 +66,7 @@
         s['n'] = n = n || 0;
         L = d.createElement(t), e = d.getElementsByTagName(t)[0];
         L.async = 1;
-        L.src = '//feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
+        L.src = '//aqi-cdn.pakin.me/aqicn/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
         e.parentNode.insertBefore(L, e);
       };
     })(window, document, 'script', '_aqiFeed');
@@ -204,6 +203,11 @@
 
     gtag('config', 'UA-78233854-2');
   </script>
+
+  <!-- Start emojicom.io widget -->
+  <script>window.emojicom_widget = { campaign: "b5SvObJOBNIrGu6nIiz2" };</script>
+  <script src="https://cdn.emojicom.io/embed/widget.js" async></script>
+  <!-- End emojicom.io widget -->
 
 </body>
 
