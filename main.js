@@ -70,7 +70,7 @@ $ (document).ready (function () {
         );
         //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.4.2" + time20);
       } else if (data.imganiold === 'yes') {
-        img.attr ('src', 'https://cdn.pakin.me/storage/images/blank.gif');
+        img.attr ('src', 'https://static.pkn.sh/blank.gif');
       } else {
         img.attr (
           'src',
