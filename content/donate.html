@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <title>ช่องทางการบริจาคช่วยน้ำท่วนอุบลราชธานี - RainRadar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- social start -->
+  <meta name="description"
+    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ข้อมูลคุณภาพอากาศ AQI ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="http://radar.openbase.co/" />
+  <meta property="og:title" content="เรดาร์ตรวจอากาศ" />
+  <meta property="og:description"
+    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, ข้อมูลคุณภาพอากาศ AQI และประกาศกรมอุตุนิยมวิทยา" />
+  <meta property="og:image" content="http://radar.openbase.co/img/rainradar.png" />
+  <!-- social end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
+    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.css?v=8.4.2" />
+  <link rel="dns-prefetch" href="//rainradarcontent.pkn.sh">
+  <link rel="dns-prefetch" href="//static.pkn.sh">
+  <link rel="dns-prefetch" href="//images.weserv.nl">
+  <!-- icons start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="RainRadar">
+  <meta name="application-name" content="RainRadar">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#2196f3">
+  <!-- icons end -->
+
+  <style>
+    body {
+      background: #fff url('https://static.pkn.sh/rainradar/ubon-flood/ubon-flood-background.jpg') no-repeat fixed center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar-fixed aqi-page">
+    <nav class="nav-extended blue">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">RainRadar</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container center">
+
+    <div class="content">
+      <h1 class="flow-text white-text"
+        style="margin:0;font-weight:bold;text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">
+        บริจาคช่วยน้ำท่วมอุบลราชธานี
+      </h1>
+      <p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FZLdgrN-whk" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </p>
+      <p>
+        <img src="https://static.pkn.sh/rainradar/ubon-flood/ubon-flood-donate-1.jpg"
+          alt="บริจาคช่วยน้ำท่วมอุบลราชธานี">
+        <img src="https://static.pkn.sh/rainradar/ubon-flood/ubon-flood-donate-2.jpg"
+          alt="บริจาคช่วยน้ำท่วมอุบลราชธานี">
+      </p>
+      <p class="white-text">ภาพพื้นหลังโดย <a class="white-text" href="https://www.facebook.com/3erng/" target="_blank"
+          rel="noopener noreferrer">PhotoDroneDrone</a></p>
+    </div>
+
+  </div>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
+  <script>
+    var modalHash = '#home';
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-78233854-2', {
+      'send_page_view': false
+    });
+
+  </script>
+
+</body>
+
+</html>
