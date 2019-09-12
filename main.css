@@ -69,6 +69,10 @@ span.badge.new {
   font-weight: normal;
 }
 
+span.badge.flood-badge {
+  font-size: .9em;
+}
+
 .navbar-fixed {
   height: 120px;
 }
