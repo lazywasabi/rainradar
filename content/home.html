@@ -123,10 +123,10 @@
       fcimg.attr("src", fcimgurl);
       console.log(forecastdate + xdate2 + "-2300");
       fcimg.on('error', function () {
-        $(".tmd-forecast-image").hide();
+        $(".tmd-forecast-image").remove();
       });
     } else {
-      $(".tmd-forecast-image").hide();
+      $(".tmd-forecast-image").remove();
       console.log(forecastdate + " - " + xhour);
     }
   });
