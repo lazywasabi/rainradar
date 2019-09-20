@@ -1,9 +1,11 @@
 <div class="home-content white-text">
 
-  <div class="card-panel indigo weather-alert-block white-text">
-    <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
-    <iframe id="alert-header" src="/content/weatheralertheader.html" frameborder="0"></iframe>
-  </div>
+  <a href="/content/weatheralert.html">
+    <div class="card-panel indigo weather-alert-block white-text">
+      <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
+      <iframe id="alert-header" src="/content/weatheralertheader.html" frameborder="0"></iframe>
+    </div>
+  </a>
 
   <div class="card-panel blue darken-4 white-text">
     <h5 class="block-header flow-text">น้ำท่วมอุบลราชธานี</h5>
@@ -131,30 +133,11 @@
     obj.style.height = 0;
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
   }
-
-  function loadWeatherAlert() {
-    $('#modal').modal('open');
-    window.history.replaceState({}, "", "/#weatheralert");
-    $(".modal").attr("alt", "weatheralert");
-    gtag('config', 'UA-78233854-2', {
-      'page_path': '/#weatheralert'
-    });
-    mdcnt.load("/content/weatheralert.html", function (response, status) {
-      if (status == "error") {
-        mdcnt.html("ไม่สามารถโหลดข้อมูล");
-      }
-    });
-  }
-
   // Weather alert
-  $('.weather-alert-block').click(function () {
-    loadWeatherAlert();
-  });
-
   $('#alert-header').on('load', function () {
     resizeIframe(this);
     $(this).contents().find("body").on('click', function (event) {
-      loadWeatherAlert();
+      window.open("/content/weatheralert.html", "_self")
     });
   });
 

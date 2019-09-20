@@ -1,19 +1,123 @@
-<iframe id="alert-content" class="alert-content" src="/content/weatheralertcontent.html" frameborder="0"></iframe>
-<style>
-.alert-content {
-  width: 100%;
-  height: 95%;
-}
+<!DOCTYPE html>
+<html lang="th">
 
-</style>
-<script>
-function resizeIframe(obj) {
-  obj.style.height = 0;
-  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-}
+<head>
+  <title>ประกาศล่าสุดจากกรมอุตุนิยมวิทยา - RainRadar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- social start -->
+  <meta name="description"
+    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ข้อมูลคุณภาพอากาศ AQI ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="http://radar.openbase.co/" />
+  <meta property="og:title" content="ประกาศล่าสุดจากกรมอุตุนิยมวิทยา - RainRadar" />
+  <meta property="og:description"
+    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, ข้อมูลคุณภาพอากาศ AQI และประกาศกรมอุตุนิยมวิทยา" />
+  <meta property="og:image" content="http://radar.openbase.co/img/rainradar.png" />
+  <!-- social end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
+    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.css?v=8.5.0" />
+  <link rel="dns-prefetch" href="//rainradarcontent.pkn.sh">
+  <link rel="dns-prefetch" href="//static.pkn.sh">
+  <link rel="dns-prefetch" href="//images.weserv.nl">
+  <!-- icons start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="RainRadar">
+  <meta name="application-name" content="RainRadar">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#2196f3">
+  <!-- icons end -->
 
-$('#alert-content').on('load', function() {
-  resizeIframe(this);
-});
+  <style>
+    .container {
+      width: 50%;
+    }
 
-</script>
+    .content {
+      font-size: 1rem;
+    }
+
+    .tmd-alert-header {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+
+    .headline a {
+      color: #000;
+      display: block;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1.25em;
+      text-align: center;
+    }
+
+    #creditfooter {
+      display: none;
+    }
+
+
+    @media only screen and (max-width: 800px) {
+      .container {
+        width: 100%;
+      }
+
+      .content {
+        padding: 0 1rem;
+      }
+
+      .tmd-alert-header {
+        font-size: 1.5rem;
+      }
+
+      .headline a {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar-fixed aqi-page">
+    <nav class="nav-extended blue">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">RainRadar</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+
+    <div class="content">
+      <h2 class="tmd-alert-header">ประกาศกรมอุตุนิยมวิทยา</h2>
+      <script
+        src="https://feeds.feedburner.com/rainradar/tmd-weather-alert?format=sigpro&nItems=1&displayExcerpts=true&excerptFormat=full"
+        type="text/javascript"></script>
+    </div>
+
+  </div>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-78233854-2');
+  </script>
+
+  <script>
+    document.getElementsByTagName("a")[1].removeAttribute("href");
+  </script>
+</body>
+
+</html>
