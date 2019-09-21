@@ -12,7 +12,7 @@ var hash = window.location.hash,
 
 if (hash == '') {
   window.history.replaceState ({}, '', '/#home');
-  stxt.load ('../content/home.html?v=8.5.0');
+  stxt.load ('../content/home.html?v=8.5.1');
   gtag ('config', 'UA-78233854-2', {
     page_path: '/#home',
   });
@@ -66,9 +66,9 @@ $ (document).ready (function () {
             time20 +
             '/' +
             data.img +
-            '?rainradar=8.5.0'
+            '?rainradar=8.5.1'
         );
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.0" + time20);
+        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time20);
       } else if (data.imganiold === 'yes') {
         img.attr ('src', 'https://static.pkn.sh/blank.gif');
       } else {
@@ -78,9 +78,9 @@ $ (document).ready (function () {
             time5 +
             '/' +
             data.img +
-            '?rainradar=8.5.0'
+            '?rainradar=8.5.1'
         );
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.0" + time5);
+        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time5);
         if (data.imgani === 'yes') {
           anilink.html (
             '<a class="waves-effect waves-light blue btn-large" href="http://nossl.radar.openbase.co/#' +
@@ -161,7 +161,7 @@ $ (document).ready (function () {
         )
       ) {
         window.history.replaceState ({}, '', '/#home');
-        stxt.load ('../content/home.html?v=8.5.0');
+        stxt.load ('../content/home.html?v=8.5.1');
         gtag ('config', 'UA-78233854-2', {
           page_path: '/#home',
         });
@@ -261,7 +261,7 @@ $ (document).ready (function () {
     img.hide ();
     tw.hide ();
     twnotice.hide ();
-    stxt.load ('../content/home.html?v=8.5.0');
+    stxt.load ('../content/home.html?v=8.5.1');
   });
 
   // Load image by url
