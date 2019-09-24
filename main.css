@@ -301,6 +301,11 @@ li a.loadtwitter {
   color: #e3f2fd;
 }
 
+/* AQI */
+.aqi-nav {
+  margin: 1.5rem 0;
+}
+
 /* mobile */
 
 @media only screen and (max-width: 600px) {
