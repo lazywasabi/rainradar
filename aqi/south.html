@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <title>ข้อมูลคุณภาพอากาศ (AQI) ภาคใต้ - RainRadar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <!-- social start -->
+  <meta name="description"
+    content="ข้อมูลคุณภาพอากาศ AQI ภาคใต้ รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="http://radar.openbase.co/aqi/" />
+  <meta property="og:title" content="ข้อมูลคุณภาพอากาศ (AQI) ภาคเหนือ - RainRadar" />
+  <meta property="og:description"
+    content="ข้อมูลคุณภาพอากาศ AQI ภาคใต้ รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, และประกาศกรมอุตุนิยมวิทยา" />
+  <meta property="og:image" content="http://radar.openbase.co/img/rainradar.png" />
+  <!-- social end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
+    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.css?v=8.5.1" />
+  <!-- icons start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="RainRadar">
+  <meta name="application-name" content="RainRadar">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#2196f3">
+  <!-- icons end -->
+</head>
+
+<body>
+
+  <div class="navbar-fixed aqi-page">
+    <nav class="nav-extended blue">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">RainRadar</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container center">
+    <a href="/aqi/">
+      <h1 class="aqi-header block-header black-text">ข้อมูลคุณภาพอากาศ (AQI) ภาคใต้</h1>
+    </a>
+    <div class="aqi-nav">
+      <a href="north.html" class="waves-effect waves-light btn blue">ภาคเหนือ</a>
+      <a href="south.html" class="waves-effect waves-light btn blue">ภาคใต้</a>
+    </div>
+    <div class="aqi-container-block">
+      <p>
+        จังหวัดที่ไม่ได้ระบุสถานที่หมายถึงอำเภอเมือง
+        <br>กลุ่มอ่อนไหว = เด็ก, ผู้สูงอายุ, ผู้ป่วยโรคทางเดินหายใจ
+      </p>
+      <div id="aqi-block" class="aqi-block"></div>
+      <div>
+        <p>
+          <b>ข้อมูลจาก <a href="https://aqicn.org" target="_blank" rel="noopener noreferrer">World Air Quality
+              Index</a> และ <a href="http://pcd.go.th/" target="_blank" rel="noopener noreferrer">กรมควบคุมมลพิษ</a></b>
+          <br><br><a href="https://www.notion.so/AQI-adb41c3a99a348368d2a9cba1e826007" target="_blank"
+            rel="noopener noreferrer">ระดับคุณภาพอากาศ</a> | <a href="/">หน้าแรก RainRadar</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      (function (w, d, t, f) {
+        w[f] = w[f] || function (c, k, n) {
+          s = w[f], k = s['k'] = (s['k'] || (k ? ('&k=' + k) : ''));
+          s['c'] =
+            c = (c instanceof Array) ? c : [c];
+          s['n'] = n = n || 0;
+          L = d.createElement(t), e = d.getElementsByTagName(t)[0];
+          L.async = 1;
+          L.src = '//feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || '') + '/feed.v1.js?n=' + n + k;
+          e.parentNode.insertBefore(L, e);
+        };
+      })(window, document, 'script', '_aqiFeed');
+
+      var cities = [
+        "thailand/surat-thani/regional-environmental-office-14/",
+        "thailand/phuket/municipal-health-center-1/",
+        "thailand/songkhla/hat-yai-municipality/",
+        "thailand/satun/satun/phiman/",
+        "thailand/yala/white-elephant-park/",
+        "thailand/narathiwat/city-hall/"
+      ];
+      var aqiWidgetConfig = [];
+      cities.forEach(function (city) {
+        aqiWidgetConfig.push({
+          city: city,
+          callback: displayCity,
+        });
+      });
+      _aqiFeed(aqiWidgetConfig);
+
+      function displayCity(aqi) {
+
+        if (/Surat Thani/i.test(aqi.cityname)) aqi.cityname = "สุราษฎร์ธานี";
+        if (/Phuket/i.test(aqi.cityname)) aqi.cityname = "ภูเก็ต";
+        if (/Hat Yai/i.test(aqi.cityname)) aqi.cityname = "หาดใหญ่, สงขลา";
+        if (/Satun/i.test(aqi.cityname)) aqi.cityname = "สตูล";
+        if (/Yala/i.test(aqi.cityname)) aqi.cityname = "ยะลา";
+        if (/Narathiwat/i.test(aqi.cityname)) aqi.cityname = "นราธิวาส";
+        if (aqi.impact === "Good") aqi.impact = "คุณภาพดี";
+        if (aqi.impact === "Moderate") aqi.impact = "คุณภาพปานกลาง";
+        if (aqi.impact === "Unhealthy for Sensitive Groups") aqi.impact = "ไม่ดีต่อกลุ่มอ่อนไหว*";
+        if (aqi.impact === "Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพ";
+        if (aqi.impact === "Very Unhealthy") aqi.impact = "ไม่ดีต่อสุขภาพมาก";
+        if (aqi.impact === "Hazardous") aqi.impact = "อันตราย";
+        if (aqi.impact === "no data") aqi.impact = "ไม่มีข้อมูล";
+
+        $("#aqi-block").append(aqi.text(
+          "<div class=\"aqi-display\"><div class=\"aqi-title\">%cityname</div><div style=\"%style;font-size:2em;padding:3px 8px;margin:10px 0;\">%aqi</div><p>%impact<br><small>%date</small></p></div>"
+        ));
+      }
+
+    </script>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"
+    integrity="sha256-3dtlCLXn+9jckn9cCnHokCbg8nmHmuItAAGycYIio3w=" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-78233854-2');
+  </script>
+
+</body>
+
+</html>
