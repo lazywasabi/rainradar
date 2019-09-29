@@ -306,6 +306,14 @@ li a.loadtwitter {
   margin: 1.5rem 0;
 }
 
+.aqi-nav a {
+  padding: 0 .75rem;
+}
+
+.home-content .aqi-nav {
+  margin: 1.5rem 0 0;
+}
+
 /* mobile */
 
 @media only screen and (max-width: 600px) {
@@ -342,5 +350,9 @@ li a.loadtwitter {
     width: 100% !important;
     left: 0 !important;
     max-height: 72vh;
+  }
+
+  .home-content .aqi-nav a {
+    display: block;
   }
 }
