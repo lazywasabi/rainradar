@@ -1,6 +1,6 @@
 <div class="home-content white-text">
 
-  <div id="home-announcement" class="home-announcement-block card-panel red darken-2 white-text"></div>
+  <div id="home-announcement" class="home-announcement-block card-panel white-text"></div>
 
   <a href="/content/weatheralert.html">
     <div class="card-panel indigo weather-alert-block white-text">
@@ -128,11 +128,11 @@
       if (data[1].display != true) {
         console.log('ไม่มีประกาศในหน้าหลัก');
       } else {
-        content = '<h5 class="home-announcement-title block-header flow-text">' + data[1].title + '</h5>';
-        content += '<p class="home-announcement-content">' + data[1].content + '</p>';
-        content += '<a href="' + data[1].link + '" target="' + data[1].link_target + '" class="home-announcement-link btn white red-text waves-effect waves-red">' + data[1].link_text + '</div></p>';
+        content = '<h5 class="home-announcement-title block-header flow-text">' + data[2].title + '</h5>';
+        content += '<p class="home-announcement-content">' + data[2].content + '</p>';
+        content += '<a href="' + data[2].link + '" target="' + data[2].link_target + '" class="home-announcement-link btn waves-effect ' + data[2].link_color + '">' + data[2].link_text + '</div></p>';
         $(content).appendTo('.home-announcement-block');
-        $('.home-announcement-block').css('display', 'block');
+        $('.home-announcement-block').css('display', 'block').addClass(data[2].block_color);
       }
     }
   );
