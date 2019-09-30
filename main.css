@@ -126,6 +126,21 @@ li a.loadtwitter {
   font-size: 1.25em;
 }
 
+.home-announcement-block {
+  display: none;
+}
+
+.home-announcement-content {
+  margin: .5rem 0 0;
+}
+
+.home-announcement-link {
+  font-size: inherit;
+  font-weight: bold;
+  margin-top: .75rem;
+  padding: 0 1rem;
+}
+
 .weather-alert-block,
 .aqi-open-block {
   cursor: pointer;

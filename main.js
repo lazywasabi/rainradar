@@ -276,14 +276,6 @@ $ (document).ready (function () {
     $ ('#modal').modal ('open');
   }
 
-  // Toggle https button
-  /*
-  if (location.protocol === 'https:') {
-    togglessl.text("ใช้งานผ่าน HTTP");
-    togglessl.attr("href", "http://radar.openbase.co/");
-  }
-  */
-
   // Get status
   $.getJSON (
     'https://api.sheety.co/ff305574-1482-4f55-b34b-5b987844a6d9',

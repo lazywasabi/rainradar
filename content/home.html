@@ -1,5 +1,7 @@
 <div class="home-content white-text">
 
+  <div id="home-announcement" class="home-announcement-block card-panel red darken-2 white-text"></div>
+
   <a href="/content/weatheralert.html">
     <div class="card-panel indigo weather-alert-block white-text">
       <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
@@ -119,6 +121,22 @@
     });
   });
 
+  // Get Home page announcement
+  $.getJSON(
+    'https://api.sheety.co/ff305574-1482-4f55-b34b-5b987844a6d9',
+    function (data) {
+      if (data[1].display != true) {
+        console.log('ไม่มีประกาศในหน้าหลัก');
+      } else {
+        content = '<h5 class="home-announcement-title block-header flow-text">' + data[1].title + '</h5>';
+        content += '<p class="home-announcement-content">' + data[1].content + '</p>';
+        content += '<a href="' + data[1].link + '" target="' + data[1].link_target + '" class="home-announcement-link btn white red-text waves-effect waves-red">' + data[1].link_text + '</div></p>';
+        $(content).appendTo('.home-announcement-block');
+        $('.home-announcement-block').css('display', 'block');
+      }
+    }
+  );
+
   var modalHash = '#home';
 
   $(".modal-trigger").click(function () {
@@ -136,10 +154,3 @@
     });
   });
 </script>
-
-<!-- Start emojicom.io widget -->
-<!--
-<script>window.emojicom_widget = { campaign: "W2ReBLNHIU3Oy0lIGadC" };</script>
-<script src="https://cdn.emojicom.io/embed/widget.js" async></script>
--->
-<!-- End emojicom.io widget -->
