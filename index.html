@@ -290,6 +290,8 @@
         data-identity="weatheralert" data-url="../content/weatheralert.html?v=8.5.1">ประกาศกรมอุตุนิยมวิทยา</a></li>
     <li class="hide"><a id="aqi" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal"
         data-identity="aqi" data-url="../content/aqi.html?v=8.5.1">ข้อมูลคุณภาพอากาศ (AQI)</a></li>
+    <li class="hide"><a id="enableweather" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal"
+        data-identity="enableweather" data-url="../content/enableweather.html?v=8.5.1">เปิดใช้งานสภาพอากาศ</a></li>
   </ul>
 
   <div class="container center">
@@ -298,6 +300,47 @@
       class="red darken-2 white-text service-status-container">
       <div id="service-status" class="service-status-block"></div>
     </a>
+
+    <div class="card-panel blue weather-block white-text">
+      <div class="weather-container">
+        <h5 class="block-header flow-text">สภาพอากาศขณะนี้</h5>
+        <div class="weather-placeholder">
+          <p>
+            <a class="enable-weather btn white blue-text waves-effect waves-blue modal-trigger" data-target="modal"
+              data-identity="enableweather" data-url="../content/enableweather.html?v=8.5.1">เปิดใช้งาน</a>
+          </p>
+        </div>
+        <div class="weather-loading" style="display: none;">
+          กำลังระบุตำแหน่งของคุณ...
+        </div>
+        <div class="weather-content flow-text" style="display: none;">
+          <a class="weather-link" target="_blank" rel="noopener noreferrer">
+            <div class="weather-hero">
+              <img class="weather-icon">
+              <span class="temp"></span>
+            </div>
+          </a>
+          <span class="description"></span>
+          <div class="temp-minmax">
+            <span class="temp-min"></span>
+            <span class="temp-max"></span>
+          </div>
+          <div class="weather-footer">
+            <span class="weather-timestamp"></span>
+            <span>
+              ข้อมูลจาก
+              <a class="weather-link white-text" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a>
+            </span>
+            <br>
+            <span>
+              เวอร์ชันทดสอบ |
+              <a class="white-text" href="https://go.pkn.sh/0dF6xACg" target="_blank"
+                rel="noopener noreferrer">รายงานปัญหา</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="status-text">
       <h5>กำลังโหลดข้อมูล</h5>
@@ -374,6 +417,8 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"
     integrity="sha256-3dtlCLXn+9jckn9cCnHokCbg8nmHmuItAAGycYIio3w=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.16/dayjs.min.js"
+    integrity="sha256-4ZAJq9kaOQU0baQImJ8cE4swV+cAOrx/NL11yOL+VvY=" crossorigin="anonymous"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>

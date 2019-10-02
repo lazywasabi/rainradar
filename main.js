@@ -8,11 +8,13 @@ var hash = window.location.hash,
   //togglessl = $(".togglessl"),
   anilink = $ ('.animated-radar'),
   twnotice = $ ('.traffic-notice'),
-  unitnotice = $ ('.radar-unit-notice');
+  unitnotice = $ ('.radar-unit-notice'),
+  weatherBlock = $ ('.weather-block');
 
 if (hash == '') {
   window.history.replaceState ({}, '', '/#home');
   stxt.load ('../content/home.html?v=8.5.1');
+  weatherBlock.show ();
   gtag ('config', 'UA-78233854-2', {
     page_path: '/#home',
   });
@@ -54,6 +56,7 @@ $ (document).ready (function () {
     });
     $ ('.nav-extended').css ('top', '0');
     anilink.hide ();
+    weatherBlock.hide ();
     tw.hide ();
     twnotice.hide ();
     img.removeAttr ('src');
@@ -157,11 +160,12 @@ $ (document).ready (function () {
       mdcnt.html ('กำลังโหลดข้อมูล กรุณารอสักครู่');
       if (
         modalHash.match (
-          /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/
+          /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi|enableweather/
         )
       ) {
         window.history.replaceState ({}, '', '/#home');
         stxt.load ('../content/home.html?v=8.5.1');
+        weatherBlock.show ();
         gtag ('config', 'UA-78233854-2', {
           page_path: '/#home',
         });
@@ -203,6 +207,7 @@ $ (document).ready (function () {
       img.hide ();
       ldg.hide ();
       anilink.hide ();
+      weatherBlock.hide ();
       stxt.html ('<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>');
       ldg.show ();
       twnotice.show ();
@@ -238,6 +243,7 @@ $ (document).ready (function () {
       unitnotice.hide ();
       img.hide ();
       anilink.hide ();
+      weatherBlock.hide ();
       stxt.html (
         '<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที'
       );
@@ -262,6 +268,7 @@ $ (document).ready (function () {
     tw.hide ();
     twnotice.hide ();
     stxt.load ('../content/home.html?v=8.5.1');
+    weatherBlock.show ();
   });
 
   // Load image by url
@@ -270,7 +277,7 @@ $ (document).ready (function () {
   // Open modal by url
   if (
     hash.match (
-      /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi/
+      /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi|enableweather/
     )
   ) {
     $ ('#modal').modal ('open');
@@ -333,3 +340,90 @@ $ (document).ready (function () {
     lastScrollTop = st;
   }
 });
+
+// Weather
+
+var deniedText =
+  'คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง <a class="white-text" href="https://go.pkn.sh/r5vc7GjF" target="_blank">คลิกที่นี่เพื่อดูวิธีอนุญาตสิทธิ์อีกครั้ง</a>';
+
+function handlePermission () {
+  if (navigator.geolocation) {
+    navigator.permissions
+      .query ({name: 'geolocation'})
+      .then (function (result) {
+        console.log ('geo: ' + result.state);
+        if (result.state == 'granted') {
+          getLocation ();
+        } else if (result.state == 'prompt') {
+          // Do nothing
+        } else if (result.state == 'denied') {
+          $ ('.weather-placeholder').html (deniedText);
+        }
+        result.onchange = function () {
+          console.log ('geo: ' + result.state);
+        };
+      });
+  } else {
+    weatherBlock.remove ();
+    console.log ('this browser not support geolocation api.');
+  }
+}
+
+handlePermission ();
+
+function getLocation () {
+  $ ('.weather-placeholder').remove ();
+  $ ('.weather-loading').show ();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition (
+      function loadWeather (position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        fetch (
+          'https://api.pkn.sh/weather/data/2.5/weather?lat=' +
+            lat +
+            '&lon=' +
+            long +
+            '&units=metric&APPID=8aa6ba4495812c798eebe9e6ac17ecc9&lang=th'
+        )
+          .then (function (resp) {
+            return resp.json ();
+          }) // Convert data to json
+          .then (function (data) {
+            drawWeather (data); // Call drawWeather
+          })
+          .catch (function () {
+            // catch any errors
+          });
+      },
+      function (error) {
+        if (error.code == error.PERMISSION_DENIED) {
+          alert ('คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง คุณสมบัตินี้จะไม่ทำงาน');
+          $ ('.weather-loading').html (deniedText);
+        }
+      }
+    );
+  } else {
+    alert ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
+    $ ('.weather-loading').html ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
+  }
+}
+
+function drawWeather (d) {
+  var weatherTimestamp = dayjs.unix (d.dt).format ('HH:MM');
+  $ ('.description').html (d.weather[0].description);
+  $ ('.temp').html (d.main.temp + '&deg;C');
+  $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
+  $ ('.temp-max').html ('สูงสุด ' + d.main.temp_max + '&deg;C');
+  $ ('.weather-container .block-header').html ('สภาพอากาศใน ' + d.name);
+  $ ('.weather-icon').attr (
+    'src',
+    'https://static.pkn.sh/rainradar/weather-icons/' +
+      d.weather[0].icon +
+      '.svg'
+  );
+  $ ('.weather-timestamp').html ('อัปเดตล่าสุด ' + weatherTimestamp + ' น.');
+  $ ('.weather-link').attr ('href', 'https://openweathermap.org/city/' + d.id);
+  $ ('.weather-loading').hide ();
+  $ ('.weather-content').show ();
+}

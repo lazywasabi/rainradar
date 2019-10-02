@@ -371,3 +371,50 @@ li a.loadtwitter {
     display: block;
   }
 }
+
+.weather-block {
+  display: none;
+}
+
+.enable-weather {
+  font-weight: bold;
+}
+
+.weather-container .block-header {
+  margin-bottom: .5rem;
+}
+
+.weather-placeholder p {
+  margin-bottom: 0;
+}
+
+.weather-content {
+  font-weight: normal;
+}
+
+.weather-content .weather-hero {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-content .weather-icon {
+  width: 80px;
+  filter: invert(1);
+  vertical-align: middle;
+}
+
+.weather-content .temp {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.weather-content .temp-minmax {
+  font-size: .7em;
+  margin-bottom: .5rem;
+}
+
+.weather-content .weather-footer {
+  font-size: .8rem;
+}
