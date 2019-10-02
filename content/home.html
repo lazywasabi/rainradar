@@ -89,7 +89,7 @@
   rnimg.attr("src", rnimgurl);
 
   rnimg.on('error', function () {
-    $(".heavy-rain-block").html("ขออภัยไม่สามารถโหลดพื้นที่เสี่ยงภัยฝนตกหนักได้");
+    $(".heavy-rain-block").remove();
   });
 
   fcimg.on('error', function () {
