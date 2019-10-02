@@ -379,6 +379,7 @@ function getLocation () {
       function loadWeather (position) {
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
+        $ ('#modal').modal ('close');
         fetch (
           'https://api.pkn.sh/weather/data/2.5/weather?lat=' +
             lat +
@@ -397,13 +398,18 @@ function getLocation () {
           });
       },
       function (error) {
+        $ ('#modal').modal ('close');
         if (error.code == error.PERMISSION_DENIED) {
           alert ('คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง คุณสมบัตินี้จะไม่ทำงาน');
           $ ('.weather-loading').html (deniedText);
+        } else {
+          alert ('เกิดข้อผิดพลาดขณะระบุตำแหน่ง');
+          $ ('.weather-loading').html ('เกิดข้อผิดพลาดขณะระบุตำแหน่ง');
         }
       }
     );
   } else {
+    $ ('#modal').modal ('close');
     alert ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
     $ ('.weather-loading').html ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
   }
