@@ -431,8 +431,8 @@ function drawWeather (d) {
   var sunset = dayjs.unix (d.sys.sunset).format ('HH:mm');
   $ ('.description').html (d.weather[0].description);
   $ ('.temp').html (d.main.temp + '&deg;C');
-  $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
-  $ ('.temp-max').html ('สูงสุด ' + d.main.temp_max + '&deg;C');
+  // $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
+  // $ ('.temp-max').html ('สูงสุด ' + d.main.temp_max + '&deg;C');
   $ ('.weather-container .block-header').html ('สภาพอากาศใน ' + d.name);
   $ ('.weather-icon').attr (
     'src',
