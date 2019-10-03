@@ -426,7 +426,7 @@ function geoError (error) {
 }
 
 function drawWeather (d) {
-  var weatherTimestamp = dayjs.unix (d.dt).format ('HH:MM');
+  var weatherTimestamp = dayjs.unix (d.dt).format ('HH:mm');
   $ ('.description').html (d.weather[0].description);
   $ ('.temp').html (d.main.temp + '&deg;C');
   $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
