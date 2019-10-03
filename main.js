@@ -427,6 +427,8 @@ function geoError (error) {
 
 function drawWeather (d) {
   var weatherTimestamp = dayjs.unix (d.dt).format ('HH:mm');
+  var sunrise = dayjs.unix (d.sys.sunrise).format ('HH:mm');
+  var sunset = dayjs.unix (d.sys.sunset).format ('HH:mm');
   $ ('.description').html (d.weather[0].description);
   $ ('.temp').html (d.main.temp + '&deg;C');
   $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
@@ -438,6 +440,12 @@ function drawWeather (d) {
       d.weather[0].icon +
       '.svg'
   );
+  $ ('.sunrise').html (sunrise + ' น.');
+  $ ('.sunset').html (sunset + ' น.');
+  $ ('.pressure').html (d.main.pressure + ' hPa');
+  $ ('.wind-speed').html (d.wind.speed + ' เมตร/วินาที');
+  $ ('.clouds').html (d.clouds.all + '%');
+  $ ('.humidity').html (d.main.humidity + '%');
   $ ('.weather-timestamp').html ('อัปเดตล่าสุด ' + weatherTimestamp + ' น.');
   $ ('.weather-link').attr ('href', 'https://openweathermap.org/city/' + d.id);
   $ ('.weather-loading').hide ();

@@ -313,18 +313,49 @@
         <div class="weather-loading" style="display: none;">
           กำลังระบุตำแหน่งของคุณ...
         </div>
-        <div class="weather-content flow-text" style="display: none;">
+        <div class="weather-content" style="display: none;">
           <a class="weather-link" target="_blank" rel="noopener noreferrer">
             <div class="weather-hero">
               <img class="weather-icon">
               <span class="temp"></span>
             </div>
           </a>
-          <span class="description"></span>
+          <span class="description flow-text"></span>
           <div class="temp-minmax">
             <span class="temp-min"></span>
             <span class="temp-max"></span>
           </div>
+          <ul class="weather-details-container collapsible left-align" data-collapsible="accordion">
+            <li>
+              <div class="weather-details-header collapsible-header">ข้อมูลเพิ่มเติม...</div>
+              <div class="weather-details-body collapsible-body blue darken-1">
+                <div class="row">
+                  <div class="col s12 m6">
+                    <div>
+                      เมฆ <span class="clouds"></span>
+                    </div>
+                    <div>
+                      ความเร็วลม <span class="wind-speed"></span>
+                    </div>
+                    <div>
+                      ความกดอากาศ <span class="pressure"></span>
+                    </div>
+                  </div>
+                  <div class="col s12 m6">
+                    <div>
+                      ความชื้น <span class="humidity"></span>
+                    </div>
+                    <div>
+                      พระอาทิตย์ขึ้น <span class="sunrise"></span>
+                    </div>
+                    <div>
+                      พระอาทิตย์ตก <span class="sunset"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
           <div class="weather-footer">
             <span class="weather-timestamp"></span>
             <span>
