@@ -371,47 +371,57 @@ function handlePermission () {
 
 handlePermission ();
 
+function enableWeather () {
+  $ ('#modal, .modal-overlay').hide ();
+  getLocation ();
+}
+
 function getLocation () {
   $ ('.weather-placeholder').remove ();
   $ ('.weather-loading').show ();
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition (
-      function loadWeather (position) {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-        $ ('#modal').modal ('close');
-        fetch (
-          'https://api.pkn.sh/weather/data/2.5/weather?lat=' +
-            lat +
-            '&lon=' +
-            long +
-            '&units=metric&APPID=8aa6ba4495812c798eebe9e6ac17ecc9&lang=th'
-        )
-          .then (function (resp) {
-            return resp.json ();
-          }) // Convert data to json
-          .then (function (data) {
-            drawWeather (data); // Call drawWeather
-          })
-          .catch (function () {
-            // catch any errors
-          });
-      },
-      function (error) {
-        $ ('#modal').modal ('close');
-        if (error.code == error.PERMISSION_DENIED) {
-          alert ('คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง คุณสมบัตินี้จะไม่ทำงาน');
-          $ ('.weather-loading').html (deniedText);
-        } else {
-          alert ('เกิดข้อผิดพลาดขณะระบุตำแหน่ง');
-          $ ('.weather-loading').html ('เกิดข้อผิดพลาดขณะระบุตำแหน่ง');
-        }
-      }
-    );
+    navigator.geolocation.getCurrentPosition (loadWeather, geoError, {
+      timeout: 10000,
+    });
   } else {
     $ ('#modal').modal ('close');
     alert ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
     $ ('.weather-loading').html ('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
+  }
+}
+
+function loadWeather (position) {
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+  $ ('#modal').modal ('close');
+  fetch (
+    'https://api.pkn.sh/weather/data/2.5/weather?lat=' +
+      lat +
+      '&lon=' +
+      long +
+      '&units=metric&APPID=8aa6ba4495812c798eebe9e6ac17ecc9&lang=th'
+  )
+    .then (function (resp) {
+      return resp.json ();
+    }) // Convert data to json
+    .then (function (data) {
+      drawWeather (data); // Call drawWeather
+    })
+    .catch (function () {
+      // catch any errors
+    });
+}
+
+function geoError (error) {
+  $ ('#modal').modal ('close');
+  if (error.code == error.PERMISSION_DENIED) {
+    alert ('คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง คุณสมบัตินี้จะไม่ทำงาน');
+    $ ('.weather-loading').html (deniedText);
+  } else {
+    alert ('เกิดข้อผิดพลาดขณะระบุตำแหน่ง กรุณารีเฟรชหน้าเว็บแล้วลองอีกครั้ง');
+    $ ('.weather-loading').html (
+      'เกิดข้อผิดพลาดขณะระบุตำแหน่ง กรุณารีเฟรชหน้าเว็บแล้วลองอีกครั้ง'
+    );
   }
 }
 
