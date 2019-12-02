@@ -9,6 +9,7 @@
       <img src="https://static.pkn.sh/rainradar/upload-20191202-01.jpg"
         alt="อากาศหนาวเย็นบริเวณประเทศไทยตอนบนและคลื่นลมแรงบริเวณอ่าวไทย"></a>
   </div>
+
   <a href="/content/weatheralert.html">
     <div class="card-panel indigo weather-alert-block white-text">
       <h5 class="block-header flow-text">ประกาศล่าสุดจากกรมอุตุนิยมวิทยา</h5>
@@ -88,8 +89,8 @@
   }
 
   var forecastdate = xyear + "-" + xmonth + "-";
-  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_" + xhour + ".jpg&w=1024";
-  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH2_1200.jpg&w=1024";
+  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH1_0600.png&w=1024&we";
+  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate + "_DFTH2_0600.png&w=1024&we";
 
   fcimg.attr("src", fcimgurl);
 
@@ -104,7 +105,7 @@
       if (xdate2 < 10) {
         xdate2 = "0" + xdate2;
       }
-      fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_2300.jpg&w=1024";
+      fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + forecastdate + xdate2 + "_DFTH1_0600.png&w=1024&we";
       fcimg.attr("src", fcimgurl);
       console.log(forecastdate + xdate2 + "-2300");
       fcimg.on('error', function () {
