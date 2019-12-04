@@ -93,12 +93,12 @@
   }
 
   var fcimagedate = year + "-" + month + "-" + fcdate;
-  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".jpg&w=1024&we";
-  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".jpg&w=1024&we";
+  var fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".jpg&w=1024&we";
+  var rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".jpg&w=1024&we";
 
   fcimg.attr("src", fcimgurl);
   fcimg.on('error', function () {
-    fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".png&w=1024&we";
+    fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".png&w=1024&we";
     fcimg.attr("src", fcimgurl);
     fcimg.on('error', function () {
       if (hour >= 8 || hour <= 18) {
@@ -108,7 +108,7 @@
         }
         fchour = "1700"
         fcimagedate = year + "-" + month + "-" + fcdate;
-        fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".jpg&w=1024&we";
+        fcimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH1_" + fchour + ".jpg&w=1024&we";
         fcimg.attr("src", fcimgurl);
         fcimg.on('error', function () {
           $(".tmd-forecast-image").remove();
@@ -123,7 +123,7 @@
 
   rnimg.attr("src", rnimgurl);
   rnimg.on('error', function () {
-    rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".png&w=1024&we";
+    rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".png&w=1024&we";
     rnimg.attr("src", rnimgurl);
     rnimg.on('error', function () {
       if (hour >= 8 || hour <= 18) {
@@ -133,7 +133,7 @@
         }
         fchour = "1700"
         fcimagedate = year + "-" + month + "-" + fcdate;
-        rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs/uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".jpg&w=1024&we";
+        rnimgurl = "https://images.weserv.nl/?url=www.tmd.go.th/programs//uploads/forecast/" + fcimagedate + "_DFTH2_" + fchour + ".jpg&w=1024&we";
         rnimg.attr("src", rnimgurl);
         rnimg.on('error', function () {
           $(".heavy-rain-block").remove();
