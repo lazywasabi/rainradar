@@ -80,11 +80,18 @@
     fcdate = "0" + date;
   }
 
+  /* 08:00 - 18:59 */
   if (hour >= 8 || hour <= 18) {
     fchour = "0600"
   }
 
-  if (hour <= 7 || hour >= 19) {
+  /* 19:00 - 23:59 */
+  if (hour >= 19) {
+    fchour = "1700"
+  }
+
+  /* 00:00 - 07:59 */
+  if (hour <= 7) {
     fcdate = date - 1
     if (fcdate < 10) {
       fcdate = "0" + fcdate;
