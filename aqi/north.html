@@ -84,7 +84,6 @@
 
       var cities = [
         "thailand/tak/mae-sot/mae-pa/",
-        "thailand/sam-ngao-hospital/",
         "thailand/lampang-meteorological-station/",
         "thailand/lamphun/provincial-administrative-stadium/",
         "thailand/phayao/knowledge-park/",
@@ -98,6 +97,7 @@
         "thailand/hang-dong-hospital/",
         "thailand/sarapee-hospital/",
         "thailand/san-pa-tong-hospital/",
+        "thailand/chom-tong-hospital/",
         "thailand/san-kamphaeng-hospital/",
         "thailand/mae-on-hospital/",
         "thailand/chai-prakan-hospital/",
@@ -109,6 +109,7 @@
         "thailand/fang-hospital/",
         "thailand/mae-hongson/natural-resources-and-environment-office/",
         "thailand/khun-yuam-hospital/",
+        "thailand/mae-hong-son/sop-moei-hospital/",
         "thailand/mae-hong-son/pai-hospital/",
         "thailand/chiangrai/natural-resources-and-environment-office/",
         "thailand/chiangrai/maesai-health-office/",
@@ -125,7 +126,6 @@
       function displayCity(aqi) {
 
         if (/Tak/i.test(aqi.cityname)) aqi.cityname = "แม่สอด, ตาก";
-        if (/Sam Ngao/i.test(aqi.cityname)) aqi.cityname = "สามเงา, ตาก";
         if (/Lampang/i.test(aqi.cityname)) aqi.cityname = "ลำปาง";
         if (/Lamphun/i.test(aqi.cityname)) aqi.cityname = "ลำพูน";
         if (/Yupparaj/i.test(aqi.cityname)) aqi.cityname = "อนุสาวรีย์สามกษัตริย์, เชียงใหม่";
@@ -134,8 +134,8 @@
         if (/Mae Hia/i.test(aqi.cityname)) aqi.cityname = "แม่เหียะ, เชียงใหม่";
         if (/City Hall, Chiangmai/i.test(aqi.cityname)) aqi.cityname = "ศูนย์ราชการ, เชียงใหม่";
         if (/Hang Dong/i.test(aqi.cityname)) aqi.cityname = "หางดง, เชียงใหม่";
-        if (/Sarapee/i.test(aqi.cityname)) aqi.cityname = "แม่ริม, เชียงใหม่";
-        if (/MaeRim/i.test(aqi.cityname)) aqi.cityname = "สารภี, เชียงใหม่";
+        if (/Sarapee/i.test(aqi.cityname)) aqi.cityname = "สารภี, เชียงใหม่";
+        if (/MaeRim/i.test(aqi.cityname)) aqi.cityname = "แม่ริม, เชียงใหม่";
         if (/San Kamphaeng/i.test(aqi.cityname)) aqi.cityname = "สันกำแพง, เชียงใหม่";
         if (/Mae on/i.test(aqi.cityname)) aqi.cityname = "แม่ออน, เชียงใหม่";
         if (/Samoeng/i.test(aqi.cityname)) aqi.cityname = "สะเมิง, เชียงใหม่";
@@ -144,9 +144,11 @@
         if (/Wiang Haeng/i.test(aqi.cityname)) aqi.cityname = "เวียงแหง, เชียงใหม่";
         if (/Fang/i.test(aqi.cityname)) aqi.cityname = "ฝาง, เชียงใหม่";
         if (/San Pa Tong /i.test(aqi.cityname)) aqi.cityname = "สันป่าตอง, เชียงใหม่";
+        if (/Chom Tong/i.test(aqi.cityname)) aqi.cityname = "จอมทอง, เชียงใหม่";
         if (/Hod/i.test(aqi.cityname)) aqi.cityname = "ฮอด, เชียงใหม่";
         if (/Mae Hongson/i.test(aqi.cityname)) aqi.cityname = "แม่ฮ่องสอน";
         if (/Khun Yuam/i.test(aqi.cityname)) aqi.cityname = "ขุนยวม, แม่ฮ่องสอน";
+        if (/Sop Moei/i.test(aqi.cityname)) aqi.cityname = "สบเมย, แม่ฮ่องสอน";
         if (/Pai/i.test(aqi.cityname)) aqi.cityname = "ปาย, แม่ฮ่องสอน";
         if (/Natural Resources and Environment/i.test(aqi.cityname)) aqi.cityname = "เชียงราย";
         if (/Maesai/i.test(aqi.cityname)) aqi.cityname = "แม่สาย, เชียงราย";
