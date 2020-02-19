@@ -12,7 +12,7 @@ var hash = window.location.hash,
 
 if (hash == '') {
   window.history.replaceState({}, '', '/#home');
-  stxt.load('../content/home.html?v=8.6.0');
+  stxt.load('../content/home.html?v=8.6.0-c2');
   weatherBlock.show();
   gtag('config', 'UA-78233854-2', {
     page_path: '/#home',
@@ -61,9 +61,9 @@ $(document).ready(function() {
           time20 +
           '/' +
           data.img +
-          '?rainradar=8.6.0',
+          '?rainradar=8.6.0-c2',
       );
-      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.6.0" + time20);
+      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.6.0-c2" + time20);
     } else {
       img.attr(
         'src',
@@ -71,9 +71,9 @@ $(document).ready(function() {
           time5 +
           '/' +
           data.img +
-          '?rainradar=8.6.0',
+          '?rainradar=8.6.0-c2',
       );
-      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.6.0" + time5);
+      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.6.0-c2" + time5);
       unitnotice.show();
     }
     if (data.type == 'info') {
@@ -141,7 +141,7 @@ $(document).ready(function() {
         )
       ) {
         window.history.replaceState({}, '', '/#home');
-        stxt.load('../content/home.html?v=8.6.0');
+        stxt.load('../content/home.html?v=8.6.0-c2');
         weatherBlock.show();
         gtag('config', 'UA-78233854-2', {
           page_path: '/#home',
@@ -243,7 +243,7 @@ $(document).ready(function() {
     img.hide();
     tw.hide();
     twnotice.hide();
-    stxt.load('../content/home.html?v=8.6.0');
+    stxt.load('../content/home.html?v=8.6.0-c2');
     weatherBlock.show();
   });
 
