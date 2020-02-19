@@ -4,7 +4,11 @@ html {
 
 @font-face {
   font-family: 'Noto Sans Thai UI';
-  src: url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff2') format('woff2'), url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff') format('woff');
+  src:
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff2')
+    format('woff2'),
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,14 +16,29 @@ html {
 
 @font-face {
   font-family: 'Noto Sans Thai UI';
-  src: url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff2') format('woff2'), url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff') format('woff');
+  src:
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff2')
+    format('woff2'),
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff')
+    format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: 'Noto Sans Thai UI', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family:
+    'Noto Sans Thai UI',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    'Helvetica Neue',
+    sans-serif;
   background: #fff;
 }
 
@@ -42,7 +61,7 @@ img {
 /* add blue waves-effect */
 
 .waves-effect.waves-blue .waves-ripple {
-  background-color: rgba(33, 150, 243, .65);
+  background-color: rgba(33, 150, 243, 0.65);
 }
 
 /* nav */
@@ -70,7 +89,7 @@ span.badge.new {
 }
 
 span.badge.flood-badge {
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .navbar-fixed {
@@ -78,7 +97,7 @@ span.badge.flood-badge {
 }
 
 .nav-extended {
-  transition: top .2s ease-in-out;
+  transition: top 0.2s ease-in-out;
 }
 
 li a.loadradar,
@@ -110,7 +129,7 @@ li a.loadtwitter {
 
 .home-content .new-badge {
   padding: 0 5px;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
 .service-status-container {
@@ -118,8 +137,8 @@ li a.loadtwitter {
 }
 
 .service-status-block {
-  padding: .15rem 24px;
-  margin: .5rem 0 1rem 0;
+  padding: 0.15rem 24px;
+  margin: 0.5rem 0 1rem 0;
 }
 
 .service-status-block .service-status-title {
@@ -131,13 +150,13 @@ li a.loadtwitter {
 }
 
 .home-announcement-content {
-  margin: .5rem 0 0;
+  margin: 0.5rem 0 0;
 }
 
 .home-announcement-link {
   font-size: inherit;
   font-weight: bold;
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   padding: 0 1rem;
 }
 
@@ -147,28 +166,17 @@ li a.loadtwitter {
 }
 
 .weather-alert-block iframe {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   width: 100%;
-  height: 0px;
+  height: 0;
 }
 
 .traffic-notice {
   display: none;
 }
 
-.animated-radar {
-  display: none;
-}
-
 .dropdown-content li.imganiold {
   display: none;
-}
-
-.animated-radar-button {
-  width: auto;
-  height: 28px;
-  vertical-align: middle;
-  margin: 0 .5em .1em 0;
 }
 
 .loading {
@@ -210,9 +218,9 @@ li a.loadtwitter {
 
 .radar-unit-notice {
   display: none;
-  font-size: .85em;
+  font-size: 0.85em;
   color: #555;
-  padding: 0 .25em;
+  padding: 0 0.25em;
 }
 
 /* aqi */
@@ -249,7 +257,7 @@ li a.loadtwitter {
   border-bottom: 1px solid #fff;
 }
 
-.aqi-display:nth-last-child(-n+2) {
+.aqi-display:nth-last-child(-n + 2) {
   border: 0;
 }
 
@@ -263,7 +271,7 @@ li a.loadtwitter {
     flex-basis: 33.333%;
   }
 
-  .aqi-display:nth-last-child(-n+3) {
+  .aqi-display:nth-last-child(-n + 3) {
     border: 0;
   }
 
@@ -287,29 +295,29 @@ li a.loadtwitter {
   overflow-x: hidden;
 }
 
-.modal[alt="about"] {
+.modal[alt='about'] {
   background-color: #2196f3;
 }
 
-.modal[alt="about"] .modal-content {
+.modal[alt='about'] .modal-content {
   background-color: #2196f3;
   color: #e3f2fd;
   text-align: center;
 }
 
-.modal[alt="about"] .modal-footer {
+.modal[alt='about'] .modal-footer {
   background-color: #2196f3;
   border: none;
 }
 
-.modal[alt="about"] .modal-footer .btn {
+.modal[alt='about'] .modal-footer .btn {
   background-color: #e3f2fd !important;
   color: #212121 !important;
   border: none;
 }
 
-.modal[alt="about"] .modal-footer .btn .waves-ripple {
-  background-color: rgba(33, 150, 243, .65);
+.modal[alt='about'] .modal-footer .btn .waves-ripple {
+  background-color: rgba(33, 150, 243, 0.65);
 }
 
 .about-credit li a {
@@ -322,7 +330,7 @@ li a.loadtwitter {
 }
 
 .aqi-nav a {
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
 }
 
 .home-content .aqi-nav {
@@ -381,7 +389,7 @@ li a.loadtwitter {
 }
 
 .weather-container .block-header {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .weather-placeholder p {
@@ -433,7 +441,7 @@ li a.loadtwitter {
 .weather-details-body {
   font-size: 1rem;
   width: 60%;
-  margin: .5rem auto 0;
+  margin: 0.5rem auto 0;
   padding: 1rem;
   border: none;
 }
@@ -443,19 +451,19 @@ li a.loadtwitter {
 }
 
 .weather-content .weather-footer {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 1200px) {
   .weather-details-body {
     width: 80%;
-    margin: .5rem auto 0;
+    margin: 0.5rem auto 0;
   }
 }
 
 @media only screen and (max-width: 720px) {
   .weather-details-body {
     width: 100%;
-    margin: .5rem auto 0;
+    margin: 0.5rem auto 0;
   }
 }

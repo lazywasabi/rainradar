@@ -6,7 +6,6 @@ var hash = window.location.hash,
   loadtw = $('.loadtwitter'),
   mdcnt = $('.modal .modal-content'),
   //togglessl = $(".togglessl"),
-  anilink = $('.animated-radar'),
   twnotice = $('.traffic-notice'),
   unitnotice = $('.radar-unit-notice'),
   weatherBlock = $('.weather-block');
