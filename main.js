@@ -49,7 +49,6 @@ $(document).ready(function() {
       page_path: '/#' + radarId,
     });
     $('.nav-extended').css('top', '0');
-    anilink.hide();
     weatherBlock.hide();
     tw.hide();
     twnotice.hide();
@@ -184,7 +183,6 @@ $(document).ready(function() {
       unitnotice.hide();
       img.hide();
       ldg.hide();
-      anilink.hide();
       weatherBlock.hide();
       stxt.html('<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>');
       ldg.show();
@@ -222,7 +220,6 @@ $(document).ready(function() {
       img.removeAttr('src');
       unitnotice.hide();
       img.hide();
-      anilink.hide();
       weatherBlock.hide();
       stxt.html(
         '<h5>ข้อมูลการจราจรจากทวิตเตอร์</h5>อัปเดตอัตโนมัติ เมื่อมีข้อมูลใหม่จะแสดงทันที',
@@ -240,7 +237,6 @@ $(document).ready(function() {
     });
     $('.nav-extended').css('top', '0');
     img.removeAttr('src');
-    anilink.hide();
     stxt.html('');
     ldg.hide();
     unitnotice.hide();
