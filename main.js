@@ -23,11 +23,6 @@ if (hash == '') {
 $(document).ready(function() {
   twnotice.hide();
 
-  if (location.protocol === 'http:') {
-    $('.imganiold').show();
-    $('.gif-badge').hide();
-  }
-
   $('.loadradar').click(function(e) {
     e.preventDefault();
     var data = $(this).data(),
@@ -61,43 +56,27 @@ $(document).ready(function() {
     twnotice.hide();
     img.removeAttr('src');
     img.show();
-    if (location.protocol === 'https:') {
-      if (data.cache == '20') {
-        img.attr(
-          'src',
-          'https://rainradarcontent.pkn.sh/i/' +
-            time20 +
-            '/' +
-            data.img +
-            '?rainradar=8.5.1',
-        );
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time20);
-      } else if (data.imganiold === 'yes') {
-        img.attr('src', 'https://static.pkn.sh/blank.gif');
-      } else {
-        img.attr(
-          'src',
-          'https://rainradarcontent.pkn.sh/i/' +
-            time5 +
-            '/' +
-            data.img +
-            '?rainradar=8.5.1',
-        );
-        //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time5);
-        if (data.imgani === 'yes') {
-          anilink.html(
-            '<a class="waves-effect waves-light blue btn-large" href="http://nossl.radar.pkn.sh/#' +
-              radarId +
-              'ani"><img class="animated-radar-button" src="/img/play.png"/> ดูเรดาร์' +
-              aniRadarName +
-              'แบบเคลื่อนไหว</a>',
-          );
-          anilink.show();
-        }
-        unitnotice.show();
-      }
+    if (data.cache == '20') {
+      img.attr(
+        'src',
+        'https://rainradarcontent.pkn.sh/i/' +
+          time20 +
+          '/' +
+          data.img +
+          '?rainradar=8.5.1',
+      );
+      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time20);
     } else {
-      img.attr('src', data.imgprefix + data.img + '?ct=' + time5);
+      img.attr(
+        'src',
+        'https://rainradarcontent.pkn.sh/i/' +
+          time5 +
+          '/' +
+          data.img +
+          '?rainradar=8.5.1',
+      );
+      //img.attr("src", "https://images.weserv.nl?url=" + data.img + "?rainradar=8.5.1" + time5);
+      unitnotice.show();
     }
     if (data.type == 'info') {
       stxt.html('<h5>' + data.title + '</h5>ข้อมูลจาก' + data.src);
