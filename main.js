@@ -251,20 +251,48 @@ $(document).ready(function() {
     $('#modal').modal('open');
   }
 
-  // Get status
+  // Get alert message
   $.getJSON(
     'https://api.sheety.co/ff305574-1482-4f55-b34b-5b987844a6d9',
     function(data) {
       if (data[0].display != true) {
-        console.log('Good news! No incident report!');
+        console.log('No alert message 🎉');
+      } else if (data[0].simple === true) {
+        content = '<p><b class="red-text">' + data[0].title + '</b>';
+        content += ' ' + data[0].content + ' ';
+        content +=
+          '<a href="' +
+          data[0].link +
+          '" target="' +
+          data[0].link_target +
+          '">' +
+          data[0].link_text +
+          '</a></p>';
+        $(content).appendTo('.alert-message-block');
+        $('.alert-message-block')
+          .css('display', 'block')
+          .addClass('simple-alert');
       } else {
         content =
-          '<p><b class="service-status-title">' + data[0].title + '</b>';
-        content += '<br/>' + data[0].content + '<br/>';
-        content += data[0].link_text + '</p>';
-        $(content).appendTo('.service-status-block');
-        $('.service-status-container').attr('href', data[0].link);
-        $('.service-status-container').css('display', 'block');
+          '<h5 class="alert-message-title block-header flow-text">' +
+          data[0].title +
+          '</h5>';
+        content +=
+          '<p class="alert-message-content">' + data[0].content + '</p>';
+        content +=
+          '<a href="' +
+          data[0].link +
+          '" target="' +
+          data[0].link_target +
+          '" class="alert-message-link btn waves-effect ' +
+          data[0].link_color +
+          '">' +
+          data[0].link_text +
+          '</a>';
+        $(content).appendTo('.alert-message-block');
+        $('.alert-message-block')
+          .css('display', 'block')
+          .addClass(data[0].block_color + ' card-panel white-text');
       }
     },
   );

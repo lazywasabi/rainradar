@@ -132,17 +132,28 @@ li a.loadtwitter {
   font-size: 0.85em;
 }
 
-.service-status-container {
+.alert-message-block {
   display: none;
 }
 
-.service-status-block {
-  padding: 0.15rem 24px;
-  margin: 0.5rem 0 1rem 0;
+.alert-message-block.card-panel {
+  padding: 1em;
 }
 
-.service-status-block .service-status-title {
-  font-size: 1.25em;
+.alert-message-block.simple-alert p {
+  margin: 0.25em 0;
+}
+
+.alert-message-content {
+  margin: 0.5em 0;
+}
+
+.alert-message-link {
+  font-weight: bold;
+  font-size: 1rem;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 0.5em;
 }
 
 .home-announcement-block {
