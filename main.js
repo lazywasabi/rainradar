@@ -135,11 +135,7 @@ $(document).ready(function() {
     endingTop: '8%',
     complete: function() {
       mdcnt.html('กำลังโหลดข้อมูล กรุณารอสักครู่');
-      if (
-        modalHash.match(
-          /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi|enableweather/,
-        )
-      ) {
+      if (modalHash.match(/about|ddslinks|radarclosed|enableweather/)) {
         window.history.replaceState({}, '', '/#home');
         stxt.load('../content/home.html?v=8.6.0-c2');
         weatherBlock.show();
@@ -251,11 +247,7 @@ $(document).ready(function() {
   $(hash).click();
 
   // Open modal by url
-  if (
-    hash.match(
-      /help|about|termsandprivacy|ddslinks|radarclosed|weatheralert|aqi|enableweather/,
-    )
-  ) {
+  if (hash.match(/about|ddslinks|radarclosed|enableweather/)) {
     $('#modal').modal('open');
   }
 
