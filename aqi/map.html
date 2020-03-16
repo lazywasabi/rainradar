@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <title>แผนที่ข้อมูลคุณภาพอากาศ (AQI) - RainRadar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <!-- social start -->
+  <meta name="description"
+    content="แผนที่ข้อมูลคุณภาพอากาศ AQI ข้อมูลคุณภาพอากาศ รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="http://radar.pkn.sh/aqi/" />
+  <meta property="og:title" content="ข้อมูลคุณภาพอากาศ (AQI) - RainRadar" />
+  <meta property="og:description"
+    content="แผนที่ข้อมูลคุณภาพอากาศ AQI ข้อมูลคุณภาพอากาศ รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, และประกาศกรมอุตุนิยมวิทยา" />
+  <meta property="og:image" content="http://radar.pkn.sh/img/rainradar.png" />
+  <!-- social end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
+    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.css?v=8.6.0-c2" />
+  <!-- icons start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="RainRadar">
+  <meta name="application-name" content="RainRadar">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#2196f3">
+  <!-- icons end -->
+</head>
+
+<body>
+
+  <nav class="nav-extended blue navbar-aqi-map">
+    <div class="nav-wrapper">
+      <a href="/aqi/map.html" class="brand-logo">RainRadar แผนที่ AQI (β)</a>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="white-text" href="/">หน้าแรก</a></li>
+        <li class="tab"><a class="white-text" href="/aqi/bangkok.html">AQI กรุงเทพฯ</a></li>
+        <li class="tab"><a class="white-text" href="/aqi/north.html">AQI ภาคเหนือ</a></li>
+        <li class="tab"><a class="white-text" href="/aqi/south.html">AQI ภาคใต้</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="map"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
+    integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.css"
+    integrity="sha256-Shsq+yU9HwDTVcpWKiwI2BrSaRfc+HdvwlOPyZa7EJA=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.js"
+    integrity="sha256-go/qcPf+sqZNEFMGLSm3MkbixRJeaz4jzT9AaTHuUt4=" crossorigin="anonymous"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    .nav-extended.navbar-aqi-map {
+      height: 104px;
+    }
+
+    nav.nav-extended .nav-wrapper {
+      min-height: 56px;
+    }
+
+    nav .brand-logo {
+      font-size: 1.75rem;
+    }
+
+    #map {
+      height: calc(100% - 104px);
+      width: 100%;
+    }
+  </style>
+  <script>
+    var OSM_URL = 'https://{s}.tile.openstreetmap.se/osm/{z}/{x}/{y}.png';
+    var OSM_ATTRIB = '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';
+    var osmLayer = L.tileLayer(OSM_URL, { attribution: OSM_ATTRIB });
+
+    var WAQI_URL = "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=820e9c2f8264b9acb006738aff91225a698e7229";
+    var WAQI_ATTR = 'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';
+    var waqiLayer = L.tileLayer(WAQI_URL, { attribution: WAQI_ATTR });
+
+    var map = L.map('map', {
+      center: [13.0376, 101.491373],
+      zoom: 5,
+      preferCanvas: true
+    });
+    map.addLayer(osmLayer).addLayer(waqiLayer);
+    L.control.locate({
+      flyTo: true,
+      showPopup: false,
+      locateOptions: {
+        maxZoom: 12
+      }
+    }).addTo(map);
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-78233854-2');
+  </script>
+
+</body>
+
+</html>
