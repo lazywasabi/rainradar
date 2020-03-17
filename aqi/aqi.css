@@ -1,0 +1,62 @@
+html {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src:
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff2')
+    format('woff2'),
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src:
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff2')
+    format('woff2'),
+    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff')
+    format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family:
+    'Noto Sans Thai UI',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    'Helvetica Neue',
+    sans-serif;
+  background: #fff;
+}
+
+html.aqi-map-page,
+.aqi-map-page body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.aqi-map-page .leaflet-container {
+  z-index: 5;
+}
+
+.aqi-map-page .navbar {
+  height: 52px;
+}
+
+.aqi-map-page .map {
+  height: calc(100% - 52px);
+  width: 100%;
+}

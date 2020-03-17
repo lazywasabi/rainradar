@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="aqi-map-page">
 
 <head>
   <title>แผนที่ข้อมูลคุณภาพอากาศ (AQI) - RainRadar</title>
@@ -16,11 +16,11 @@
     content="แผนที่ข้อมูลคุณภาพอากาศ AQI ข้อมูลคุณภาพอากาศ รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, และประกาศกรมอุตุนิยมวิทยา" />
   <meta property="og:image" content="http://radar.pkn.sh/img/rainradar.png" />
   <!-- social end -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
-    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/main.css?v=8.6.0-c2" />
+  <link rel="stylesheet" href="/aqi/aqi.css?v=8.6.0-c2" />
   <!-- icons start -->
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -35,23 +35,87 @@
   <!-- icons end -->
 </head>
 
-<body>
+<body class="is-marginless is-paddingless">
 
-  <nav class="nav-extended blue navbar-aqi-map">
-    <div class="nav-wrapper">
-      <a href="/aqi/map.html" class="brand-logo">RainRadar แผนที่ AQI (β)</a>
+  <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item has-text-weight-bold" href="/">
+        RainRadar
+      </a>
+
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a class="white-text" href="/">หน้าแรก</a></li>
-        <li class="tab"><a class="white-text" href="/aqi/bangkok.html">AQI กรุงเทพฯ</a></li>
-        <li class="tab"><a class="white-text" href="/aqi/north.html">AQI ภาคเหนือ</a></li>
-        <li class="tab"><a class="white-text" href="/aqi/south.html">AQI ภาคใต้</a></li>
-      </ul>
+
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          หน้าแรก
+        </a>
+        <a class="navbar-item is-active" href="/aqi/map.html">
+          แผนที่ AQI (ฺBETA)
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            AQI รายสถานี
+          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/aqi/bangkok.html">
+              กรุงเทพฯ
+            </a>
+            <a class="navbar-item" href="/aqi/north.html">
+              ภาคเหนือ
+            </a>
+            <a class="navbar-item" href="/aqi/south.html">
+              ภาคใต้
+            </a>
+          </div>
+        </div>
+
+        <a class="navbar-item" href="/#traffic">
+          ข้อมูลการจราจร
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" onclick="openModal();">
+          วิธีใช้งานแผนที่
+        </a>
+      </div>
     </div>
   </nav>
 
-  <div id="map"></div>
+  <div id="map" class="map"></div>
+
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            วิธีใช้งานแผนที่ AQI
+          </p>
+          <a class="card-header-icon" aria-label="close" onclick="closeModal();">
+            <span class="icon">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+          </a>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p>
+              ขออภัย คุณสมบัตินี้ยังไม่พร้อมใช้งาน
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
@@ -61,36 +125,35 @@
     integrity="sha256-Shsq+yU9HwDTVcpWKiwI2BrSaRfc+HdvwlOPyZa7EJA=" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.js"
     integrity="sha256-go/qcPf+sqZNEFMGLSm3MkbixRJeaz4jzT9AaTHuUt4=" crossorigin="anonymous"></script>
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    .nav-extended.navbar-aqi-map {
-      height: 104px;
-    }
-
-    nav.nav-extended .nav-wrapper {
-      min-height: 56px;
-    }
-
-    nav .brand-logo {
-      font-size: 1.75rem;
-    }
-
-    #map {
-      height: calc(100% - 104px);
-      width: 100%;
-    }
-  </style>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+
+    function openModal() {
+      document.querySelector('.modal').classList.add('is-active');
+    }
+
+    function closeModal() {
+      document.querySelector('.modal').classList.remove('is-active');
+    }
+
     var OSM_URL = 'https://{s}.tile.openstreetmap.se/osm/{z}/{x}/{y}.png';
-    var OSM_ATTRIB = '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';
+    var OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors';
     var osmLayer = L.tileLayer(OSM_URL, { attribution: OSM_ATTRIB });
 
     var WAQI_URL = "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=820e9c2f8264b9acb006738aff91225a698e7229";
-    var WAQI_ATTR = 'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';
+    var WAQI_ATTR = 'Air Quality Tiles &copy; <a href="http://waqi.info" target="_blank">waqi.info</a>';
     var waqiLayer = L.tileLayer(WAQI_URL, { attribution: WAQI_ATTR });
 
     var map = L.map('map', {
