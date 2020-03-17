@@ -68,6 +68,8 @@
           <!--<div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-east"><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>-->
           <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-south"><span
               class="hide-on-small-only">ภาคใต้</span><span class="hide-on-med-and-up">ใต้</span></div>
+          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-extra"><span
+              class="hide-on-small-only">ข้อมูลเพิ่มเติม</span><span class="hide-on-med-and-up">เพิ่มเติม</span></div>
         </ul>
       </div>
     </nav>
@@ -104,9 +106,6 @@
         data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองแขม (ฝนสะสม 6 ชม.)">หนองแขม (ฝนสะสม 6 ชม.)</a></li>
     <li class="divider"></li>
     <li><a class="waves-effect waves-blue blue-text" href="/aqi/bangkok.html" target="_self">คุณภาพอากาศ (AQI)</a></li>
-    <li><a id="traffic" href="#traffic" class="loadtwitter waves-effect waves-blue blue-text"
-        data-click="0">ข้อมูลการจราจร<span class="badge right white-text green">สด</span></a></li>
-    <li class="divider"></li>
     <li><a id="bkkreport" href="#bkkreport" class="loadradar waves-effect waves-blue blue-text"
         data-img="www.tmd.go.th/programs/uploads/satda/latest.jpg" data-imgprefix="https://" data-cache="20"
         data-src="กรมอุตุนิยมวิทยา" data-type="info"
@@ -260,15 +259,28 @@
     <li class="divider"></li>
     <li><a class="waves-effect waves-blue blue-text" href="/aqi/south.html" target="_self">คุณภาพอากาศ (AQI)</a></li>
   </ul>
-  <ul id="menu-other" class="dropdown-content">
+  <ul id="menu-extra" class="dropdown-content">
     <li><a id="all" href="#all" class="loadradar waves-effect waves-blue blue-text"
         data-img="weather.tmd.go.th/composite/compositeZC_VTBB_latest.png" data-imgprefix="http://"
-        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมเรดาร์ทั้งประเทศ">ภาพรวมเรดาร์ทั้งประเทศ</a></li>
+        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมทั้งประเทศ">ภาพรวมเรดาร์ทั้งประเทศ</a></li>
     <li><a id="allgif" href="#all" class="loadradar waves-effect waves-blue blue-text"
         data-img="weather.tmd.go.th/composite/loop_radarcomposite.gif" data-imgprefix="http://"
-        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมเรดาร์ทั้งประเทศ (ภาพเคลื่อรไหว)"><span
+        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมทั้งประเทศ (ภาพเคลื่อนไหว)"><span
           class="badge right blue white-text gif-badge">GIF</span>ภาพรวมเรดาร์ทั้งประเทศ</a></li>
     <li class="divider"></li>
+    <li><a id="aqimap" class="waves-effect waves-blue blue-text" href="/aqi/map.html" target="_self">แผนที่ AQI<span
+          class="badge right white-text red">ใหม่!</span></a></li>
+    <li><a id="aqibkk" class="waves-effect waves-blue blue-text" href="/aqi/bangkok.html" target="_self">AQI
+        กรุงเทพ</a></li>
+    <li><a id="aqinorth" class="waves-effect waves-blue blue-text" href="/aqi/north.html" target="_self">AQI
+        ภาคเหนือ</a></li>
+    <li><a id="aqisouth" class="waves-effect waves-blue blue-text" href="/aqi/south.html" target="_self">AQI ภาคใต้</a>
+    </li>
+    <li class="divider"></li>
+    <li><a id="traffic" href="#traffic" class="loadtwitter waves-effect waves-blue blue-text"
+        data-click="0">ข้อมูลการจราจร<span class="badge right white-text green">สด</span></a></li>
+  </ul>
+  <ul id="menu-other" class="dropdown-content">
     <li><a id="help" class="waves-effect waves-blue blue-text"
         href="https://www.notion.so/RainRadar-Wiki-75c31d99ee254642891e94cd921d8699" target="_blank">ช่วยเหลือ</a></li>
     <li><a id="getstarted" class="waves-effect waves-blue blue-text"
