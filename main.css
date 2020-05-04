@@ -234,67 +234,6 @@ li a.loadtwitter {
   padding: 0 0.25em;
 }
 
-/* aqi */
-
-.aqi-page.navbar-fixed {
-  height: 85px;
-}
-
-.aqi-header {
-  font-size: 2em;
-}
-
-.aqi-beta-block {
-  font-size: 1.16em;
-}
-
-.aqi-container-block {
-  text-align: center;
-  padding: 0 3px;
-}
-
-.aqi-block {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: space-between;
-}
-
-.aqi-display {
-  flex-grow: 1;
-  flex-basis: 50%;
-  padding: 12px 5px;
-  border-bottom: 1px solid #fff;
-}
-
-.aqi-display:nth-last-child(-n + 2) {
-  border: 0;
-}
-
-.aqi-title {
-  font-size: 1em;
-  font-weight: 700;
-}
-
-@media only screen and (min-width: 870px) {
-  .aqi-display {
-    flex-basis: 33.333%;
-  }
-
-  .aqi-display:nth-last-child(-n + 3) {
-    border: 0;
-  }
-
-  .aqi-title {
-    font-size: 1.25em;
-  }
-}
-
-.aqi-impact {
-  padding: 5px 10px;
-}
-
 /* modal */
 
 .modal.modal-fixed-footer {

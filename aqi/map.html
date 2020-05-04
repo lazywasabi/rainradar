@@ -58,16 +58,16 @@
         <a class="navbar-item" href="/#all">
           เรดาร์ฝน
         </a>
-        <a class="navbar-item is-active" href="/aqi/map.html">
-          แผนที่ AQI (ฺBETA)
-        </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            AQI รายสถานี
+            ข้อมูลคุณภาพอากาศ (AQI)
           </a>
 
           <div class="navbar-dropdown">
+            <a class="navbar-item is-active" href="/aqi/map.html">
+              แผนที่ (ใหม่!)
+            </a>
             <a class="navbar-item" href="/aqi/bangkok.html">
               กรุงเทพฯ
             </a>
@@ -87,32 +87,33 @@
 
       <div class="navbar-end">
         <a class="navbar-item" onclick="openModal();">
-          วิธีใช้งานแผนที่
+          ระดับคุณภาพอากาศ
         </a>
       </div>
+
     </div>
   </nav>
 
   <div id="map" class="map"></div>
 
   <div class="modal">
-    <div class="modal-background"></div>
+    <div class="modal-background" onclick="closeModal();"></div>
     <div class="modal-content">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">
-            วิธีใช้งานแผนที่ AQI
+            ระดับคุณภาพอากาศ
           </p>
           <a class="card-header-icon" aria-label="close" onclick="closeModal();">
             <span class="icon">
-              <i class="fa fa-times" aria-hidden="true"></i>
+              ❌
             </span>
           </a>
         </header>
         <div class="card-content">
           <div class="content">
             <p>
-              ขออภัย คุณสมบัตินี้ยังไม่พร้อมใช้งาน
+              <img src="https://static.pkn.sh/rainradar/aqi-chart.png" alt="ระดับคุณภาพอากาศ" width="500">
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="has-navbar-fixed-top">
 
 <head>
   <title>ข้อมูลคุณภาพอากาศ (AQI) - RainRadar</title>
@@ -16,9 +16,9 @@
     content="ข้อมูลคุณภาพอากาศ AQI รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, และประกาศกรมอุตุนิยมวิทยา" />
   <meta property="og:image" content="http://radar.pkn.sh/img/rainradar.png" />
   <!-- social end -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
-    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/main.css?v=8.6.0-c2" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/aqi/aqi.css?v=8.6.0-c2" />
   <!-- icons start -->
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -35,33 +35,95 @@
 
 <body>
 
-  <div class="navbar-fixed aqi-page">
-    <nav class="nav-extended blue">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo">RainRadar</a>
-      </div>
-    </nav>
-  </div>
+  <nav class="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item has-text-weight-bold" href="/">
+        RainRadar
+      </a>
 
-  <div class="container center">
-    <a href="/aqi/">
-      <h1 class="aqi-header block-header black-text">ข้อมูลคุณภาพอากาศ (AQI)</h1>
-    </a>
-    <div class="aqi-nav">
-      <a href="map.html" class="waves-effect waves-light btn blue">แผนที่ (ใหม่!)</a>
-      <a href="bangkok.html" class="waves-effect waves-light btn blue">กทม.</a>
-      <a href="north.html" class="waves-effect waves-light btn blue">ภาคเหนือ</a>
-      <a href="south.html" class="waves-effect waves-light btn blue">ภาคใต้</a>
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <p>
-      <img src="https://static.pkn.sh/rainradar/aqi-chart.png" alt="ระดับคุณภาพอากาศ" width="500">
-    </p>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"
-    integrity="sha256-3dtlCLXn+9jckn9cCnHokCbg8nmHmuItAAGycYIio3w=" crossorigin="anonymous"></script>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          หน้าแรก
+        </a>
+        <a class="navbar-item" href="/#all">
+          เรดาร์ฝน
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            ข้อมูลคุณภาพอากาศ (AQI)
+          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/aqi/map.html">
+              แผนที่ (ใหม่!)
+            </a>
+            <a class="navbar-item is-active" href="/aqi/bangkok.html">
+              กรุงเทพฯ
+            </a>
+            <a class="navbar-item" href="/aqi/north.html">
+              ภาคเหนือ
+            </a>
+            <a class="navbar-item" href="/aqi/south.html">
+              ภาคใต้
+            </a>
+          </div>
+        </div>
+
+        <a class="navbar-item" href="/#traffic">
+          ข้อมูลการจราจร
+        </a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="content is-large">
+        <h1>ข้อมูลคุณภาพอากาศ (AQI)</h1>
+        <p>
+          <li>
+            <a href="map.html">แผนที่ (ใหม่!)</a>
+          </li>
+          <li>
+            <a href="bangkok.html">กรุงเทพ และปริมณฑล</a>
+          </li>
+          <li>
+            <a href="north.html">ภาคเหนือ</a>
+          </li>
+          <li>
+            <a href="south.html">ภาคใต้</a>
+          </li>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
