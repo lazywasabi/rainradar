@@ -19,10 +19,10 @@ if (hash == '') {
   });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   twnotice.hide();
 
-  $('.loadradar').click(function(e) {
+  $('.loadradar').click(function (e) {
     e.preventDefault();
     var data = $(this).data(),
       radarName = data.title,
@@ -84,7 +84,7 @@ $(document).ready(function() {
       document.title = 'เรดาร์' + radarName + ' | RainRadar';
     }
     ldg.show();
-    img.on('load', function() {
+    img.on('load', function () {
       ldg.hide();
       if (data.imganiold === 'yes' && location.protocol === 'https:') {
         stxt.html(
@@ -92,7 +92,7 @@ $(document).ready(function() {
         );
       }
     });
-    img.on('error', function() {
+    img.on('error', function () {
       ldg.hide();
       unitnotice.hide();
       img.hide();
@@ -112,7 +112,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.modal-trigger').click(function() {
+  $('.modal-trigger').click(function () {
     modalHash = window.location.hash;
     var data = $(this).data();
     $('.modal').attr('alt', data.identity);
@@ -120,7 +120,7 @@ $(document).ready(function() {
     gtag('config', 'UA-78233854-2', {
       page_path: '/#' + data.identity,
     });
-    mdcnt.load(data.url, function(response, status) {
+    mdcnt.load(data.url, function (response, status) {
       if (status == 'error') {
         mdcnt.html('ไม่สามารถโหลดข้อมูล');
       }
@@ -133,7 +133,7 @@ $(document).ready(function() {
     out_duration: 250,
     startingTop: '0%',
     endingTop: '8%',
-    complete: function() {
+    complete: function () {
       mdcnt.html('กำลังโหลดข้อมูล กรุณารอสักครู่');
       if (modalHash.match(/about|ddslinks|radarclosed|enableweather/)) {
         window.history.replaceState({}, '', '/#home');
@@ -166,7 +166,7 @@ $(document).ready(function() {
     alignment: 'left',
   });
 
-  loadtw.click(function() {
+  loadtw.click(function () {
     document.title = 'ข้อมูลการจราจร | RainRadar';
     window.history.replaceState({}, '', '/#traffic');
     gtag('config', 'UA-78233854-2', {
@@ -184,7 +184,7 @@ $(document).ready(function() {
       ldg.show();
       twnotice.show();
 
-      window.twttr = (function(d, s, id) {
+      window.twttr = (function (d, s, id) {
         var js,
           fjs = d.getElementsByTagName(s)[0],
           t = window.twttr || {};
@@ -195,15 +195,15 @@ $(document).ready(function() {
         fjs.parentNode.insertBefore(js, fjs);
 
         t._e = [];
-        t.ready = function(f) {
+        t.ready = function (f) {
           t._e.push(f);
         };
 
         return t;
       })(document, 'script', 'twitter-wjs');
 
-      twttr.ready(function(twttr) {
-        twttr.events.bind('rendered', function(event) {
+      twttr.ready(function (twttr) {
+        twttr.events.bind('rendered', function (event) {
           loadtw.data('click', 1);
           ldg.hide();
           tw.show();
@@ -225,7 +225,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#home').click(function(e) {
+  $('#home').click(function (e) {
     e.preventDefault();
     window.history.replaceState({}, '', '/#home');
     gtag('config', 'UA-78233854-2', {
@@ -254,7 +254,7 @@ $(document).ready(function() {
   // Get alert message
   $.getJSON(
     'https://api.sheety.co/ff305574-1482-4f55-b34b-5b987844a6d9',
-    function(data) {
+    function (data) {
       if (data[0].display != true) {
         console.log('No alert message 🎉');
       } else if (data[0].simple === true) {
@@ -304,11 +304,11 @@ $(document).ready(function() {
   var navbarHeight = $('.nav-extended').outerHeight();
   var wrapperHeight = $('.nav-wrapper').outerHeight();
 
-  $(window).scroll(function(event) {
+  $(window).scroll(function (event) {
     didScroll = true;
   });
 
-  setInterval(function() {
+  setInterval(function () {
     if (didScroll) {
       hasScrolled();
       didScroll = false;
@@ -336,75 +336,6 @@ $(document).ready(function() {
     lastScrollTop = st;
   }
 });
-
-// Weather
-
-var deniedText =
-  'คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง <a class="white-text" href="https://go.pkn.sh/r5vc7GjF" target="_blank">คลิกที่นี่เพื่อดูวิธีอนุญาตสิทธิ์อีกครั้ง</a>';
-
-function handlePermission() {
-  if (navigator.geolocation) {
-    navigator.permissions.query({ name: 'geolocation' }).then(function(result) {
-      console.log('geo: ' + result.state);
-      if (result.state == 'granted') {
-        getLocation();
-      } else if (result.state == 'prompt') {
-        // Do nothing
-      } else if (result.state == 'denied') {
-        $('.weather-placeholder').html(deniedText);
-      }
-      result.onchange = function() {
-        console.log('geo: ' + result.state);
-      };
-    });
-  } else {
-    weatherBlock.remove();
-    console.log('this browser not support geolocation api.');
-  }
-}
-
-handlePermission();
-
-function enableWeather() {
-  $('#modal, .modal-overlay').hide();
-  getLocation();
-}
-
-function getLocation() {
-  $('.weather-placeholder').remove();
-  $('.weather-loading').show();
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(loadWeather, geoError, {
-      timeout: 10000,
-    });
-  } else {
-    $('#modal').modal('close');
-    alert('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
-    $('.weather-loading').html('เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง');
-  }
-}
-
-function loadWeather(position) {
-  var lat = position.coords.latitude;
-  var long = position.coords.longitude;
-  $('#modal').modal('close');
-  fetch(
-    'https://api.pkn.sh/weather/data/2.5/weather?lat=' +
-      lat +
-      '&lon=' +
-      long +
-      '&units=metric&APPID=8aa6ba4495812c798eebe9e6ac17ecc9&lang=th',
-  )
-    .then(function(resp) {
-      return resp.json();
-    }) // Convert data to json
-    .then(function(data) {
-      drawWeather(data); // Call drawWeather
-    })
-    .catch(function() {
-      // catch any errors
-    });
-}
 
 function geoError(error) {
   $('#modal').modal('close');
