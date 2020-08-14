@@ -5,9 +5,9 @@ html {
 @font-face {
   font-family: 'Noto Sans Thai UI';
   src:
-    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff2')
+    url('https://cdn.lazywasabi.net/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff2')
     format('woff2'),
-    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff')
+    url('https://cdn.lazywasabi.net/fonts/NotoSansThai/NotoSansThaiUI-Regular.woff')
     format('woff');
   font-weight: normal;
   font-style: normal;
@@ -17,9 +17,9 @@ html {
 @font-face {
   font-family: 'Noto Sans Thai UI';
   src:
-    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff2')
+    url('https://cdn.lazywasabi.net/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff2')
     format('woff2'),
-    url('https://static.pkn.sh/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff')
+    url('https://cdn.lazywasabi.net/fonts/NotoSansThai/NotoSansThaiUI-Bold.woff')
     format('woff');
   font-weight: bold;
   font-style: normal;

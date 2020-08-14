@@ -57,7 +57,7 @@ $(document).ready(function () {
     if (data.cache == '20') {
       img.attr(
         'src',
-        'https://rainradarcontent.pkn.sh/i/' +
+        'https://rainradarcontent.lazywasabi.net/i/' +
           time20 +
           '/' +
           data.img +
@@ -67,7 +67,7 @@ $(document).ready(function () {
     } else {
       img.attr(
         'src',
-        'https://rainradarcontent.pkn.sh/i/' +
+        'https://rainradarcontent.lazywasabi.net/i/' +
           time5 +
           '/' +
           data.img +
@@ -361,7 +361,7 @@ function drawWeather(d) {
   $('.weather-container .block-header').html('สภาพอากาศใน ' + d.name);
   $('.weather-icon').attr(
     'src',
-    'https://static.pkn.sh/rainradar/weather-icons/' +
+    'https://static.lazywasabi.net/rainradar/weather-icons/' +
       d.weather[0].icon +
       '.svg',
   );
