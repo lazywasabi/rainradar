@@ -135,7 +135,7 @@ $(document).ready(function () {
     endingTop: '8%',
     complete: function () {
       mdcnt.html('กำลังโหลดข้อมูล กรุณารอสักครู่');
-      if (modalHash.match(/about|ddslinks|radarclosed|enableweather/)) {
+      if (modalHash.match(/about|ddslinks|radarclosed/)) {
         window.history.replaceState({}, '', '/#home');
         stxt.load('../content/home.html?v=8.6.0-c2');
         weatherBlock.show();
@@ -247,7 +247,7 @@ $(document).ready(function () {
   $(hash).click();
 
   // Open modal by url
-  if (hash.match(/about|ddslinks|radarclosed|enableweather/)) {
+  if (hash.match(/about|ddslinks|radarclosed/)) {
     $('#modal').modal('open');
   }
 
@@ -336,43 +336,3 @@ $(document).ready(function () {
     lastScrollTop = st;
   }
 });
-
-function geoError(error) {
-  $('#modal').modal('close');
-  if (error.code == error.PERMISSION_DENIED) {
-    alert('คุณปฏิเสธสิทธิ์ในการเข้าถึงตำแหน่ง คุณสมบัตินี้จะไม่ทำงาน');
-    $('.weather-loading').html(deniedText);
-  } else {
-    alert('เกิดข้อผิดพลาดขณะระบุตำแหน่ง กรุณารีเฟรชหน้าเว็บแล้วลองอีกครั้ง');
-    $('.weather-loading').html(
-      'เกิดข้อผิดพลาดขณะระบุตำแหน่ง กรุณารีเฟรชหน้าเว็บแล้วลองอีกครั้ง',
-    );
-  }
-}
-
-function drawWeather(d) {
-  var weatherTimestamp = dayjs.unix(d.dt).format('HH:mm');
-  var sunrise = dayjs.unix(d.sys.sunrise).format('HH:mm');
-  var sunset = dayjs.unix(d.sys.sunset).format('HH:mm');
-  $('.description').html(d.weather[0].description);
-  $('.temp').html(d.main.temp + '&deg;C');
-  // $ ('.temp-min').html ('ต่ำสุด ' + d.main.temp_min + '&deg;C');
-  // $ ('.temp-max').html ('สูงสุด ' + d.main.temp_max + '&deg;C');
-  $('.weather-container .block-header').html('สภาพอากาศใน ' + d.name);
-  $('.weather-icon').attr(
-    'src',
-    'https://static.lazywasabi.net/rainradar/weather-icons/' +
-      d.weather[0].icon +
-      '.svg',
-  );
-  $('.sunrise').html(sunrise + ' น.');
-  $('.sunset').html(sunset + ' น.');
-  $('.pressure').html(d.main.pressure + ' hPa');
-  $('.wind-speed').html(d.wind.speed + ' เมตร/วินาที');
-  $('.clouds').html(d.clouds.all + '%');
-  $('.humidity').html(d.main.humidity + '%');
-  $('.weather-timestamp').html('อัปเดตล่าสุด ' + weatherTimestamp + ' น.');
-  $('.weather-link').attr('href', 'https://openweathermap.org/city/' + d.id);
-  $('.weather-loading').hide();
-  $('.weather-content').show();
-}
