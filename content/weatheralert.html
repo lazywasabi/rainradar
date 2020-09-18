@@ -35,11 +35,16 @@
   <!-- icons end -->
 
   <style>
+    .navbar-fixed {
+      height: 64px;
+    }
+
     .container {
-      width: 50%;
+      max-width: 700px;
     }
 
     .content {
+      margin-top: 2rem;
       font-size: 1rem;
     }
 
@@ -96,6 +101,8 @@
 
   <div class="container">
 
+    <div id="alert-message" class="alert-message-block center"></div>
+
     <div class="content">
       <h2 class="tmd-alert-header">ประกาศกรมอุตุนิยมวิทยา</h2>
       <script
@@ -105,6 +112,56 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script>
+    // Get alert message
+    $.getJSON('https://rainradarcontent.lazywasabi.net/api/news', function (
+      data,
+    ) {
+      if (data[2].display != true) {
+        console.log('No alert message 🎉');
+      } else if (data[2].simple === true) {
+        content = '<p><b class="red-text">' + data[2].title + '</b>';
+        content += ' ' + data[2].content + ' ';
+        content +=
+          '<a href="' +
+          data[2].link +
+          '" target="' +
+          data[2].link_target +
+          '">' +
+          data[2].link_text +
+          '</a></p>';
+        $(content).appendTo('.alert-message-block');
+        $('.alert-message-block')
+          .css('display', 'block')
+          .addClass('simple-alert');
+      } else {
+        content =
+          '<h5 class="alert-message-title block-header flow-text">' +
+          data[2].title +
+          '</h5>';
+        content += '<p class="alert-message-content">' + data[2].content + '</p>';
+        content +=
+          '<a href="' +
+          data[2].link +
+          '" target="' +
+          data[2].link_target +
+          '" class="alert-message-link btn waves-effect ' +
+          data[2].link_color +
+          '">' +
+          data[2].link_text +
+          '</a>';
+        $(content).appendTo('.alert-message-block');
+        $('.alert-message-block')
+          .css('display', 'block')
+          .addClass(data[2].block_color + ' card-panel white-text');
+      }
+    });
+
+    document.getElementsByTagName("a")[1].removeAttribute("href");
+  </script>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
   <script>
@@ -113,10 +170,6 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-78233854-2');
-  </script>
-
-  <script>
-    document.getElementsByTagName("a")[1].removeAttribute("href");
   </script>
 </body>
 
