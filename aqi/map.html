@@ -65,10 +65,10 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item is-active" href="/aqi/map.html">
-              แผนที่ (ใหม่!)
+            <a class="navbar-item" href="/aqi/map.html">
+              แผนที่ (แนะนำ)
             </a>
-            <a class="navbar-item" href="/aqi/bangkok.html">
+            <a class="navbar-item is-active" href="/aqi/bangkok.html">
               กรุงเทพฯ
             </a>
             <a class="navbar-item" href="/aqi/north.html">
@@ -76,6 +76,9 @@
             </a>
             <a class="navbar-item" href="/aqi/south.html">
               ภาคใต้
+            </a>
+            <a class="navbar-item is-hidden-desktop" onclick="openModal();">
+              ระดับคุณภาพอากาศ
             </a>
           </div>
         </div>
@@ -85,7 +88,7 @@
         </a>
       </div>
 
-      <div class="navbar-end">
+      <div class="navbar-end is-hidden-touch">
         <a class="navbar-item" onclick="openModal();">
           ระดับคุณภาพอากาศ
         </a>
