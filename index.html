@@ -1,397 +1,1052 @@
 <!DOCTYPE html>
 <html lang="th">
+  <head>
+    <title>RainRadar - รวมเรดาร์ตรวจฝนทั่วประเทศไทย</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- social start -->
+    <meta
+      name="description"
+      content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ข้อมูลคุณภาพอากาศ AQI ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="http://radar.lazywasabi.net/" />
+    <meta property="og:title" content="เรดาร์ตรวจอากาศ" />
+    <meta
+      property="og:description"
+      content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, ข้อมูลคุณภาพอากาศ AQI และประกาศกรมอุตุนิยมวิทยา"
+    />
+    <meta
+      property="og:image"
+      content="http://radar.lazywasabi.net/img/rainradar.png"
+    />
+    <!-- social end -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
+      integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css?v=8.6.0-c2" />
+    <link rel="dns-prefetch" href="//rainradarcontent.lazywasabi.net" />
+    <link rel="dns-prefetch" href="//cdn.lazywasabi.net" />
+    <link rel="dns-prefetch" href="//images.weserv.nl" />
+    <!-- icons start -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <meta name="apple-mobile-web-app-title" content="RainRadar" />
+    <meta name="application-name" content="RainRadar" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="theme-color" content="#2196f3" />
+    <!-- icons end -->
+  </head>
 
-<head>
-  <title>RainRadar - รวมเรดาร์ตรวจฝนทั่วประเทศไทย</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- social start -->
-  <meta name="description"
-    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย ข้อมูลการจราจรล่าสุดในกรุงเทพฯ ข้อมูลคุณภาพอากาศ AQI ประกาศกรมอุตุนิยมวิทยา รวมเรดาร์จากกรมอุตุนิยมวิทยา กรมฝนหลวงฯ และสำนักการระบายน้ำ กทม. เรดาร์หนองจอก เรดาร์กรุงเทพ เรดาร์สุวรรณภูมิ เรดาร์ชัยนาท เรดาร์เชียงราย เรดาร์เชียงใหม่ เรดาร์น่าน เรดาร์พิษณุโลก เรดาร์ขอนแก่น เรดาร์สกลนคร เรดาร์อุบล เรดาร์โคราช เรดาร์ชลบุรี เรดาร์สัตหีบ เรดาร์หัวหิน เรดาร์ชุมพร เรดาร์สุราษฏร์ เรดาร์ภูเก็ต เรดาร์สงขลา เรดาร์ฝนล่าสุดทั่วประเทศไทย">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="og:url" content="http://radar.lazywasabi.net/" />
-  <meta property="og:title" content="เรดาร์ตรวจอากาศ" />
-  <meta property="og:description"
-    content="รวมเรดาร์ตรวจฝนทั่วประเทศไทย พร้อมข้อมูลการจราจรในกรุงเทพฯ, ข้อมูลคุณภาพอากาศ AQI และประกาศกรมอุตุนิยมวิทยา" />
-  <meta property="og:image" content="http://radar.lazywasabi.net/img/rainradar.png" />
-  <!-- social end -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css"
-    integrity="sha256-e22BQKCF7bb/h/4MFJ1a4lTRR2OuAe8Hxa/3tgU5Taw=" crossorigin="anonymous">
-  <link rel="stylesheet" href="main.css?v=8.6.0-c2" />
-  <link rel="dns-prefetch" href="//rainradarcontent.lazywasabi.net">
-  <link rel="dns-prefetch" href="//cdn.lazywasabi.net">
-  <link rel="dns-prefetch" href="//images.weserv.nl">
-  <!-- icons start -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#2196f3">
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <meta name="apple-mobile-web-app-title" content="RainRadar">
-  <meta name="application-name" content="RainRadar">
-  <meta name="msapplication-config" content="/browserconfig.xml">
-  <meta name="theme-color" content="#2196f3">
-  <!-- icons end -->
-</head>
+  <body>
+    <div class="navbar-fixed">
+      <nav class="nav-extended blue">
+        <div class="nav-wrapper">
+          <a href="/" id="home" title="หน้าแรก RainRadar" class="brand-logo"
+            >RainRadar</a
+          >
+          <ul class="right">
+            <li>
+              <a
+                title="เมนู"
+                class="nav-icon dropdown-menu waves-effect waves-circle waves-light"
+                data-activates="menu-other"
+              >
+                <svg
+                  fill="#FFFFFF"
+                  height="28"
+                  viewbox="0 0 24 24"
+                  width="28"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-fixed-width blue">
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-bangkok"
+            >
+              <span class="hide-on-small-only">กรุงเทพฯ</span
+              ><span class="hide-on-med-and-up">กทม.</span>
+            </div>
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-central"
+            >
+              <span class="hide-on-small-only">ภาคกลาง</span
+              ><span class="hide-on-med-and-up">กลาง</span>
+            </div>
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-north"
+            >
+              <span class="hide-on-small-only">ภาคเหนือ</span
+              ><span class="hide-on-med-and-up">เหนือ</span>
+            </div>
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-northeast"
+            >
+              <span class="hide-on-med-and-down">ภาคตะวันออกเฉียงเหนือ</span
+              ><span class="hide-on-large-only">อีสาน</span>
+            </div>
+            <!--<div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-east"><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>-->
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-south"
+            >
+              <span class="hide-on-small-only">ภาคใต้</span
+              ><span class="hide-on-med-and-up">ใต้</span>
+            </div>
+            <div
+              class="tab waves-effect waves-light white-text dropdown-menu"
+              data-activates="menu-extra"
+            >
+              <span class="hide-on-small-only">ข้อมูลเพิ่มเติม</span
+              ><span class="hide-on-med-and-up">เพิ่มเติม</span>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-<body>
+    <ul id="menu-bangkok" class="dropdown-content">
+      <!--<li><a id="radarclosed" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal" data-identity="radarclosed" data-url="../content/radarclosed.html?njk20180605">หนองจอก<span class="badge right black-text yellow darken-1">ขัดข้อง</span></a></li>-->
+      <li>
+        <a
+          id="njk"
+          href="#njk"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radar.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองจอก"
+          >หนองจอก</a
+        >
+      </li>
+      <li>
+        <a
+          id="njkgif"
+          href="#njkgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radar.gif"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองจอก (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >หนองจอก</a
+        >
+      </li>
+      <li>
+        <a
+          id="njkhq"
+          href="#njkhq"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radarh.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองจอก (ภาพละเอียดสูง)"
+          >หนองจอก (ภาพละเอียดสูง)</a
+        >
+      </li>
+      <li>
+        <a
+          id="njkrn"
+          href="#njkrn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/rain.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองจอก (ฝนสะสม 6 ชม.)"
+          >หนองจอก (ฝนสะสม 6 ชม.)</a
+        >
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          id="nkm"
+          href="#nkm"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradar.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองแขม"
+          >หนองแขม</a
+        >
+      </li>
+      <li>
+        <a
+          id="nkmgif"
+          href="#nkmgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradar.gif"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองแขม (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >หนองแขม</a
+        >
+      </li>
+      <li>
+        <a
+          id="nkmhq"
+          href="#nkmhq"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradarh.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองแขม (ภาพละเอียดสูง)"
+          >หนองแขม (ภาพละเอียดสูง)</a
+        >
+      </li>
+      <li>
+        <a
+          id="nkmrn"
+          href="#nkmrn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkrain.jpg"
+          data-imgprefix="http://"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-title="หนองแขม (ฝนสะสม 6 ชม.)"
+          >หนองแขม (ฝนสะสม 6 ชม.)</a
+        >
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          id="bkkreport"
+          href="#bkkreport"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="www.tmd.go.th/programs/uploads/satda/latest.jpg"
+          data-imgprefix="https://"
+          data-cache="20"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-type="info"
+          data-title="รายงานและพยากรณ์ฝนบริเวณกรุงเทพและปริมณฑล"
+          >รายงานและพยากรณ์ฝน</a
+        >
+      </li>
+      <li>
+        <a
+          id="bkkgraph1"
+          href="#bkkgraph1"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/new/Rf2010.gif"
+          data-imgprefix="http://"
+          data-cache="20"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-type="info"
+          data-title="กราฟเปรียบเทียบปริมาณฝนรายเดือน"
+          >กราฟฝนรายเดือน</a
+        >
+      </li>
+      <li>
+        <a
+          id="bkkgraph2"
+          href="#bkkgraph2"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.bangkok.go.th/new/AccRf2010.gif"
+          data-imgprefix="http://"
+          data-cache="20"
+          data-src="สำนักการระบายน้ำ กรุงเทพมหานคร"
+          data-type="info"
+          data-title="กราฟเปรียบเทียบปริมาณฝนรายเดือนสะสม"
+          >กราฟฝนรายเดือนสะสม</a
+        >
+      </li>
+      <li>
+        <a
+          id="ddslinks"
+          class="modal-trigger waves-effect waves-blue blue-text"
+          data-target="modal"
+          data-identity="ddslinks"
+          data-url="../content/ddslinks.html"
+          >ระบบตรวจวัดเพิ่มเติม</a
+        >
+      </li>
+    </ul>
+    <ul id="menu-central" class="dropdown-content">
+      <li>
+        <a
+          id="nsn"
+          href="#nsn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/tkl/tkl240_latest.png"
+          data-imgprefix="https://"
+          data-src="กรมฝนหลวงและการบินเกษตร"
+          data-title="นครสวรรค์ (ตาคลี)"
+          >นครสวรรค์ (ตาคลี)</a
+        >
+      </li>
+      <li>
+        <a
+          id="cnt"
+          href="#cnt"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/chn/chn240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ชัยนาท"
+          >ชัยนาท</a
+        >
+      </li>
+      <li>
+        <a
+          id="cntgif"
+          href="#cntgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/chn/chn240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ชัยนาท (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ชัยนาท</a
+        >
+      </li>
+      <li>
+        <a
+          id="nyk"
+          href="#nyk"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/kkw/kkw240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="นครนายก (เขาเขียว)"
+          >นครนายก (เขาเขียว)</a
+        >
+      </li>
+      <li>
+        <a
+          id="svb120"
+          href="#svb120"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/svp/svp120_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สุวรรณภูมิ (120 กม.)"
+          >สุวรรณภูมิ (120 กม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="svb240"
+          href="#svb240"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/svp/svp240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สุวรรณภูมิ (240 กม.)"
+          >สุวรรณภูมิ (240 กม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="svbgif"
+          href="#svbgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/svp/svp120Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สุวรรณภูมิ (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >สุวรรณภูมิ</a
+        >
+      </li>
+      <li>
+        <a
+          id="skm120"
+          href="#skm120"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/skm/skm120_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สมุทรสงคราม (120 กม.)"
+          >สมุทรสงคราม (120 กม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="skm240"
+          href="#skm240"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/skm/skm240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สมุทรสงคราม (240 กม.)"
+          >สมุทรสงคราม (240 กม.)</a
+        >
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          id="cbr"
+          href="#cbr"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/sat/sat240_latest.png"
+          data-imgprefix="https://"
+          data-src="กรมฝนหลวงและการบินเกษตร"
+          data-title="ชลบุรี (สัตหีบ)"
+          >ชลบุรี (สัตหีบ)</a
+        >
+      </li>
+    </ul>
+    <ul id="menu-north" class="dropdown-content">
+      <li>
+        <a
+          id="cri"
+          href="#cri"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/cri/cri240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="เชียงราย"
+          >เชียงราย</a
+        >
+      </li>
+      <li>
+        <a
+          id="cmi"
+          href="#cmi"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/omk/omk240_latest.png"
+          data-imgprefix="https://"
+          data-src="กรมฝนหลวงและการบินเกษตร"
+          data-title="เชียงใหม่ (อมก๋อย)"
+          >เชียงใหม่ (อมก๋อย)</a
+        >
+      </li>
+      <li>
+        <a
+          id="lpn"
+          href="#lpn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/lmp/lmp240_latest.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ลำพูน"
+          >ลำพูน</a
+        >
+      </li>
+      <li>
+        <a
+          id="lpngif"
+          href="#lpngif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/lmp/lmp240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ลำพูน (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ลำพูน</a
+        >
+      </li>
+      <li>
+        <a
+          id="pre"
+          href="#pre"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/phr/rok240_latest.png"
+          data-imgprefix="https://"
+          data-src="กรมฝนหลวงและการบินเกษตร"
+          data-title="แพร่ (ร้องกวาง)"
+          >แพร่ (ร้องกวาง)</a
+        >
+      </li>
+      <li>
+        <a
+          id="nan120"
+          href="#nan120"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/nan/nan120_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="น่าน (120 กม.)"
+          >น่าน (120 กม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="nan240"
+          href="#nan240"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/nan/nan240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="น่าน (240 กม.)"
+          >น่าน (240 กม.)</a
+        >
+      </li>
+      <li class="hide">
+        <a
+          id="radarclosed"
+          class="modal-trigger waves-effect waves-blue blue-text"
+          data-target="modal"
+          data-identity="radarclosed"
+          data-url="../content/radarclosed.html?njk20180605"
+          >พิษณุโลก<span class="badge right black-text yellow darken-1"
+            >ขัดข้อง</span
+          ></a
+        >
+      </li>
+      <li>
+        <a
+          id="plk"
+          href="#plk"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/phs/phs240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="พิษณุโลก"
+          >พิษณุโลก</a
+        >
+      </li>
+      <li>
+        <a
+          id="plkgif"
+          href="#plkgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/phs/phs240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="พิษณุโลก (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >พิษณุโลก</a
+        >
+      </li>
+    </ul>
 
-  <div class="navbar-fixed">
-    <nav class="nav-extended blue">
-      <div class="nav-wrapper">
-        <a href="/" id="home" title="หน้าแรก RainRadar" class="brand-logo">RainRadar</a>
-        <ul class="right">
-          <li>
-            <a title="เมนู" class="nav-icon dropdown-menu waves-effect waves-circle waves-light"
-              data-activates="menu-other">
-              <svg fill="#FFFFFF" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="nav-content">
-        <ul class="tabs tabs-fixed-width blue">
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-bangkok"><span
-              class="hide-on-small-only">กรุงเทพฯ</span><span class="hide-on-med-and-up">กทม.</span></div>
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-central"><span
-              class="hide-on-small-only">ภาคกลาง</span><span class="hide-on-med-and-up">กลาง</span></div>
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-north"><span
-              class="hide-on-small-only">ภาคเหนือ</span><span class="hide-on-med-and-up">เหนือ</span></div>
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-northeast"><span
-              class="hide-on-med-and-down">ภาคตะวันออกเฉียงเหนือ</span><span class="hide-on-large-only">อีสาน</span>
-          </div>
-          <!--<div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-east"><span class="hide-on-small-only">ภาคตะวันออก</span><span class="hide-on-med-and-up">ตะวันออก</span></div>-->
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-south"><span
-              class="hide-on-small-only">ภาคใต้</span><span class="hide-on-med-and-up">ใต้</span></div>
-          <div class="tab waves-effect waves-light white-text dropdown-menu" data-activates="menu-extra"><span
-              class="hide-on-small-only">ข้อมูลเพิ่มเติม</span><span class="hide-on-med-and-up">เพิ่มเติม</span></div>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <ul id="menu-bangkok" class="dropdown-content">
-    <!--<li><a id="radarclosed" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal" data-identity="radarclosed" data-url="../content/radarclosed.html?njk20180605">หนองจอก<span class="badge right black-text yellow darken-1">ขัดข้อง</span></a></li>-->
-    <li><a id="njk" href="#njk" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radar.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองจอก">หนองจอก</a></li>
-    <li><a id="njkgif" href="#njkgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radar.gif" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองจอก (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>หนองจอก</a></li>
-    <li><a id="njkhq" href="#njkhq" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/radarh.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองจอก (ภาพละเอียดสูง)">หนองจอก (ภาพละเอียดสูง)</a></li>
-    <li><a id="njkrn" href="#njkrn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/rain.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองจอก (ฝนสะสม 6 ชม.)">หนองจอก (ฝนสะสม 6 ชม.)</a></li>
-    <li class="divider"></li>
-    <li><a id="nkm" href="#nkm" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradar.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองแขม">หนองแขม</a></li>
-    <li><a id="nkmgif" href="#nkmgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradar.gif" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองแขม (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>หนองแขม</a></li>
-    <li><a id="nkmhq" href="#nkmhq" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkradarh.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองแขม (ภาพละเอียดสูง)">หนองแขม (ภาพละเอียดสูง)</a></li>
-    <li><a id="nkmrn" href="#nkmrn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/FTPCustomer/radar/pics/nkrain.jpg" data-imgprefix="http://"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-title="หนองแขม (ฝนสะสม 6 ชม.)">หนองแขม (ฝนสะสม 6 ชม.)</a></li>
-    <li class="divider"></li>
-    <li><a id="bkkreport" href="#bkkreport" class="loadradar waves-effect waves-blue blue-text"
-        data-img="www.tmd.go.th/programs/uploads/satda/latest.jpg" data-imgprefix="https://" data-cache="20"
-        data-src="กรมอุตุนิยมวิทยา" data-type="info"
-        data-title="รายงานและพยากรณ์ฝนบริเวณกรุงเทพและปริมณฑล">รายงานและพยากรณ์ฝน</a></li>
-    <li><a id="bkkgraph1" href="#bkkgraph1" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/new/Rf2010.gif" data-imgprefix="http://" data-cache="20"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-type="info"
-        data-title="กราฟเปรียบเทียบปริมาณฝนรายเดือน">กราฟฝนรายเดือน</a></li>
-    <li><a id="bkkgraph2" href="#bkkgraph2" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.bangkok.go.th/new/AccRf2010.gif" data-imgprefix="http://" data-cache="20"
-        data-src="สำนักการระบายน้ำ กรุงเทพมหานคร" data-type="info"
-        data-title="กราฟเปรียบเทียบปริมาณฝนรายเดือนสะสม">กราฟฝนรายเดือนสะสม</a></li>
-    <li><a id="ddslinks" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal"
-        data-identity="ddslinks" data-url="../content/ddslinks.html">ระบบตรวจวัดเพิ่มเติม</a></li>
-  </ul>
-  <ul id="menu-central" class="dropdown-content">
-    <li><a id="nsn" href="#nsn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/tkl/tkl240_latest.png" data-imgprefix="https://" data-src="กรมฝนหลวงและการบินเกษตร"
-        data-title="นครสวรรค์ (ตาคลี)">นครสวรรค์ (ตาคลี)</a></li>
-    <li><a id="cnt" href="#cnt" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/chn/chn240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ชัยนาท">ชัยนาท</a></li>
-    <li><a id="cntgif" href="#cntgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/chn/chn240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ชัยนาท (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>ชัยนาท</a>
-    </li>
-    <li><a id="nyk" href="#nyk" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/kkw/kkw240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="นครนายก (เขาเขียว)">นครนายก (เขาเขียว)</a></li>
-    <li><a id="svb120" href="#svb120" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/svp/svp120_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สุวรรณภูมิ (120 กม.)">สุวรรณภูมิ (120 กม.)</a></li>
-    <li><a id="svb240" href="#svb240" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/svp/svp240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สุวรรณภูมิ (240 กม.)">สุวรรณภูมิ (240 กม.)</a></li>
-    <li><a id="svbgif" href="#svbgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/svp/svp120Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สุวรรณภูมิ (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>สุวรรณภูมิ</a></li>
-    <li><a id="skm120" href="#skm120" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/skm/skm120_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สมุทรสงคราม (120 กม.)">สมุทรสงคราม (120 กม.)</a></li>
-    <li><a id="skm240" href="#skm240" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/skm/skm240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สมุทรสงคราม (240 กม.)">สมุทรสงคราม (240 กม.)</a></li>
-    <li class="divider"></li>
-    <li><a id="cbr" href="#cbr" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/sat/sat240_latest.png" data-imgprefix="https://" data-src="กรมฝนหลวงและการบินเกษตร"
-        data-title="ชลบุรี (สัตหีบ)">ชลบุรี (สัตหีบ)</a></li>
-  </ul>
-  <ul id="menu-north" class="dropdown-content">
-    <li><a id="cri" href="#cri" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/cri/cri240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="เชียงราย">เชียงราย</a></li>
-    <li><a id="cmi" href="#cmi" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/omk/omk240_latest.png" data-imgprefix="https://" data-src="กรมฝนหลวงและการบินเกษตร"
-        data-title="เชียงใหม่ (อมก๋อย)">เชียงใหม่ (อมก๋อย)</a></li>
-    <li><a id="lpn" href="#lpn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/lmp/lmp240_latest.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ลำพูน">ลำพูน</a></li>
-    <li><a id="lpngif" href="#lpngif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/lmp/lmp240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ลำพูน (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>ลำพูน</a></li>
-    <li><a id="pre" href="#pre" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/phr/rok240_latest.png" data-imgprefix="https://" data-src="กรมฝนหลวงและการบินเกษตร"
-        data-title="แพร่ (ร้องกวาง)">แพร่ (ร้องกวาง)</a></li>
-    <li><a id="nan120" href="#nan120" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/nan/nan120_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="น่าน (120 กม.)">น่าน (120 กม.)</a></li>
-    <li><a id="nan240" href="#nan240" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/nan/nan240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="น่าน (240 กม.)">น่าน (240 กม.)</a></li>
-    <li class="hide"><a id="radarclosed" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal"
-        data-identity="radarclosed" data-url="../content/radarclosed.html?njk20180605">พิษณุโลก<span
-          class="badge right black-text yellow darken-1">ขัดข้อง</span></a></li>
-    <li><a id="plk" href="#plk" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/phs/phs240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="พิษณุโลก">พิษณุโลก</a></li>
-    <li><a id="plkgif" href="#plkgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/phs/phs240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="พิษณุโลก (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>พิษณุโลก</a>
-  </ul>
-  <ul id="menu-northeast" class="dropdown-content">
-    <li><a id="kkn" href="#kkn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/kkn/kkn240_latest.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ขอนแก่น">ขอนแก่น</a></li>
-    <li><a id="kkngif" href="#kkngif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/kkn/kkn240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ขอนแก่น (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>ขอนแก่น</a>
-    </li>
-    <li><a id="skn" href="#skn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/skn/skn240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สกลนคร">สกลนคร</a></li>
-    <li><a id="skngif" href="#skngif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/skn/skn240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สกลนคร (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>สกลนคร</a>
-    </li>
-    <li><a id="ubn120" href="#ubn120" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/ubn/ubn120_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="อุบลราชธานี (120 ก.ม.)">อุบลราชธานี (120 ก.ม.)</a></li>
-    <li><a id="ubn240" href="#ubn240" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/ubn/ubn240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="อุบลราชธานี (240 ก.ม.)">อุบลราชธานี (240 ก.ม.)</a></li>
-    <li><a id="nma" href="#nma" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/pmi/pmi240_latest.png" data-imgprefix="https://" data-src="กรมฝนหลวงและการบินเกษตร"
-        data-title="นครราชสีมา (พิมาย)">นครราชสีมา (พิมาย)</a></li>
-  </ul>
-  <!--<ul id="menu-east" class="dropdown-content">
+    <ul id="menu-northeast" class="dropdown-content">
+      <li>
+        <a
+          id="kkn"
+          href="#kkn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/kkn/kkn240_latest.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ขอนแก่น"
+          >ขอนแก่น</a
+        >
+      </li>
+      <li>
+        <a
+          id="kkngif"
+          href="#kkngif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/kkn/kkn240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ขอนแก่น (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ขอนแก่น</a
+        >
+      </li>
+      <li>
+        <a
+          id="skn"
+          href="#skn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/skn/skn240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สกลนคร"
+          >สกลนคร</a
+        >
+      </li>
+      <li>
+        <a
+          id="skngif"
+          href="#skngif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/skn/skn240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สกลนคร (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >สกลนคร</a
+        >
+      </li>
+      <li>
+        <a
+          id="ubn120"
+          href="#ubn120"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/ubn/ubn120_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="อุบลราชธานี (120 ก.ม.)"
+          >อุบลราชธานี (120 ก.ม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="ubn240"
+          href="#ubn240"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/ubn/ubn240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="อุบลราชธานี (240 ก.ม.)"
+          >อุบลราชธานี (240 ก.ม.)</a
+        >
+      </li>
+      <li>
+        <a
+          id="nma"
+          href="#nma"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/pmi/pmi240_latest.png"
+          data-imgprefix="https://"
+          data-src="กรมฝนหลวงและการบินเกษตร"
+          data-title="นครราชสีมา (พิมาย)"
+          >นครราชสีมา (พิมาย)</a
+        >
+      </li>
+    </ul>
+    <!--<ul id="menu-east" class="dropdown-content">
     <li><a id="cbr" class="loadradar waves-effect waves-blue blue-text" data-img="weather.tmd.go.th/sat/sat240_latest.png" data-imgprefix="http://" data-src="กรมฝนหลวงและการบินเกษตร" data-title="ชลบุรี (สัตหีบ)">ชลบุรี (สัตหีบ)</a></li>
     <li><a id="ryg" class="loadradar waves-effect waves-blue blue-text" data-img="weather.tmd.go.th/ryg/ryg240_latest.gif" data-imgprefix="http://" data-src="กรมอุตุนิยมวิทยา" data-title="ระยอง" data-anititle="ระยอง" data-imgani="yes"><span class="badge right blue white-text gif-badge">GIF</span>ระยอง</a></li>
     <li class="imganiold"><a id="rygani" class="loadradar waves-effect waves-blue blue-text" data-imganiold="yes" data-img="weather.tmd.go.th/ryg/ryg240Loop.gif" data-imgprefix="http://" data-src="กรมอุตุนิยมวิทยา" data-title="ระยอง (ภาพเคลื่อนไหว)">ระยอง (ภาพเคลื่อนไหว)</a></li>
   </ul>-->
-  <ul id="menu-south" class="dropdown-content">
-    <li><a id="pkn" href="#pkn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/hhn/hhn240_latest.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ประจวบคีรีขันธ์ (หัวหิน)">ประจวบคีรีขันธ์ (หัวหิน)</a></li>
-    <li><a id="pkngif" href="#pkngif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/hhn/hhn240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ประจวบคีรีขันธ์ (หัวหิน) (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>ประจวบคีรีขันธ์ (หัวหิน)</a></li>
-    <li><a id="cpn" href="#cpn" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/cmp/cmp240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ชุมพร">ชุมพร</a></li>
-    <li><a id="srt" href="#srt" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/srt/srt240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สุราษฎร์ธานี">สุราษฎร์ธานี</a></li>
-    <li><a id="pkt" href="#pkt" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/pkt/pkt240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ภูเก็ต">ภูเก็ต</a></li>
-    <li><a id="pktgif" href="#pktgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/pkt/pkt240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="ภูเก็ต (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>ภูเก็ต</a>
-    </li>
-    <li><a id="krb" href="#krb" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/krb/krb240_latest.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="กระบี่">กระบี่</a></li>
-    <li><a id="krbgif" href="#krbgif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/krb/krb240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="กระบี่ (ภาพเคลื่อนไหว)"><span class="badge right blue white-text gif-badge">GIF</span>กระบี่</a>
-    </li>
-    <li><a id="ska" href="#ska" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/stp/stp240_latest.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สงขลา (สทิงพระ)">สงขลา (สทิงพระ)</a>
-    </li>
-    <li><a id="skagif" href="#skagif" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/stp/stp240Loop.gif" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="สงขลา (สทิงพระ)  (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>สงขลา (สทิงพระ)</a></li>
-    <li><a id="nwt" href="#nwt" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/nrt/nrt240_latest.jpg" data-imgprefix="https://" data-src="กรมอุตุนิยมวิทยา"
-        data-title="นราธิวาส">นราธิวาส</a></li>
-  </ul>
-  <ul id="menu-extra" class="dropdown-content">
-    <li><a id="all" href="#all" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/composite/compositeZC_VTBB_latest.png" data-imgprefix="http://"
-        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมทั้งประเทศ">ภาพรวมเรดาร์ทั้งประเทศ</a></li>
-    <li><a id="allgif" href="#all" class="loadradar waves-effect waves-blue blue-text"
-        data-img="weather.tmd.go.th/composite/loop_radarcomposite.gif" data-imgprefix="http://"
-        data-src="กรมอุตุนิยมวิทยา" data-title="ภาพรวมทั้งประเทศ (ภาพเคลื่อนไหว)"><span
-          class="badge right blue white-text gif-badge">GIF</span>ภาพรวมเรดาร์ทั้งประเทศ</a></li>
-    <li class="divider"></li>
-    <li><a id="aqimap" class="waves-effect waves-blue blue-text" href="/aqi/map.html" target="_self">แผนที่ AQI<span
-          class="badge right white-text green">แนะนำ</span></a></li>
-    <li><a id="aqibkk" class="waves-effect waves-blue blue-text" href="/aqi/bangkok.html" target="_self">AQI
-        กรุงเทพ</a></li>
-    <li><a id="aqinorth" class="waves-effect waves-blue blue-text" href="/aqi/north.html" target="_self">AQI
-        ภาคเหนือ</a></li>
-    <li><a id="aqisouth" class="waves-effect waves-blue blue-text" href="/aqi/south.html" target="_self">AQI ภาคใต้</a>
-    </li>
-    <li class="divider"></li>
-    <li><a id="traffic" href="#traffic" class="loadtwitter waves-effect waves-blue blue-text"
-        data-click="0">ข้อมูลการจราจร</a></li>
-  </ul>
-  <ul id="menu-other" class="dropdown-content">
-    <li><a id="help" class="waves-effect waves-blue blue-text"
-        href="https://www.notion.so/RainRadar-Wiki-75c31d99ee254642891e94cd921d8699" target="_blank">ช่วยเหลือ</a></li>
-    <li><a id="getstarted" class="waves-effect waves-blue blue-text"
-        href="https://www.notion.so/RainRadar-1e747bde466749aa8ae07b8a5f88d416">วิธีใช้งานเบื้องต้น</a></li>
-    <li><a id="whatnews" class="waves-effect waves-blue blue-text"
-        href="https://www.notion.so/dad0b41e3a9447f1a7833a6cb9090492" target="_blank">มีอะไรใหม่</a></li>
-    <li><a id="about" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal" data-identity="about"
-        data-url="../content/about.html?v=8.6.0-c2">เกี่ยวกับ</a></li>
-    <li><a id="status" class="waves-effect waves-blue blue-text"
-        href="https://www.notion.so/RainRadar-fae8bfb96a0849b1b48037310327dafa" target="_blank">สถานะ</a></li>
-    <li><a id="termsandprivacy" class="waves-effect waves-blue blue-text"
-        href="https://www.notion.so/f770e6ffe2304998ae04220b05556b42" target="_blank">ข้อตกลงและความเป็นส่วนตัว</a></li>
-    <li class="hide"><a id="enableweather" class="modal-trigger waves-effect waves-blue blue-text" data-target="modal"
-        data-identity="enableweather" data-url="../content/enableweather.html?v=8.6.0-c2">เปิดใช้งานสภาพอากาศ</a></li>
-  </ul>
+    <ul id="menu-south" class="dropdown-content">
+      <li>
+        <a
+          id="pkn"
+          href="#pkn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/hhn/hhn240_latest.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ประจวบคีรีขันธ์ (หัวหิน)"
+          >ประจวบคีรีขันธ์ (หัวหิน)</a
+        >
+      </li>
+      <li>
+        <a
+          id="pkngif"
+          href="#pkngif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/hhn/hhn240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ประจวบคีรีขันธ์ (หัวหิน) (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ประจวบคีรีขันธ์ (หัวหิน)</a
+        >
+      </li>
+      <li>
+        <a
+          id="cpn"
+          href="#cpn"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/cmp/cmp240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ชุมพร"
+          >ชุมพร</a
+        >
+      </li>
+      <li>
+        <a
+          id="srt"
+          href="#srt"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/srt/srt240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สุราษฎร์ธานี"
+          >สุราษฎร์ธานี</a
+        >
+      </li>
+      <li>
+        <a
+          id="pkt"
+          href="#pkt"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/pkt/pkt240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ภูเก็ต"
+          >ภูเก็ต</a
+        >
+      </li>
+      <li>
+        <a
+          id="pktgif"
+          href="#pktgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/pkt/pkt240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ภูเก็ต (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ภูเก็ต</a
+        >
+      </li>
+      <li>
+        <a
+          id="krb"
+          href="#krb"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/krb/krb240_latest.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="กระบี่"
+          >กระบี่</a
+        >
+      </li>
+      <li>
+        <a
+          id="krbgif"
+          href="#krbgif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/krb/krb240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="กระบี่ (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >กระบี่</a
+        >
+      </li>
+      <li>
+        <a
+          id="ska"
+          href="#ska"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/stp/stp240_latest.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สงขลา (สทิงพระ)"
+          >สงขลา (สทิงพระ)</a
+        >
+      </li>
+      <li>
+        <a
+          id="skagif"
+          href="#skagif"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/stp/stp240Loop.gif"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="สงขลา (สทิงพระ)  (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span>สงขลา
+          (สทิงพระ)</a
+        >
+      </li>
+      <li>
+        <a
+          id="nwt"
+          href="#nwt"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/nrt/nrt240_latest.jpg"
+          data-imgprefix="https://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="นราธิวาส"
+          >นราธิวาส</a
+        >
+      </li>
+    </ul>
+    <ul id="menu-extra" class="dropdown-content">
+      <li>
+        <a
+          id="all"
+          href="#all"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/composite/compositeZC_VTBB_latest.png"
+          data-imgprefix="http://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ภาพรวมทั้งประเทศ"
+          >ภาพรวมเรดาร์ทั้งประเทศ</a
+        >
+      </li>
+      <li>
+        <a
+          id="allgif"
+          href="#all"
+          class="loadradar waves-effect waves-blue blue-text"
+          data-img="weather.tmd.go.th/composite/loop_radarcomposite.gif"
+          data-imgprefix="http://"
+          data-src="กรมอุตุนิยมวิทยา"
+          data-title="ภาพรวมทั้งประเทศ (ภาพเคลื่อนไหว)"
+          ><span class="badge right blue white-text gif-badge">GIF</span
+          >ภาพรวมเรดาร์ทั้งประเทศ</a
+        >
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          id="aqimap"
+          class="waves-effect waves-blue blue-text"
+          href="/aqi/map.html"
+          target="_self"
+          >แผนที่ AQI<span class="badge right white-text green">แนะนำ</span></a
+        >
+      </li>
+      <li>
+        <a
+          id="aqibkk"
+          class="waves-effect waves-blue blue-text"
+          href="/aqi/bangkok.html"
+          target="_self"
+          >AQI กรุงเทพ</a
+        >
+      </li>
+      <li>
+        <a
+          id="aqinorth"
+          class="waves-effect waves-blue blue-text"
+          href="/aqi/north.html"
+          target="_self"
+          >AQI ภาคเหนือ</a
+        >
+      </li>
+      <li>
+        <a
+          id="aqisouth"
+          class="waves-effect waves-blue blue-text"
+          href="/aqi/south.html"
+          target="_self"
+          >AQI ภาคใต้</a
+        >
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          id="traffic"
+          href="#traffic"
+          class="loadtwitter waves-effect waves-blue blue-text"
+          data-click="0"
+          >ข้อมูลการจราจร</a
+        >
+      </li>
+    </ul>
+    <ul id="menu-other" class="dropdown-content">
+      <li>
+        <a
+          id="help"
+          class="waves-effect waves-blue blue-text"
+          href="https://www.notion.so/RainRadar-Wiki-75c31d99ee254642891e94cd921d8699"
+          target="_blank"
+          >ช่วยเหลือ</a
+        >
+      </li>
+      <li>
+        <a
+          id="getstarted"
+          class="waves-effect waves-blue blue-text"
+          href="https://www.notion.so/RainRadar-1e747bde466749aa8ae07b8a5f88d416"
+          >วิธีใช้งานเบื้องต้น</a
+        >
+      </li>
+      <li>
+        <a
+          id="whatnews"
+          class="waves-effect waves-blue blue-text"
+          href="https://www.notion.so/dad0b41e3a9447f1a7833a6cb9090492"
+          target="_blank"
+          >มีอะไรใหม่</a
+        >
+      </li>
+      <li>
+        <a
+          id="about"
+          class="modal-trigger waves-effect waves-blue blue-text"
+          data-target="modal"
+          data-identity="about"
+          data-url="../content/about.html?v=8.6.0-c2"
+          >เกี่ยวกับ</a
+        >
+      </li>
+      <li>
+        <a
+          id="status"
+          class="waves-effect waves-blue blue-text"
+          href="https://www.notion.so/RainRadar-fae8bfb96a0849b1b48037310327dafa"
+          target="_blank"
+          >สถานะ</a
+        >
+      </li>
+      <li>
+        <a
+          id="termsandprivacy"
+          class="waves-effect waves-blue blue-text"
+          href="https://www.notion.so/f770e6ffe2304998ae04220b05556b42"
+          target="_blank"
+          >ข้อตกลงและความเป็นส่วนตัว</a
+        >
+      </li>
+      <li class="hide">
+        <a
+          id="enableweather"
+          class="modal-trigger waves-effect waves-blue blue-text"
+          data-target="modal"
+          data-identity="enableweather"
+          data-url="../content/enableweather.html?v=8.6.0-c2"
+          >เปิดใช้งานสภาพอากาศ</a
+        >
+      </li>
+    </ul>
 
-  <div class="container center">
+    <div class="container center">
+      <div id="alert-message" class="alert-message-block"></div>
 
-    <div id="alert-message" class="alert-message-block"></div>
-
-    <div class="status-text">
-      <h5>กำลังโหลดข้อมูล</h5>
-      <p>หากใช้เวลานานเกินไป กรุณา<a href="/?r">คลิกที่นี่</a> หรือแจ้งเราผ่านทาง<a
-          href="https://goo.gl/forms/xc7GyxU52zxnemPB3" target="_blank" rel="noopener noreferrer">แบบฟอร์มนี้</a></p>
-      <noscript class="red-text">คุณไม่ได้เปิดใช้งานจาวาสคริปต์! กรุณาเปิดใช้งานจาวาสคริปต์เพื่อใช้งาน
-        RainRadar</noscript>
-    </div>
-
-    <a href="https://www.notion.so/pkn/RainRadar-2534e3999bbe4203acbbefcdedb72dfd" target="_blank"
-      rel="noopener noreferrer">
-      <div class="card-panel green darken-3 white-text traffic-notice">
-        หากพบปัญหาโหลดข้อมูลไม่ได้ กรุณาปิดตัวบล็อกโฆษณาหรือการติดตาม<br />
-        <span style="font-size: 0.9em;">RainRadar ให้บริการฟรีโดยไม่มีโฆษณา</span>
+      <div class="status-text">
+        <h5>กำลังโหลดข้อมูล</h5>
+        <p>
+          หากใช้เวลานานเกินไป กรุณา<a href="/?r">คลิกที่นี่</a>
+          หรือแจ้งเราผ่านทาง<a
+            href="https://goo.gl/forms/xc7GyxU52zxnemPB3"
+            target="_blank"
+            rel="noopener noreferrer"
+            >แบบฟอร์มนี้</a
+          >
+        </p>
+        <noscript class="red-text"
+          >คุณไม่ได้เปิดใช้งานจาวาสคริปต์! กรุณาเปิดใช้งานจาวาสคริปต์เพื่อใช้งาน
+          RainRadar</noscript
+        >
       </div>
-    </a>
 
-    <div class="loading" style="display: none;">
-      <span class="loading-text">กำลังโหลดข้อมูล</span>
-      <div class="preloader-wrapper small active">
-        <div class="spinner-layer spinner-blue-only">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div>
-          <div class="gap-patch">
-            <div class="circle"></div>
-          </div>
-          <div class="circle-clipper right">
-            <div class="circle"></div>
+      <a
+        href="https://www.notion.so/pkn/RainRadar-2534e3999bbe4203acbbefcdedb72dfd"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="card-panel green darken-3 white-text traffic-notice">
+          หากพบปัญหาโหลดข้อมูลไม่ได้ กรุณาปิดตัวบล็อกโฆษณาหรือการติดตาม<br />
+          <span style="font-size: 0.9em;"
+            >RainRadar ให้บริการฟรีโดยไม่มีโฆษณา</span
+          >
+        </div>
+      </a>
+
+      <div class="loading" style="display: none;">
+        <span class="loading-text">กำลังโหลดข้อมูล</span>
+        <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="twitter-block" id="twitter-block">
-      <a class="twitter-timeline" data-lang="th" data-dnt="true" data-link-color="#2196f3"
-        data-chrome="noheader nofooter noborders" href="https://twitter.com/lazywasabi/lists/traffic"></a>
-    </div>
+      <div class="twitter-block" id="twitter-block">
+        <a
+          class="twitter-timeline"
+          data-lang="th"
+          data-dnt="true"
+          data-link-color="#2196f3"
+          data-chrome="noheader nofooter noborders"
+          href="https://twitter.com/lazywasabi/lists/traffic"
+        ></a>
+      </div>
 
-    <p class="radar-output">
-      <img class="radar-img" />
-
-    </p>
-
-    <div class="radar-unit-notice">
-      <p>
-        เวลาในภาพเรดาร์ของกรมอุตุฯ และกรมฝนหลวงฯ ใช้เขต<a href="https://go.pkn.sh/wiki/utc" target="_blank"
-          rel="noopener noreferrer">เวลาสากล UTC±0</a> ซึ่งช้ากว่าประเทศไทย 7 ชั่วโมง
-        <br>เช่น เวลาในภาพเรดาร์คือ 15:30 น. จะเท่ากับ 22:30 น. ในประเทศไทย
-        <br>เวลาในภาพเรดาร์ของสำนักการระบายน้ำฯ เป็นเวลาในประเทศไทย
+      <p class="radar-output">
+        <img class="radar-img" />
       </p>
-      <p>
-        แถบค่าสีและหน่วยที่ใช้แทนปริมาณฝนของแต่ละเรดาร์อาจแตกต่างกัน
-        กรุณาตรวจสอบข้อมูลเพิ่มเติมในภาพเรดาร์ทุกครั้งเพื่อข้อมูลที่ถูกต้อง
-      </p>
+
+      <div class="radar-unit-notice">
+        <p>
+          เวลาในภาพเรดาร์ของกรมอุตุฯ และกรมฝนหลวงฯ ใช้เขต<a
+            href="https://go.pkn.sh/wiki/utc"
+            target="_blank"
+            rel="noopener noreferrer"
+            >เวลาสากล UTC±0</a
+          >
+          ซึ่งช้ากว่าประเทศไทย 7 ชั่วโมง <br />เช่น เวลาในภาพเรดาร์คือ 15:30 น.
+          จะเท่ากับ 22:30 น. ในประเทศไทย
+          <br />เวลาในภาพเรดาร์ของสำนักการระบายน้ำฯ เป็นเวลาในประเทศไทย
+        </p>
+        <p>
+          แถบค่าสีและหน่วยที่ใช้แทนปริมาณฝนของแต่ละเรดาร์อาจแตกต่างกัน
+          กรุณาตรวจสอบข้อมูลเพิ่มเติมในภาพเรดาร์ทุกครั้งเพื่อข้อมูลที่ถูกต้อง
+        </p>
+      </div>
     </div>
 
-  </div>
-
-  <div id="modal" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <p>กำลังโหลดข้อมูล กรุณารอสักครู่</p>
+    <div id="modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <p>กำลังโหลดข้อมูล กรุณารอสักครู่</p>
+      </div>
+      <div class="modal-footer">
+        <a
+          class="modal-action modal-close waves-effect waves-light blue white-text btn"
+          >ปิด</a
+        >
+      </div>
     </div>
-    <div class="modal-footer">
-      <a class="modal-action modal-close waves-effect waves-light blue white-text btn">ปิด</a>
-    </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"
-    integrity="sha256-3dtlCLXn+9jckn9cCnHokCbg8nmHmuItAAGycYIio3w=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.31/dayjs.min.js"
-    integrity="sha256-ORgF0pKrTKxau29bikHxGniNlpQtd9Ku1vbl5/m+mJE=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"
+      integrity="sha256-3dtlCLXn+9jckn9cCnHokCbg8nmHmuItAAGycYIio3w="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.8.31/dayjs.min.js"
+      integrity="sha256-ORgF0pKrTKxau29bikHxGniNlpQtd9Ku1vbl5/m+mJE="
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"></script>
-  <script>
-    var modalHash = '#home';
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-78233854-2"
+    ></script>
+    <script>
+      var modalHash = '#home';
 
-    window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-78233854-2', {
-      'send_page_view': false
-    });
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-78233854-2', {
+        send_page_view: false,
+      });
+    </script>
 
-  </script>
-
-  <script src="main.js?v=8.6.0-c2"></script>
-
-</body>
-
+    <script src="main.js?v=8.6.0-c2"></script>
+  </body>
 </html>
